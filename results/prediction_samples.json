@@ -1,0 +1,11 @@
+{
+  "total_candidate_events": 111989,
+  "potential_four_history_windows": 90350,
+  "windows_with_ambiguous_history_dates": 0,
+  "windows_with_invalid_targets": 1,
+  "eligible_prediction_samples": 90349,
+  "eligible_samples_with_incomplete_history_eps": 0,
+  "target_beats": 55576,
+  "target_meet_or_miss": 34773,
+  "tickers_with_eligible_samples": 5064
+}
