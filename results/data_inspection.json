@@ -1,0 +1,69 @@
+{
+  "raw_rows": 1657661,
+  "column_count": 7,
+  "column_types": {
+    "ticker": "str",
+    "date": "datetime64[ns]",
+    "surprise_probability": "float64",
+    "eps_surprise": "float64",
+    "actual_earning_result": "float64",
+    "estimated_earning": "float64",
+    "date_pub": "datetime64[ms]"
+  },
+  "missing_values": {
+    "ticker": 0,
+    "date": 0,
+    "surprise_probability": 0,
+    "eps_surprise": 34291,
+    "actual_earning_result": 34291,
+    "estimated_earning": 472,
+    "date_pub": 34278
+  },
+  "unique_tickers": 5739,
+  "date_fields": {
+    "date": {
+      "first": "2016-12-30",
+      "last": "2024-04-26",
+      "missing_values": 0,
+      "unparseable_values": 0,
+      "rows_by_year": {
+        "2016": 3819,
+        "2017": 200292,
+        "2018": 206198,
+        "2019": 213065,
+        "2020": 223764,
+        "2021": 249774,
+        "2022": 248098,
+        "2023": 237726,
+        "2024": 74925
+      }
+    },
+    "date_pub": {
+      "first": "2016-12-24",
+      "last": "2024-10-30",
+      "missing_values": 34278,
+      "unparseable_values": 0,
+      "rows_by_year": {
+        "2016": 221,
+        "2017": 150593,
+        "2018": 183362,
+        "2019": 195462,
+        "2020": 211901,
+        "2021": 240691,
+        "2022": 250091,
+        "2023": 260683,
+        "2024": 130379
+      }
+    }
+  },
+  "rows_with_candidate_key": 1623383,
+  "rows_without_candidate_key": 34278,
+  "candidate_ticker_publication_pairs": 111989,
+  "repeated_candidate_key_rows": 1511394,
+  "source": {
+    "repository": "sovai/earnings_surprise",
+    "revision": "15d40bd943d249f4b94d866d92986addb53d37cc",
+    "filename": "earnings_surprise.parquet",
+    "sha256": "f0b81c85c441e552bf7976d63dd306089cead838b5b81238e867fae131993b67"
+  }
+}
