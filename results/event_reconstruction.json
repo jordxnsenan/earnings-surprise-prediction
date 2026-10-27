@@ -1,0 +1,29 @@
+{
+  "raw_rows": 1657661,
+  "rows_with_candidate_key": 1623383,
+  "rows_without_candidate_key": 34278,
+  "candidate_event_count": 111989,
+  "events_with_multiple_source_rows": 111588,
+  "events_missing_actual_eps": 1,
+  "events_missing_estimated_eps": 0,
+  "events_missing_supplied_surprise": 1,
+  "event_quality": {
+    "total_events": 111989,
+    "events_with_complete_financial_values": 111988,
+    "events_with_nonfinite_financial_values": 0,
+    "eps_surprise_comparisons": 111988,
+    "eps_surprise_mismatches": 0,
+    "maximum_absolute_surprise_difference": 0.0,
+    "publication_weekday_counts": {
+      "Monday": 15391,
+      "Tuesday": 24523,
+      "Wednesday": 28835,
+      "Thursday": 35624,
+      "Friday": 7297,
+      "Saturday": 237,
+      "Sunday": 82
+    },
+    "weekend_publication_events": 319,
+    "events_with_invalid_publication_dates": 0
+  }
+}
