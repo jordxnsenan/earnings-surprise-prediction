@@ -1,0 +1,30 @@
+{
+  "total_rows": 1657661,
+  "rows_with_candidate_key": 1623383,
+  "rows_without_candidate_key": 34278,
+  "candidate_key_count": 111989,
+  "keys_with_multiple_rows": 111588,
+  "rows_in_repeated_keys": 1622982,
+  "extra_rows_from_repetition": 1511394,
+  "exact_duplicate_rows": 0,
+  "maximum_rows_per_key": 383,
+  "keys_with_conflicting_financial_values": {
+    "actual_earning_result": 0,
+    "estimated_earning": 0,
+    "eps_surprise": 0
+  },
+  "date_relationships": {
+    "rows_with_both_dates": 1623383,
+    "rows_missing_or_invalid_either_date": 34278,
+    "rows_before_publication": 1515078,
+    "rows_on_publication_date": 7106,
+    "rows_after_publication": 101199,
+    "prepublication_rows_with_recorded_actual_eps": 1515066,
+    "candidate_events_with_prepublication_actual_eps": 111738,
+    "publication_minus_snapshot_days": {
+      "minimum": -6,
+      "median": 47.0,
+      "maximum": 2846
+    }
+  }
+}
