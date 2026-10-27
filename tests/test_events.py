@@ -4,6 +4,8 @@ import pytest
 from earnings_surprise.data.events import (
     build_candidate_event_ledger,
     summarize_event_quality,
+    build_source_row_mapping,
+    summarize_event_chronology
 )
 
 
@@ -135,3 +137,104 @@ def test_summarize_event_quality():
     assert summary["publication_weekday_counts"]["Sunday"] == 1
 
     pd.testing.assert_frame_equal(events, original_events)
+    
+
+def test_build_source_row_mapping():
+    data = make_sample_data()
+
+    # uses a non default index to verify that source ids are based on row positions
+    data.index = [10, 20, 30, 40, 50, 60]
+
+    original_data = data.copy(deep=True)
+
+    mapping = build_source_row_mapping(data)
+
+    assert len(mapping) == 6
+
+    assert mapping["source_row_id"].tolist() == [
+        0, 1, 2, 3, 4, 5
+    ]
+
+    assert mapping["has_candidate_key"].tolist() == [
+        True, True, True, True, True, False
+    ]
+
+    assert mapping.loc[0, "ticker"] == "A"
+    assert mapping.loc[0, "date_pub"] == pd.Timestamp(
+        "2024-02-01"
+    )
+
+    assert pd.isna(mapping.loc[5, "date_pub"])
+
+    # source mapping and event ledger should agree on num. of distinct usable candidate keys
+    events, _ = build_candidate_event_ledger(data)
+
+    mapped_keys = (
+        mapping.loc[
+            mapping["has_candidate_key"],
+            ["ticker", "date_pub"],
+        ]
+        .drop_duplicates()
+    )
+
+    assert len(mapped_keys) == len(events)
+
+    pd.testing.assert_frame_equal(data, original_data)
+    
+
+
+def test_summarize_event_chronology():
+    events = pd.DataFrame({
+        "ticker": ["A", "B", "A", "A", "B", "A", "A"],
+        "date_pub": pd.to_datetime([
+            "2024-05-01 09:00",
+            "2024-02-01",
+            "2024-01-01",
+            "2025-05-03",
+            "2024-08-01",
+            "2024-01-16",
+            "2024-05-01 12:00",
+        ], format="mixed"),
+    })
+
+    original_events = events.copy(deep=True)
+
+    summary = summarize_event_chronology(events)
+
+    assert summary["total_events"] == 7
+    assert summary["unique_tickers"] == 2
+
+    assert summary["events_per_ticker"]["minimum"] == 2
+    assert summary["events_per_ticker"]["median"] == 3.5
+    assert summary["events_per_ticker"]["maximum"] == 5
+
+    assert summary["tickers_with_sufficient_history"] == 1
+    assert summary["potential_four_history_windows"] == 1
+
+    assert summary["consecutive_event_gaps"] == 5
+    assert summary["gap_days"]["minimum"] == 0
+    assert summary["gap_days"]["median"] == 106
+    assert summary["gap_days"]["maximum"] == 367
+
+    assert summary["same_day_event_gaps"] == 1
+    assert summary["gaps_under_30_days"] == 2
+    assert summary["gaps_over_180_days"] == 2
+    assert summary["gaps_over_365_days"] == 1
+
+    pd.testing.assert_frame_equal(events, original_events)
+
+
+def test_chronology_rejects_duplicate_event_keys():
+    events = pd.DataFrame({
+        "ticker": ["A", "A"],
+        "date_pub": pd.to_datetime([
+            "2024-01-01",
+            "2024-01-01",
+        ]),
+    })
+
+    with pytest.raises(
+        ValueError,
+        match="Duplicate candidate earnings-event keys",
+    ):
+        summarize_event_chronology(events)

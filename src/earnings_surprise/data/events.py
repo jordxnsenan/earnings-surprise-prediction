@@ -25,6 +25,10 @@ REQUIRED_COLUMNS = (
 
 EPS_SURPRISE_TOLERANCE = 1e-6
 
+REQUIRED_PRIOR_EVENTS = 4
+SHORT_EVENT_GAP_DAYS = 30
+LONG_EVENT_GAP_DAYS = 180
+VERY_LONG_EVENT_GAP_DAYS = 365
 
 def build_candidate_event_ledger(
     data: pd.DataFrame,
@@ -262,6 +266,98 @@ def build_source_row_mapping(data: pd.DataFrame) -> pd.DataFrame:
     return mapping
 
 
+def summarize_event_chronology(events: pd.DataFrame) -> dict:
+    """analyzes event counts and publication gaps by ticker"""
+    required_columns = ["ticker", "date_pub"]
+
+    missing_columns = [
+        column for column in required_columns
+        if column not in events.columns
+    ]
+
+    if missing_columns:
+        raise ValueError(
+            f"Missing required columns: {missing_columns}"
+        )
+
+    if events.empty:
+        raise ValueError("No earnings events available")
+
+    chronology = events[required_columns].copy()
+
+    chronology["date_pub"] = pd.to_datetime(
+        chronology["date_pub"], errors="coerce"
+    )
+
+    if chronology.isna().any().any():
+        raise ValueError("Invalid event identifiers or publication dates")
+
+    if chronology.duplicated(subset=required_columns).any():
+        raise ValueError("Duplicate candidate earnings-event keys")
+
+    # sorts events chronologically within each company
+    chronology = chronology.sort_values(
+        ["ticker", "date_pub"]
+    ).reset_index(drop=True)
+
+    chronology["publication_day"] = (
+        chronology["date_pub"].dt.normalize()
+    )
+
+    event_counts = chronology.groupby("ticker").size()
+
+    # calculates calendar day gaps between consec. events
+    gap_days = (
+        chronology.groupby("ticker")["publication_day"]
+        .diff()
+        .dt.days
+        .dropna()
+    )
+
+    # finds num. of possible targets with four preceding recorded events
+    potential_windows = (
+        (event_counts - REQUIRED_PRIOR_EVENTS)
+        .clip(lower=0)
+        .sum()
+    )
+
+    return {
+        "total_events": len(chronology),
+        "unique_tickers": len(event_counts),
+        "events_per_ticker": {
+            "minimum": int(event_counts.min()),
+            "median": float(event_counts.median()),
+            "maximum": int(event_counts.max()),
+        },
+        "tickers_with_sufficient_history": int(
+            (event_counts > REQUIRED_PRIOR_EVENTS).sum()
+        ),
+        "potential_four_history_windows": int(potential_windows),
+        "consecutive_event_gaps": len(gap_days),
+        "gap_days": {
+            "minimum": (
+                int(gap_days.min()) if not gap_days.empty else None
+            ),
+            "median": (
+                float(gap_days.median()) if not gap_days.empty else None
+            ),
+            "maximum": (
+                int(gap_days.max()) if not gap_days.empty else None
+            ),
+        },
+        "same_day_event_gaps": int((gap_days == 0).sum()),
+        "gaps_under_30_days": int(
+            (gap_days < SHORT_EVENT_GAP_DAYS).sum()
+        ),
+        "gaps_over_180_days": int(
+            (gap_days > LONG_EVENT_GAP_DAYS).sum()
+        ),
+        "gaps_over_365_days": int(
+            (gap_days > VERY_LONG_EVENT_GAP_DAYS).sum()
+        ),
+    }
+
+
 def main() -> None:
     dataset_path = Path("data/raw") / DATASET_FILENAME
     
@@ -281,6 +377,7 @@ def main() -> None:
 
     event_ledger, summary = build_candidate_event_ledger(data)
     summary["event_quality"] = summarize_event_quality(event_ledger)
+    summary["event_chronology"] = summarize_event_chronology(event_ledger)
     
     source_mapping = build_source_row_mapping(data)
 

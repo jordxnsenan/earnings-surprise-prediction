@@ -26,6 +26,27 @@
     "weekend_publication_events": 319,
     "events_with_invalid_publication_dates": 0
   },
+  "event_chronology": {
+    "total_events": 111989,
+    "unique_tickers": 5671,
+    "events_per_ticker": {
+      "minimum": 1,
+      "median": 22.0,
+      "maximum": 31
+    },
+    "tickers_with_sufficient_history": 5064,
+    "potential_four_history_windows": 90350,
+    "consecutive_event_gaps": 106318,
+    "gap_days": {
+      "minimum": 6,
+      "median": 91.0,
+      "maximum": 2742
+    },
+    "same_day_event_gaps": 0,
+    "gaps_under_30_days": 38,
+    "gaps_over_180_days": 1774,
+    "gaps_over_365_days": 293
+  },
   "source_lineage": {
     "total_source_rows": 1657661,
     "rows_with_candidate_keys": 1623383,
