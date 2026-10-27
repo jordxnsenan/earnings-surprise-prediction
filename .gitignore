@@ -1,0 +1,34 @@
+
+# python virtual environment
+.venv/
+venv/
+
+# python cache + compiled files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# local datasets
+data/raw/
+data/processed/
+
+# generated models + experiment artifacts
+artifacts/
+results/runs/
+
+# environment variables + secrets
+.env
+.env.*
+
+# build + package files
+build/
+dist/
+*.egg-info/
+
+# OS files
+.DS_Store
+Thumbs.db
