@@ -4,6 +4,7 @@ import pytest
 from earnings_surprise.data.audit_snapshots import (
     summarize_date_relationships,
     summarize_snapshot_repetition,
+    find_date_examples
 )
 
 
@@ -138,3 +139,52 @@ def test_date_relationships_requires_columns():
 
     with pytest.raises(ValueError, match="Missing required columns"):
         summarize_date_relationships(data)
+        
+
+def test_find_date_examples():
+    data = pd.DataFrame({
+        "ticker": ["A", "A", "B", "C", "D", "E"],
+        "date": [
+            "2024-01-01",
+            "2024-01-04",
+            "2024-02-01",
+            "2024-03-05",
+            "2024-04-01",
+            "2024-05-01",
+        ],
+        "date_pub": [
+            "2024-01-10",
+            "2024-01-10",
+            "2024-02-05",
+            "2024-03-02",
+            "2024-04-01",
+            "2024-05-20",
+        ],
+        "actual_earning_result": [
+            0.5, 0.5, 0.1, 0.2, 0.3, None
+        ],
+        "estimated_earning": [
+            0.4, 0.4, 0.1, 0.2, 0.3, 0.3
+        ],
+        "eps_surprise": [
+            0.1, 0.1, 0.0, 0.0, 0.0, None
+        ],
+    })
+
+    original_data = data.copy(deep=True)
+
+    examples = find_date_examples(data, example_count=2)
+
+    longest_gaps = examples["largest_prepublication_gaps"]
+    postpublication = examples["postpublication_examples"]
+
+    assert longest_gaps["ticker"].tolist() == ["A", "B"]
+
+    assert longest_gaps["days_before_publication"].tolist() == [
+        9, 4
+    ]
+
+    assert postpublication["ticker"].tolist() == ["C"]
+    assert postpublication["days_before_publication"].iloc[0] == -3
+
+    pd.testing.assert_frame_equal(data, original_data)

@@ -14,6 +14,17 @@ FINANCIAL_COLUMNS = [
     "eps_surprise",
 ]
 
+DATE_EXAMPLE_COLUMNS = [
+    "ticker",
+    "date",
+    "date_pub",
+    "actual_earning_result",
+    "estimated_earning",
+    "eps_surprise",
+]
+
+DEFAULT_EXAMPLE_COUNT = 5
+
 
 def summarize_snapshot_repetition(data: pd.DataFrame) -> dict:
     """analyzes repeated records + conflicting financial values"""
@@ -161,6 +172,71 @@ def summarize_date_relationships(data: pd.DataFrame) -> dict:
             ),
         },
     }
+    
+
+def find_date_examples(
+    data: pd.DataFrame,
+    example_count: int = DEFAULT_EXAMPLE_COUNT,
+) -> dict:
+    """Find examples of unusual snapshot and publication dates."""
+    missing_columns = [
+        column for column in DATE_EXAMPLE_COLUMNS
+        if column not in data.columns
+    ]
+
+    if missing_columns:
+        raise ValueError(
+            f"Missing required columns: {missing_columns}"
+        )
+
+    if example_count < 1:
+        raise ValueError("example_count must be positive")
+
+    records = data[DATE_EXAMPLE_COLUMNS].copy()
+
+    records["date"] = pd.to_datetime(
+        records["date"], errors="coerce"
+    ).dt.normalize()
+
+    records["date_pub"] = pd.to_datetime(
+        records["date_pub"], errors="coerce"
+    ).dt.normalize()
+
+    records["actual_earning_result"] = pd.to_numeric(
+        records["actual_earning_result"], errors="coerce"
+    )
+
+    records = records.dropna(
+        subset=["ticker", "date", "date_pub"]
+    )
+
+    records["days_before_publication"] = (
+        records["date_pub"] - records["date"]
+    ).dt.days
+
+    has_early_actual = (
+        (records["days_before_publication"] > 0)
+        & records["actual_earning_result"].notna()
+    )
+
+    longest_gaps = (
+        records.loc[has_early_actual]
+        .sort_values("days_before_publication", ascending=False)
+        .drop_duplicates(subset=CANDIDATE_KEY_COLUMNS)
+        .head(example_count)
+    )
+
+    postpublication_examples = (
+        records.loc[records["days_before_publication"] < 0]
+        .sort_values("days_before_publication")
+        .drop_duplicates(subset=CANDIDATE_KEY_COLUMNS)
+        .head(example_count)
+    )
+
+    return {
+        "largest_prepublication_gaps": longest_gaps,
+        "postpublication_examples": postpublication_examples,
+    }
 
 
 def main() -> None:
@@ -186,6 +262,17 @@ def main() -> None:
 
     print(json.dumps(summary, indent=2))
     print(f"\nAudit saved to: {output_path}")
+    
+    examples = find_date_examples(data)
+
+    for category, example_records in examples.items():
+        print(f"\n{category}:")
+
+        if example_records.empty:
+            print("No examples found.")
+        
+        else:
+            print(example_records.to_string(index=False))
 
 
 if __name__ == "__main__":
