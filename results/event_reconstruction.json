@@ -25,5 +25,10 @@
     },
     "weekend_publication_events": 319,
     "events_with_invalid_publication_dates": 0
+  },
+  "source_lineage": {
+    "total_source_rows": 1657661,
+    "rows_with_candidate_keys": 1623383,
+    "rows_without_candidate_keys": 34278
   }
 }

@@ -231,12 +231,43 @@ def summarize_event_quality(events: pd.DataFrame) -> dict:
     }
 
 
+def build_source_row_mapping(data: pd.DataFrame) -> pd.DataFrame:
+    """maps each source row to its candidate earnings event key"""
+    required_columns = ["ticker", "date", "date_pub"]
+
+    missing_columns = [
+        column for column in required_columns
+        if column not in data.columns
+    ]
+
+    if missing_columns:
+        raise ValueError(
+            f"Missing required columns: {missing_columns}"
+        )
+
+    mapping = data[required_columns].reset_index(drop=True).copy()
+
+    # preserves original row positions in the source dataset
+    mapping.insert(0, "source_row_id", range(len(mapping)))
+
+    mapping["date_pub"] = pd.to_datetime(
+        mapping["date_pub"], errors="coerce"
+    )
+
+    mapping["has_candidate_key"] = (
+        mapping["ticker"].notna()
+        & mapping["date_pub"].notna()
+    )
+
+    return mapping
+
+
 def main() -> None:
     dataset_path = Path("data/raw") / DATASET_FILENAME
-    output_path = Path(
-        "data/processed/candidate_earnings_events.parquet"
-    )
+    
+    output_path = Path("data/processed/candidate_earnings_events.parquet")
     summary_path = Path("results/event_reconstruction.json")
+    source_mapping_path = Path("data/processed/event_source_rows.parquet")
 
     if not dataset_path.is_file():
         raise FileNotFoundError(
@@ -250,11 +281,28 @@ def main() -> None:
 
     event_ledger, summary = build_candidate_event_ledger(data)
     summary["event_quality"] = summarize_event_quality(event_ledger)
+    
+    source_mapping = build_source_row_mapping(data)
+
+    summary["source_lineage"] = {
+        "total_source_rows": len(source_mapping),
+        "rows_with_candidate_keys": int(
+            source_mapping["has_candidate_key"].sum()
+        ),
+        "rows_without_candidate_keys": int(
+            (~source_mapping["has_candidate_key"]).sum()
+        ),
+    }
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     summary_path.parent.mkdir(parents=True, exist_ok=True)
 
     event_ledger.to_parquet(output_path, index=False)
+    
+    source_mapping.to_parquet(
+        source_mapping_path,
+        index=False,
+    )
 
     summary_path.write_text(
         json.dumps(summary, indent=2) + "\n",
@@ -263,6 +311,7 @@ def main() -> None:
 
     print(json.dumps(summary, indent=2))
     print(f"\nEvent ledger saved to: {output_path}")
+    print(f"Source mapping saved to: {source_mapping_path}")
 
 
 if __name__ == "__main__":
