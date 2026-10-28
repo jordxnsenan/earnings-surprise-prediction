@@ -41,6 +41,26 @@ From the extracted ZIP directory:
 6. Restart the kernel and run all cells
 
 The notebook downloads and verifies the pinned dataset automatically if it is not already present
+
+## Google Colab
+
+I tested the final EDA submission using Google Colab with Python 3.12.13, using the following process:
+
+1. Select a Colab runtime that uses Python 3.12
+
+2. Upload `EDA_Preprocessing.zip` and extract it into `/content/eda_submission_test`
+   
+3. Install the project from the extracted directory:
+
+   `%cd /content/eda_submission_test`
+
+   `%pip install -e ".[dev]"`
+
+4. Restart the Colab session after installation so the Python interpreter recognizes the editable package
+
+5. Execute the included notebook from the extracted project directory
+
+The notebook downloads and verifies the pinned dataset automatically
 """
 
 
