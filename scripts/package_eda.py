@@ -8,6 +8,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 NOTEBOOK_PATH = PROJECT_ROOT / "notebooks/01_data_preprocessing_eda.ipynb"
 SOURCE_DIRECTORY = PROJECT_ROOT / "src/earnings_surprise"
 OUTPUT_PATH = PROJECT_ROOT / "submission/EDA_Preprocessing.zip"
+REPORT_PATH = PROJECT_ROOT / "reports" / "EDA_Report.pdf"
 
 MAX_ARCHIVE_BYTES = 30_000_000
 
@@ -92,6 +93,7 @@ def build_submission() -> None:
         NOTEBOOK_PATH,
         PROJECT_ROOT / "pyproject.toml",
         PROJECT_ROOT / "README.md",
+        REPORT_PATH,
     ]
 
     for file_path in required_files:
