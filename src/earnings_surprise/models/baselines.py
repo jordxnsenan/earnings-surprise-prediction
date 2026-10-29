@@ -4,8 +4,13 @@ import pandas as pd
 from sklearn.base import BaseEstimator, ClassifierMixin
 from sklearn.utils.validation import check_is_fitted
 
+from earnings_surprise.data.events import REQUIRED_PRIOR_EVENTS
+
 
 PREVIOUS_OUTCOME_COLUMN = "beat_lag1"
+BEAT_RATE_COLUMN = "beat_rate4"
+BEAT_RATE_THRESHOLD = 0.5
+BEAT_RATE_TOLERANCE = 1e-8
 
 
 def _validate_binary_values(values, description: str) -> np.ndarray:
@@ -35,6 +40,41 @@ def _get_previous_outcomes(features: pd.DataFrame) -> np.ndarray:
         features[PREVIOUS_OUTCOME_COLUMN],
         PREVIOUS_OUTCOME_COLUMN,
     )
+
+
+def _get_historical_beat_rates(features: pd.DataFrame) -> np.ndarray:
+    """retrieves and validate four-event historical beat rates"""
+    if not isinstance(features, pd.DataFrame):
+        raise TypeError("Features must be a pandas DataFrame")
+
+    if BEAT_RATE_COLUMN not in features.columns:
+        raise ValueError(
+            f"Missing feature column: {BEAT_RATE_COLUMN}"
+        )
+
+    beat_rates = pd.to_numeric(
+        features[BEAT_RATE_COLUMN],
+        errors="coerce",
+    ).to_numpy(dtype=float, na_value=np.nan)
+
+    if len(beat_rates) == 0 or not np.isfinite(beat_rates).all():
+        raise ValueError("beat_rate4 must contain finite values")
+
+    if ((beat_rates < 0) | (beat_rates > 1)).any():
+        raise ValueError("beat_rate4 must be between 0 and 1")
+
+    # four historical events can produce five possible beat rates
+    beat_counts = beat_rates * REQUIRED_PRIOR_EVENTS
+
+    if not np.allclose(
+        beat_counts,
+        np.rint(beat_counts),
+        atol=BEAT_RATE_TOLERANCE,
+        rtol=0,
+    ):
+        raise ValueError("beat_rate4 contains an invalid proportion")
+
+    return beat_rates
 
 
 class MajorityClassBaseline(ClassifierMixin, BaseEstimator):
@@ -102,4 +142,69 @@ class PreviousOutcomeBaseline(ClassifierMixin, BaseEstimator):
         return np.column_stack((
             1 - previous_outcomes,
             previous_outcomes,
+        ))
+        
+
+class AlwaysBeatBaseline(ClassifierMixin, BaseEstimator):
+    """predicts an earnings beat for every observation"""
+
+    def fit(self, X: pd.DataFrame, y: pd.Series | None = None):
+        if len(X) == 0:
+            raise ValueError("Training features cannot be empty")
+
+        if y is not None and len(X) != len(y):
+            raise ValueError(
+                "Training features and labels must have equal lengths"
+            )
+
+        self.classes_ = np.array([0, 1])
+
+        return self
+
+    def predict(self, X: pd.DataFrame) -> np.ndarray:
+        check_is_fitted(self, "classes_")
+
+        return np.ones(len(X), dtype=int)
+
+    def predict_proba(self, X: pd.DataFrame) -> np.ndarray:
+        check_is_fitted(self, "classes_")
+
+        return np.column_stack((
+            np.zeros(len(X)),
+            np.ones(len(X)),
+        ))
+
+
+class HistoricalBeatRateBaseline(ClassifierMixin, BaseEstimator):
+    """predicts using earnings-beat frequency over four prior events"""
+
+    def fit(self, X: pd.DataFrame, y: pd.Series | None = None):
+        _get_historical_beat_rates(X)
+
+        if y is not None and len(X) != len(y):
+            raise ValueError(
+                "Training features and labels must have equal lengths"
+            )
+
+        self.classes_ = np.array([0, 1])
+
+        return self
+
+    def predict(self, X: pd.DataFrame) -> np.ndarray:
+        check_is_fitted(self, "classes_")
+
+        beat_rates = _get_historical_beat_rates(X)
+
+        return (
+            beat_rates >= BEAT_RATE_THRESHOLD
+        ).astype(int)
+
+    def predict_proba(self, X: pd.DataFrame) -> np.ndarray:
+        check_is_fitted(self, "classes_")
+
+        beat_rates = _get_historical_beat_rates(X)
+
+        return np.column_stack((
+            1 - beat_rates,
+            beat_rates,
         ))
