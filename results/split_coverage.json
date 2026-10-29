@@ -1,0 +1,96 @@
+{
+  "total_samples": 90349,
+  "development_samples": 82353,
+  "holdout": {
+    "samples": 7996,
+    "first_date": "2024-01-02",
+    "last_date": "2024-10-07"
+  },
+  "folds": [
+    {
+      "validation_year": 2020,
+      "training_samples": 24591,
+      "validation_samples": 13449,
+      "last_training_date": "2019-12-30",
+      "first_validation_date": "2020-01-02",
+      "last_validation_date": "2020-12-31",
+      "training_class_balance": {
+        "beats": 14763,
+        "meet_or_miss": 9828,
+        "beat_rate": 0.6003
+      },
+      "validation_class_balance": {
+        "beats": 8506,
+        "meet_or_miss": 4943,
+        "beat_rate": 0.6325
+      }
+    },
+    {
+      "validation_year": 2021,
+      "training_samples": 38040,
+      "validation_samples": 13840,
+      "last_training_date": "2020-12-31",
+      "first_validation_date": "2021-01-04",
+      "last_validation_date": "2021-12-30",
+      "training_class_balance": {
+        "beats": 23269,
+        "meet_or_miss": 14771,
+        "beat_rate": 0.6117
+      },
+      "validation_class_balance": {
+        "beats": 9164,
+        "meet_or_miss": 4676,
+        "beat_rate": 0.6621
+      }
+    },
+    {
+      "validation_year": 2022,
+      "training_samples": 51880,
+      "validation_samples": 14809,
+      "last_training_date": "2021-12-30",
+      "first_validation_date": "2022-01-04",
+      "last_validation_date": "2022-12-30",
+      "training_class_balance": {
+        "beats": 32433,
+        "meet_or_miss": 19447,
+        "beat_rate": 0.6252
+      },
+      "validation_class_balance": {
+        "beats": 9005,
+        "meet_or_miss": 5804,
+        "beat_rate": 0.6081
+      }
+    },
+    {
+      "validation_year": 2023,
+      "training_samples": 66689,
+      "validation_samples": 15664,
+      "last_training_date": "2022-12-30",
+      "first_validation_date": "2023-01-04",
+      "last_validation_date": "2023-12-29",
+      "training_class_balance": {
+        "beats": 41438,
+        "meet_or_miss": 25251,
+        "beat_rate": 0.6214
+      },
+      "validation_class_balance": {
+        "beats": 9421,
+        "meet_or_miss": 6243,
+        "beat_rate": 0.6014
+      }
+    }
+  ],
+  "evaluation_policy": {
+    "strategy": "expanding_calendar_year",
+    "date_column": "target_date_pub",
+    "validation_years": [
+      2020,
+      2021,
+      2022,
+      2023
+    ],
+    "holdout_start": "2024-01-01",
+    "primary_selection_metric": "macro_f1",
+    "availability_basis": "provisional_publication_dates"
+  }
+}
