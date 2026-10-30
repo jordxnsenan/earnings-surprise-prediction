@@ -61,3 +61,23 @@ def build_preprocessor() -> ColumnTransformer:
         remainder="drop",
         verbose_feature_names_out=False,
     )
+    
+    
+def get_transformed_feature_names() -> list[str]:
+    """returns expected names of the preprocessed feature columns"""
+    feature_names = CONTINUOUS_COLUMNS + DISCRETE_COLUMNS
+
+    calendar_categories = [
+        MONTH_CATEGORIES,
+        QUARTER_CATEGORIES,
+    ]
+
+    for column, categories in zip(
+        CATEGORICAL_COLUMNS,
+        calendar_categories,
+        strict=True,
+    ):
+        for category in categories:
+            feature_names.append(f"{column}_{category}")
+
+    return feature_names
