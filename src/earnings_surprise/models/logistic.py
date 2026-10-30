@@ -1,9 +1,12 @@
-
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import QuantileTransformer
 
-from earnings_surprise.preprocessing import build_preprocessor
+from earnings_surprise.preprocessing import (
+    build_preprocessor,
+    get_transformed_feature_names,
+)
+from earnings_surprise.selection import build_feature_selector
 
 
 LOGISTIC_MAX_ITERATIONS = 2000
@@ -18,8 +21,9 @@ QUANTILE_SCALER = "quantile"
 
 def build_logistic_regression_pipeline(
     continuous_scaler: str = ROBUST_SCALER,
+    selected_feature_count: int | None = None,
 ) -> Pipeline:
-    """creates a Logistic Regression pipeline with configurable scaling"""
+    """creates Logistic Regression with optional feature selection"""
     if continuous_scaler not in (ROBUST_SCALER, QUANTILE_SCALER):
         raise ValueError(
             f"Unknown continuous scaler: {continuous_scaler}"
@@ -37,6 +41,20 @@ def build_logistic_regression_pipeline(
             )
         )
 
+    steps = [
+        ("preprocessor", preprocessor),
+    ]
+
+    if selected_feature_count is not None:
+        transformed_names = get_transformed_feature_names()
+
+        selector = build_feature_selector(
+            transformed_names,
+            k=selected_feature_count,
+        )
+
+        steps.append(("selector", selector))
+
     classifier = LogisticRegression(
         C=LOGISTIC_REGULARIZATION_STRENGTH,
         solver="lbfgs",
@@ -44,7 +62,6 @@ def build_logistic_regression_pipeline(
         random_state=LOGISTIC_RANDOM_STATE,
     )
 
-    return Pipeline([
-        ("preprocessor", preprocessor),
-        ("classifier", classifier),
-    ])
+    steps.append(("classifier", classifier))
+
+    return Pipeline(steps)

@@ -245,3 +245,44 @@ def test_logistic_pipeline_rejects_unknown_scaler():
         build_logistic_regression_pipeline(
             continuous_scaler="unsupported"
         )
+        
+
+def test_logistic_pipeline_with_feature_selection():
+    features, targets = make_sample_data()
+
+    X_train = features.iloc[:TRAINING_SAMPLE_COUNT]
+    y_train = targets.iloc[:TRAINING_SAMPLE_COUNT]
+
+    X_validation = features.iloc[TRAINING_SAMPLE_COUNT:]
+
+    model = build_logistic_regression_pipeline(
+        continuous_scaler="quantile",
+        selected_feature_count=15,
+    )
+
+    # synthetic dataset only contains 32 training observations
+    model.set_params(
+        preprocessor__continuous__scaler__n_quantiles=10
+    )
+
+    model.fit(X_train, y_train)
+
+    selector = model.named_steps["selector"]
+    classifier = model.named_steps["classifier"]
+
+    assert selector.get_support().sum() == 15
+    assert classifier.coef_.shape[1] == 15
+
+    predictions = model.predict(X_validation)
+    probabilities = model.predict_proba(X_validation)
+
+    assert predictions.shape == (VALIDATION_SAMPLE_COUNT,)
+    assert probabilities.shape == (VALIDATION_SAMPLE_COUNT, 2)
+
+    assert np.isin(predictions, [0, 1]).all()
+    assert np.isfinite(probabilities).all()
+
+    np.testing.assert_allclose(
+        probabilities.sum(axis=1),
+        np.ones(VALIDATION_SAMPLE_COUNT),
+    )

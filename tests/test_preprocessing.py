@@ -7,6 +7,7 @@ from earnings_surprise.preprocessing import (
     CONTINUOUS_COLUMNS,
     DISCRETE_COLUMNS,
     build_preprocessor,
+    get_transformed_feature_names
 )
 
 
@@ -128,3 +129,16 @@ def test_preprocessor_creates_independent_instances():
     assert first_continuous.named_steps["scaler"] is not (
         second_continuous.named_steps["scaler"]
     )
+    
+
+def test_transformed_feature_names_match_preprocessor():
+    features = make_sample_features()
+
+    preprocessor = build_preprocessor()
+    preprocessor.fit(features)
+
+    expected_names = get_transformed_feature_names()
+    actual_names = list(preprocessor.get_feature_names_out())
+
+    assert len(expected_names) == 39
+    assert expected_names == actual_names
