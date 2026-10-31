@@ -1,9 +1,11 @@
 import numpy as np
 import pandas as pd
+import pytest
 
 from sklearn.pipeline import Pipeline
 from sklearn.tree import DecisionTreeClassifier
 
+from earnings_surprise.selection import get_selected_feature_names
 from earnings_surprise.features import FEATURE_COLUMNS
 from earnings_surprise.models.decision_tree import (
     TREE_MAX_DEPTH,
@@ -193,3 +195,94 @@ def test_decision_tree_predictions_are_reproducible():
         first_model.predict_proba(X_validation),
         second_model.predict_proba(X_validation),
     )
+
+
+def test_decision_tree_with_feature_selection():
+    features, targets = make_sample_data()
+
+    X_train = features.iloc[:TRAINING_SAMPLE_COUNT]
+    X_validation = features.iloc[TRAINING_SAMPLE_COUNT:]
+
+    y_train = targets.iloc[:TRAINING_SAMPLE_COUNT]
+
+    model = build_decision_tree_pipeline(
+        selected_feature_count=15
+    )
+
+    model.fit(X_train, y_train)
+
+    preprocessor = model.named_steps["preprocessor"]
+    selector = model.named_steps["selector"]
+    classifier = model.named_steps["classifier"]
+
+    transformed_names = preprocessor.get_feature_names_out()
+
+    selected_names = get_selected_feature_names(
+        transformed_names,
+        selector,
+    )
+
+    assert len(transformed_names) == 39
+    assert selector.get_support().sum() == 15
+    assert len(selected_names) == 15
+
+    assert classifier.n_features_in_ == 15
+    assert classifier.get_depth() <= TREE_MAX_DEPTH
+
+    predictions = model.predict(X_validation)
+    probabilities = model.predict_proba(X_validation)
+
+    assert predictions.shape == (VALIDATION_SAMPLE_COUNT,)
+    assert probabilities.shape == (VALIDATION_SAMPLE_COUNT, 2)
+
+    assert np.isin(predictions, [0, 1]).all()
+    assert np.isfinite(probabilities).all()
+
+    np.testing.assert_allclose(
+        probabilities.sum(axis=1),
+        np.ones(VALIDATION_SAMPLE_COUNT),
+    )
+
+
+def test_decision_tree_selection_does_not_refit_on_validation():
+    features, targets = make_sample_data()
+
+    X_train = features.iloc[:TRAINING_SAMPLE_COUNT]
+    X_validation = features.iloc[TRAINING_SAMPLE_COUNT:].copy()
+
+    y_train = targets.iloc[:TRAINING_SAMPLE_COUNT]
+
+    model = build_decision_tree_pipeline(
+        selected_feature_count=15
+    )
+
+    model.fit(X_train, y_train)
+
+    selector = model.named_steps["selector"]
+
+    original_support = selector.get_support().copy()
+    original_scores = selector.scores_.copy()
+
+    # modifies validation data after the model has been fitted
+    X_validation.loc[
+        X_validation.index[0], "actual_eps_lag1"
+    ] = 1_000_000.0
+
+    model.predict(X_validation)
+
+    np.testing.assert_array_equal(
+        selector.get_support(),
+        original_support,
+    )
+
+    np.testing.assert_array_equal(
+        selector.scores_,
+        original_scores,
+    )
+
+
+def test_decision_tree_rejects_invalid_feature_count():
+    with pytest.raises(ValueError, match="positive integer"):
+        build_decision_tree_pipeline(
+            selected_feature_count=0
+        )
