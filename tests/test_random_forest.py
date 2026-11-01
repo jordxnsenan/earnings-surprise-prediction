@@ -1,17 +1,19 @@
 import numpy as np
 import pandas as pd
+import pytest
 
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.pipeline import Pipeline
 
 from earnings_surprise.features import FEATURE_COLUMNS
+from earnings_surprise.preprocessing import CONTINUOUS_COLUMNS
+from earnings_surprise.selection import get_selected_feature_names
 from earnings_surprise.models.random_forest import (
     FOREST_MAX_DEPTH,
     FOREST_MIN_SAMPLES_LEAF,
     FOREST_TREE_COUNT,
     build_random_forest_pipeline,
 )
-from earnings_surprise.preprocessing import CONTINUOUS_COLUMNS
 
 
 TOTAL_SAMPLE_COUNT = 48
@@ -215,3 +217,95 @@ def test_random_forest_instances_are_independent():
     assert first_model.named_steps["classifier"] is not (
         second_model.named_steps["classifier"]
     )
+    
+
+def test_random_forest_with_feature_selection():
+    features, targets = make_sample_data()
+
+    X_train = features.iloc[:TRAINING_SAMPLE_COUNT]
+    X_validation = features.iloc[TRAINING_SAMPLE_COUNT:]
+
+    y_train = targets.iloc[:TRAINING_SAMPLE_COUNT]
+
+    model = build_random_forest_pipeline(
+        selected_feature_count=15
+    )
+
+    model.fit(X_train, y_train)
+
+    preprocessor = model.named_steps["preprocessor"]
+    selector = model.named_steps["selector"]
+    classifier = model.named_steps["classifier"]
+
+    transformed_names = preprocessor.get_feature_names_out()
+
+    selected_names = get_selected_feature_names(
+        transformed_names,
+        selector,
+    )
+
+    assert len(transformed_names) == 39
+    assert selector.get_support().sum() == 15
+    assert len(selected_names) == 15
+
+    assert classifier.n_features_in_ == 15
+    assert len(classifier.estimators_) == FOREST_TREE_COUNT
+    assert len(classifier.feature_importances_) == 15
+
+    predictions = model.predict(X_validation)
+    probabilities = model.predict_proba(X_validation)
+
+    assert predictions.shape == (VALIDATION_SAMPLE_COUNT,)
+    assert probabilities.shape == (VALIDATION_SAMPLE_COUNT, 2)
+
+    assert np.isin(predictions, [0, 1]).all()
+    assert np.isfinite(probabilities).all()
+
+    np.testing.assert_allclose(
+        probabilities.sum(axis=1),
+        np.ones(VALIDATION_SAMPLE_COUNT),
+    )
+
+
+def test_random_forest_selection_does_not_refit_on_validation():
+    features, targets = make_sample_data()
+
+    X_train = features.iloc[:TRAINING_SAMPLE_COUNT]
+    X_validation = features.iloc[TRAINING_SAMPLE_COUNT:].copy()
+
+    y_train = targets.iloc[:TRAINING_SAMPLE_COUNT]
+
+    model = build_random_forest_pipeline(
+        selected_feature_count=15
+    )
+
+    model.fit(X_train, y_train)
+
+    selector = model.named_steps["selector"]
+
+    original_support = selector.get_support().copy()
+    original_scores = selector.scores_.copy()
+
+    # changes validation data after fitting
+    X_validation.loc[
+        X_validation.index[0], "actual_eps_lag1"
+    ] = 1_000_000.0
+
+    model.predict(X_validation)
+
+    np.testing.assert_array_equal(
+        selector.get_support(),
+        original_support,
+    )
+
+    np.testing.assert_array_equal(
+        selector.scores_,
+        original_scores,
+    )
+
+
+def test_random_forest_rejects_invalid_feature_count():
+    with pytest.raises(ValueError, match="positive integer"):
+        build_random_forest_pipeline(
+            selected_feature_count=0
+        )
