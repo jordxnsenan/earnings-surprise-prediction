@@ -1,0 +1,1265 @@
+{
+  "experiment": "chronological_decision_tree",
+  "primary_metric": "macro_f1",
+  "maximum_depth": 6,
+  "minimum_samples_per_leaf": 10,
+  "holdout_samples": 7996,
+  "folds": [
+    {
+      "validation_year": 2020,
+      "training_samples": 24591,
+      "validation_samples": 13449,
+      "models": {
+        "all_features": {
+          "samples": 13449,
+          "accuracy": 0.6425756561826158,
+          "macro_f1": 0.6080421700225823,
+          "roc_auc": 0.6536261559535581,
+          "confusion_matrix": [
+            [
+              2325,
+              2618
+            ],
+            [
+              2189,
+              6317
+            ]
+          ],
+          "per_class": {
+            "meet_or_miss": {
+              "precision": 0.5150642445724413,
+              "recall": 0.4703621282621889,
+              "f1": 0.49169927038172784,
+              "support": 4943
+            },
+            "beat": {
+              "precision": 0.7069949636261892,
+              "recall": 0.7426522454737832,
+              "f1": 0.7243850696634367,
+              "support": 8506
+            }
+          },
+          "feature_count": 39,
+          "tree_depth": 6,
+          "leaf_count": 60,
+          "selected_features": [],
+          "feature_importances": [
+            {
+              "feature": "beat_rate4",
+              "importance": 0.6440217980333454
+            },
+            {
+              "feature": "beat_streak4",
+              "importance": 0.07979214058258328
+            },
+            {
+              "feature": "actual_eps_lag1",
+              "importance": 0.055382964934146184
+            },
+            {
+              "feature": "surprise_eps_lag1",
+              "importance": 0.03369564109549872
+            },
+            {
+              "feature": "surprise_mean4",
+              "importance": 0.027625908741140678
+            },
+            {
+              "feature": "actual_eps_lag3",
+              "importance": 0.021764361831277335
+            },
+            {
+              "feature": "actual_eps_lag4",
+              "importance": 0.020894073884753325
+            },
+            {
+              "feature": "surprise_trend4",
+              "importance": 0.019175620871168156
+            },
+            {
+              "feature": "surprise_std4",
+              "importance": 0.014236299980626999
+            },
+            {
+              "feature": "surprise_eps_lag4",
+              "importance": 0.013739012810787475
+            },
+            {
+              "feature": "surprise_eps_lag3",
+              "importance": 0.012749270544173807
+            },
+            {
+              "feature": "eps_trend4",
+              "importance": 0.011816654122298435
+            },
+            {
+              "feature": "estimate_eps_lag3",
+              "importance": 0.010525006148349121
+            },
+            {
+              "feature": "eps_change1_2",
+              "importance": 0.0084763601541067
+            },
+            {
+              "feature": "estimate_eps_lag4",
+              "importance": 0.00801961703335585
+            },
+            {
+              "feature": "surprise_eps_lag2",
+              "importance": 0.005617224062949714
+            },
+            {
+              "feature": "estimate_eps_lag1",
+              "importance": 0.005279280625232146
+            },
+            {
+              "feature": "actual_eps_lag2",
+              "importance": 0.0047316031098561286
+            },
+            {
+              "feature": "estimate_eps_lag2",
+              "importance": 0.0024571614343505024
+            },
+            {
+              "feature": "beat_lag1",
+              "importance": 0.0
+            },
+            {
+              "feature": "beat_lag2",
+              "importance": 0.0
+            },
+            {
+              "feature": "beat_lag3",
+              "importance": 0.0
+            },
+            {
+              "feature": "beat_lag4",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_1",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_2",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_3",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_4",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_5",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_6",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_7",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_8",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_9",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_10",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_11",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_12",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_quarter_1",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_quarter_2",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_quarter_3",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_quarter_4",
+              "importance": 0.0
+            }
+          ]
+        },
+        "mi_selection": {
+          "samples": 13449,
+          "accuracy": 0.6422038813294669,
+          "macro_f1": 0.6048103370652147,
+          "roc_auc": 0.6499863313630547,
+          "confusion_matrix": [
+            [
+              2250,
+              2693
+            ],
+            [
+              2119,
+              6387
+            ]
+          ],
+          "per_class": {
+            "meet_or_miss": {
+              "precision": 0.5149919890135042,
+              "recall": 0.4551891563827635,
+              "f1": 0.4832474226804124,
+              "support": 4943
+            },
+            "beat": {
+              "precision": 0.7034140969162995,
+              "recall": 0.750881730543146,
+              "f1": 0.7263732514500171,
+              "support": 8506
+            }
+          },
+          "feature_count": 15,
+          "tree_depth": 6,
+          "leaf_count": 61,
+          "selected_features": [
+            "actual_eps_lag1",
+            "actual_eps_lag2",
+            "actual_eps_lag3",
+            "actual_eps_lag4",
+            "estimate_eps_lag1",
+            "estimate_eps_lag2",
+            "surprise_eps_lag1",
+            "surprise_eps_lag2",
+            "surprise_eps_lag3",
+            "surprise_eps_lag4",
+            "surprise_mean4",
+            "beat_lag1",
+            "beat_lag2",
+            "beat_rate4",
+            "beat_streak4"
+          ],
+          "feature_importances": [
+            {
+              "feature": "beat_rate4",
+              "importance": 0.738045798412479
+            },
+            {
+              "feature": "actual_eps_lag1",
+              "importance": 0.06646109221173965
+            },
+            {
+              "feature": "actual_eps_lag3",
+              "importance": 0.03363882646801416
+            },
+            {
+              "feature": "surprise_eps_lag1",
+              "importance": 0.03159187966961372
+            },
+            {
+              "feature": "surprise_mean4",
+              "importance": 0.027830318208450694
+            },
+            {
+              "feature": "actual_eps_lag4",
+              "importance": 0.02776373584322433
+            },
+            {
+              "feature": "surprise_eps_lag4",
+              "importance": 0.015083179153302971
+            },
+            {
+              "feature": "surprise_eps_lag2",
+              "importance": 0.01462084122932892
+            },
+            {
+              "feature": "estimate_eps_lag1",
+              "importance": 0.014164749047267344
+            },
+            {
+              "feature": "surprise_eps_lag3",
+              "importance": 0.013391258385017597
+            },
+            {
+              "feature": "actual_eps_lag2",
+              "importance": 0.010420341525487146
+            },
+            {
+              "feature": "beat_lag1",
+              "importance": 0.004685693745131804
+            },
+            {
+              "feature": "estimate_eps_lag2",
+              "importance": 0.0023022861009426767
+            },
+            {
+              "feature": "beat_lag2",
+              "importance": 0.0
+            },
+            {
+              "feature": "beat_streak4",
+              "importance": 0.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "validation_year": 2021,
+      "training_samples": 38040,
+      "validation_samples": 13840,
+      "models": {
+        "all_features": {
+          "samples": 13840,
+          "accuracy": 0.6986994219653179,
+          "macro_f1": 0.6413088356729976,
+          "roc_auc": 0.7166459467421707,
+          "confusion_matrix": [
+            [
+              2067,
+              2609
+            ],
+            [
+              1561,
+              7603
+            ]
+          ],
+          "per_class": {
+            "meet_or_miss": {
+              "precision": 0.5697353914002206,
+              "recall": 0.44204448246364414,
+              "f1": 0.49783236994219654,
+              "support": 4676
+            },
+            "beat": {
+              "precision": 0.7445162553858206,
+              "recall": 0.8296595373199476,
+              "f1": 0.7847853014037985,
+              "support": 9164
+            }
+          },
+          "feature_count": 39,
+          "tree_depth": 6,
+          "leaf_count": 63,
+          "selected_features": [],
+          "feature_importances": [
+            {
+              "feature": "beat_rate4",
+              "importance": 0.6869313207645238
+            },
+            {
+              "feature": "surprise_eps_lag1",
+              "importance": 0.07541645220998931
+            },
+            {
+              "feature": "actual_eps_lag4",
+              "importance": 0.0473314503520395
+            },
+            {
+              "feature": "estimate_eps_lag3",
+              "importance": 0.031004670519046495
+            },
+            {
+              "feature": "actual_eps_lag3",
+              "importance": 0.02954610892720147
+            },
+            {
+              "feature": "actual_eps_lag1",
+              "importance": 0.021148012895225502
+            },
+            {
+              "feature": "previous_report_quarter_3",
+              "importance": 0.012647473433800162
+            },
+            {
+              "feature": "surprise_mean4",
+              "importance": 0.011780720114100853
+            },
+            {
+              "feature": "surprise_eps_lag4",
+              "importance": 0.010076291797954499
+            },
+            {
+              "feature": "estimate_eps_lag4",
+              "importance": 0.009625285509115511
+            },
+            {
+              "feature": "estimate_eps_lag1",
+              "importance": 0.00957303775756953
+            },
+            {
+              "feature": "surprise_eps_lag3",
+              "importance": 0.009342818759277288
+            },
+            {
+              "feature": "surprise_trend4",
+              "importance": 0.00898681852094256
+            },
+            {
+              "feature": "previous_report_quarter_1",
+              "importance": 0.008685849101334202
+            },
+            {
+              "feature": "eps_trend4",
+              "importance": 0.008505065445257136
+            },
+            {
+              "feature": "surprise_std4",
+              "importance": 0.006858595688069517
+            },
+            {
+              "feature": "estimate_eps_lag2",
+              "importance": 0.003927893906201276
+            },
+            {
+              "feature": "previous_report_month_10",
+              "importance": 0.0032967410704222125
+            },
+            {
+              "feature": "eps_change1_2",
+              "importance": 0.0023884805437881214
+            },
+            {
+              "feature": "surprise_eps_lag2",
+              "importance": 0.0014890742347724861
+            },
+            {
+              "feature": "previous_report_month_11",
+              "importance": 0.0014378384493684972
+            },
+            {
+              "feature": "actual_eps_lag2",
+              "importance": 0.0
+            },
+            {
+              "feature": "beat_lag1",
+              "importance": 0.0
+            },
+            {
+              "feature": "beat_lag2",
+              "importance": 0.0
+            },
+            {
+              "feature": "beat_lag3",
+              "importance": 0.0
+            },
+            {
+              "feature": "beat_lag4",
+              "importance": 0.0
+            },
+            {
+              "feature": "beat_streak4",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_1",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_2",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_3",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_4",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_5",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_6",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_7",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_8",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_9",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_12",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_quarter_2",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_quarter_4",
+              "importance": 0.0
+            }
+          ]
+        },
+        "mi_selection": {
+          "samples": 13840,
+          "accuracy": 0.6967485549132948,
+          "macro_f1": 0.6422691183747054,
+          "roc_auc": 0.7123896381645887,
+          "confusion_matrix": [
+            [
+              2121,
+              2555
+            ],
+            [
+              1642,
+              7522
+            ]
+          ],
+          "per_class": {
+            "meet_or_miss": {
+              "precision": 0.5636460271060324,
+              "recall": 0.4535928143712575,
+              "f1": 0.5026661926768574,
+              "support": 4676
+            },
+            "beat": {
+              "precision": 0.7464523171578843,
+              "recall": 0.8208206023570493,
+              "f1": 0.7818720440725534,
+              "support": 9164
+            }
+          },
+          "feature_count": 15,
+          "tree_depth": 6,
+          "leaf_count": 63,
+          "selected_features": [
+            "actual_eps_lag1",
+            "actual_eps_lag2",
+            "actual_eps_lag3",
+            "actual_eps_lag4",
+            "estimate_eps_lag1",
+            "estimate_eps_lag3",
+            "estimate_eps_lag4",
+            "surprise_eps_lag1",
+            "surprise_eps_lag2",
+            "surprise_eps_lag3",
+            "surprise_eps_lag4",
+            "surprise_mean4",
+            "beat_lag1",
+            "beat_rate4",
+            "beat_streak4"
+          ],
+          "feature_importances": [
+            {
+              "feature": "beat_rate4",
+              "importance": 0.6997737746807098
+            },
+            {
+              "feature": "surprise_eps_lag1",
+              "importance": 0.07467680891727715
+            },
+            {
+              "feature": "actual_eps_lag4",
+              "importance": 0.0543009848410498
+            },
+            {
+              "feature": "estimate_eps_lag3",
+              "importance": 0.03137367638357692
+            },
+            {
+              "feature": "actual_eps_lag3",
+              "importance": 0.030063750356473583
+            },
+            {
+              "feature": "actual_eps_lag1",
+              "importance": 0.025143035060536292
+            },
+            {
+              "feature": "estimate_eps_lag4",
+              "importance": 0.01872405834460922
+            },
+            {
+              "feature": "surprise_eps_lag3",
+              "importance": 0.016257913666791957
+            },
+            {
+              "feature": "actual_eps_lag2",
+              "importance": 0.011782983220634329
+            },
+            {
+              "feature": "surprise_mean4",
+              "importance": 0.011647812974122504
+            },
+            {
+              "feature": "estimate_eps_lag1",
+              "importance": 0.011157487367769479
+            },
+            {
+              "feature": "surprise_eps_lag4",
+              "importance": 0.01018223691116657
+            },
+            {
+              "feature": "surprise_eps_lag2",
+              "importance": 0.0049154772752823305
+            },
+            {
+              "feature": "beat_lag1",
+              "importance": 0.0
+            },
+            {
+              "feature": "beat_streak4",
+              "importance": 0.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "validation_year": 2022,
+      "training_samples": 51880,
+      "validation_samples": 14809,
+      "models": {
+        "all_features": {
+          "samples": 14809,
+          "accuracy": 0.6592612600445675,
+          "macro_f1": 0.6159138278520899,
+          "roc_auc": 0.6943858244003351,
+          "confusion_matrix": [
+            [
+              2394,
+              3410
+            ],
+            [
+              1636,
+              7369
+            ]
+          ],
+          "per_class": {
+            "meet_or_miss": {
+              "precision": 0.5940446650124069,
+              "recall": 0.41247415575465196,
+              "f1": 0.48688224527150703,
+              "support": 5804
+            },
+            "beat": {
+              "precision": 0.6836441228314315,
+              "recall": 0.8183231538034426,
+              "f1": 0.7449454104326728,
+              "support": 9005
+            }
+          },
+          "feature_count": 39,
+          "tree_depth": 6,
+          "leaf_count": 61,
+          "selected_features": [],
+          "feature_importances": [
+            {
+              "feature": "beat_rate4",
+              "importance": 0.7210863521586149
+            },
+            {
+              "feature": "surprise_eps_lag1",
+              "importance": 0.060564583209051996
+            },
+            {
+              "feature": "actual_eps_lag1",
+              "importance": 0.05568146737776352
+            },
+            {
+              "feature": "actual_eps_lag4",
+              "importance": 0.03758211108619778
+            },
+            {
+              "feature": "estimate_eps_lag4",
+              "importance": 0.03533517945229765
+            },
+            {
+              "feature": "actual_eps_lag3",
+              "importance": 0.016968878805229723
+            },
+            {
+              "feature": "surprise_trend4",
+              "importance": 0.01692367000065751
+            },
+            {
+              "feature": "surprise_eps_lag2",
+              "importance": 0.010449310971185233
+            },
+            {
+              "feature": "estimate_eps_lag1",
+              "importance": 0.0065762695200365035
+            },
+            {
+              "feature": "eps_trend4",
+              "importance": 0.006400142754553659
+            },
+            {
+              "feature": "surprise_std4",
+              "importance": 0.005115484737393699
+            },
+            {
+              "feature": "surprise_mean4",
+              "importance": 0.004808194251446852
+            },
+            {
+              "feature": "surprise_eps_lag4",
+              "importance": 0.004619529540481548
+            },
+            {
+              "feature": "estimate_eps_lag3",
+              "importance": 0.004384411403379044
+            },
+            {
+              "feature": "previous_report_month_7",
+              "importance": 0.00362313617086988
+            },
+            {
+              "feature": "previous_report_quarter_4",
+              "importance": 0.002804776154999206
+            },
+            {
+              "feature": "surprise_eps_lag3",
+              "importance": 0.0019884799160841903
+            },
+            {
+              "feature": "previous_report_quarter_2",
+              "importance": 0.0014910854776643396
+            },
+            {
+              "feature": "estimate_eps_lag2",
+              "importance": 0.0014885058073219456
+            },
+            {
+              "feature": "actual_eps_lag2",
+              "importance": 0.0010897169552443811
+            },
+            {
+              "feature": "previous_report_month_8",
+              "importance": 0.001018714249526351
+            },
+            {
+              "feature": "eps_change1_2",
+              "importance": 0.0
+            },
+            {
+              "feature": "beat_lag1",
+              "importance": 0.0
+            },
+            {
+              "feature": "beat_lag2",
+              "importance": 0.0
+            },
+            {
+              "feature": "beat_lag3",
+              "importance": 0.0
+            },
+            {
+              "feature": "beat_lag4",
+              "importance": 0.0
+            },
+            {
+              "feature": "beat_streak4",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_1",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_2",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_3",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_4",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_5",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_6",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_9",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_10",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_11",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_12",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_quarter_1",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_quarter_3",
+              "importance": 0.0
+            }
+          ]
+        },
+        "mi_selection": {
+          "samples": 14809,
+          "accuracy": 0.6568303058950639,
+          "macro_f1": 0.6158092661535094,
+          "roc_auc": 0.6928830506522335,
+          "confusion_matrix": [
+            [
+              2444,
+              3360
+            ],
+            [
+              1722,
+              7283
+            ]
+          ],
+          "per_class": {
+            "meet_or_miss": {
+              "precision": 0.5866538646183389,
+              "recall": 0.42108890420399725,
+              "f1": 0.4902708124373119,
+              "support": 5804
+            },
+            "beat": {
+              "precision": 0.6842995396034952,
+              "recall": 0.8087729039422543,
+              "f1": 0.7413477198697068,
+              "support": 9005
+            }
+          },
+          "feature_count": 15,
+          "tree_depth": 6,
+          "leaf_count": 63,
+          "selected_features": [
+            "actual_eps_lag1",
+            "actual_eps_lag2",
+            "actual_eps_lag3",
+            "actual_eps_lag4",
+            "estimate_eps_lag1",
+            "estimate_eps_lag2",
+            "estimate_eps_lag4",
+            "surprise_eps_lag1",
+            "surprise_eps_lag2",
+            "surprise_eps_lag4",
+            "surprise_mean4",
+            "beat_lag1",
+            "beat_lag2",
+            "beat_rate4",
+            "beat_streak4"
+          ],
+          "feature_importances": [
+            {
+              "feature": "beat_rate4",
+              "importance": 0.7256140680878406
+            },
+            {
+              "feature": "surprise_eps_lag1",
+              "importance": 0.0705208880776266
+            },
+            {
+              "feature": "actual_eps_lag1",
+              "importance": 0.05603109244840069
+            },
+            {
+              "feature": "actual_eps_lag4",
+              "importance": 0.04054706370480452
+            },
+            {
+              "feature": "estimate_eps_lag4",
+              "importance": 0.035557049765595476
+            },
+            {
+              "feature": "estimate_eps_lag1",
+              "importance": 0.017108906979534745
+            },
+            {
+              "feature": "actual_eps_lag3",
+              "importance": 0.016627838683274124
+            },
+            {
+              "feature": "surprise_eps_lag2",
+              "importance": 0.01237656126827127
+            },
+            {
+              "feature": "surprise_eps_lag4",
+              "importance": 0.011664801668372797
+            },
+            {
+              "feature": "actual_eps_lag2",
+              "importance": 0.006662086156080808
+            },
+            {
+              "feature": "surprise_mean4",
+              "importance": 0.006102453729292457
+            },
+            {
+              "feature": "estimate_eps_lag2",
+              "importance": 0.0011871894309059988
+            },
+            {
+              "feature": "beat_lag1",
+              "importance": 0.0
+            },
+            {
+              "feature": "beat_lag2",
+              "importance": 0.0
+            },
+            {
+              "feature": "beat_streak4",
+              "importance": 0.0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "validation_year": 2023,
+      "training_samples": 66689,
+      "validation_samples": 15664,
+      "models": {
+        "all_features": {
+          "samples": 15664,
+          "accuracy": 0.6483656792645557,
+          "macro_f1": 0.6121251478268225,
+          "roc_auc": 0.6708971472951522,
+          "confusion_matrix": [
+            [
+              2684,
+              3559
+            ],
+            [
+              1949,
+              7472
+            ]
+          ],
+          "per_class": {
+            "meet_or_miss": {
+              "precision": 0.5793222533995251,
+              "recall": 0.4299215120935448,
+              "f1": 0.4935638102243472,
+              "support": 6243
+            },
+            "beat": {
+              "precision": 0.677363792947149,
+              "recall": 0.7931217492835155,
+              "f1": 0.7306864854292978,
+              "support": 9421
+            }
+          },
+          "feature_count": 39,
+          "tree_depth": 6,
+          "leaf_count": 63,
+          "selected_features": [],
+          "feature_importances": [
+            {
+              "feature": "beat_rate4",
+              "importance": 0.7566139614223433
+            },
+            {
+              "feature": "actual_eps_lag1",
+              "importance": 0.05938646901264244
+            },
+            {
+              "feature": "surprise_eps_lag1",
+              "importance": 0.051769220806349575
+            },
+            {
+              "feature": "estimate_eps_lag4",
+              "importance": 0.036093034494610564
+            },
+            {
+              "feature": "actual_eps_lag3",
+              "importance": 0.022603222653620067
+            },
+            {
+              "feature": "surprise_trend4",
+              "importance": 0.01742826951186027
+            },
+            {
+              "feature": "surprise_eps_lag2",
+              "importance": 0.0094358777927099
+            },
+            {
+              "feature": "surprise_mean4",
+              "importance": 0.007449378952726667
+            },
+            {
+              "feature": "actual_eps_lag4",
+              "importance": 0.006371665546636931
+            },
+            {
+              "feature": "estimate_eps_lag1",
+              "importance": 0.0058228167559506196
+            },
+            {
+              "feature": "surprise_eps_lag4",
+              "importance": 0.0038353766451928216
+            },
+            {
+              "feature": "estimate_eps_lag3",
+              "importance": 0.003664619012527568
+            },
+            {
+              "feature": "surprise_std4",
+              "importance": 0.0035304322783562122
+            },
+            {
+              "feature": "previous_report_month_7",
+              "importance": 0.0033374529974978624
+            },
+            {
+              "feature": "eps_change1_2",
+              "importance": 0.002724526207200516
+            },
+            {
+              "feature": "eps_trend4",
+              "importance": 0.002719223106312568
+            },
+            {
+              "feature": "surprise_eps_lag3",
+              "importance": 0.0024664749960700786
+            },
+            {
+              "feature": "actual_eps_lag2",
+              "importance": 0.001849384472928044
+            },
+            {
+              "feature": "estimate_eps_lag2",
+              "importance": 0.0016042502640803294
+            },
+            {
+              "feature": "previous_report_quarter_3",
+              "importance": 0.0012943430703838473
+            },
+            {
+              "feature": "beat_lag1",
+              "importance": 0.0
+            },
+            {
+              "feature": "beat_lag2",
+              "importance": 0.0
+            },
+            {
+              "feature": "beat_lag3",
+              "importance": 0.0
+            },
+            {
+              "feature": "beat_lag4",
+              "importance": 0.0
+            },
+            {
+              "feature": "beat_streak4",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_1",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_2",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_3",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_4",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_5",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_6",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_8",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_9",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_10",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_11",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_month_12",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_quarter_1",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_quarter_2",
+              "importance": 0.0
+            },
+            {
+              "feature": "previous_report_quarter_4",
+              "importance": 0.0
+            }
+          ]
+        },
+        "mi_selection": {
+          "samples": 15664,
+          "accuracy": 0.6484933605720122,
+          "macro_f1": 0.612366052863813,
+          "roc_auc": 0.672707951534314,
+          "confusion_matrix": [
+            [
+              2688,
+              3555
+            ],
+            [
+              1951,
+              7470
+            ]
+          ],
+          "per_class": {
+            "meet_or_miss": {
+              "precision": 0.5794352231084285,
+              "recall": 0.43056222969726093,
+              "f1": 0.4940268333027017,
+              "support": 6243
+            },
+            "beat": {
+              "precision": 0.6775510204081633,
+              "recall": 0.7929094575947352,
+              "f1": 0.7307052724249242,
+              "support": 9421
+            }
+          },
+          "feature_count": 15,
+          "tree_depth": 6,
+          "leaf_count": 63,
+          "selected_features": [
+            "actual_eps_lag1",
+            "actual_eps_lag2",
+            "actual_eps_lag3",
+            "actual_eps_lag4",
+            "estimate_eps_lag1",
+            "estimate_eps_lag2",
+            "estimate_eps_lag3",
+            "estimate_eps_lag4",
+            "surprise_eps_lag1",
+            "surprise_eps_lag2",
+            "surprise_eps_lag3",
+            "surprise_mean4",
+            "beat_lag1",
+            "beat_rate4",
+            "beat_streak4"
+          ],
+          "feature_importances": [
+            {
+              "feature": "beat_rate4",
+              "importance": 0.7634342711372243
+            },
+            {
+              "feature": "surprise_eps_lag1",
+              "importance": 0.06230003595494846
+            },
+            {
+              "feature": "actual_eps_lag1",
+              "importance": 0.061785079125989316
+            },
+            {
+              "feature": "estimate_eps_lag4",
+              "importance": 0.038478213658951724
+            },
+            {
+              "feature": "actual_eps_lag3",
+              "importance": 0.020876438539597437
+            },
+            {
+              "feature": "surprise_eps_lag2",
+              "importance": 0.019322733802503583
+            },
+            {
+              "feature": "surprise_mean4",
+              "importance": 0.012952112090865046
+            },
+            {
+              "feature": "actual_eps_lag4",
+              "importance": 0.0064291013522702395
+            },
+            {
+              "feature": "estimate_eps_lag1",
+              "importance": 0.005447176159626957
+            },
+            {
+              "feature": "estimate_eps_lag3",
+              "importance": 0.003697652815664764
+            },
+            {
+              "feature": "surprise_eps_lag3",
+              "importance": 0.0027860663961110825
+            },
+            {
+              "feature": "estimate_eps_lag2",
+              "importance": 0.0024911189662470083
+            },
+            {
+              "feature": "actual_eps_lag2",
+              "importance": 0.0
+            },
+            {
+              "feature": "beat_lag1",
+              "importance": 0.0
+            },
+            {
+              "feature": "beat_streak4",
+              "importance": 0.0
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "mean_performance": {
+    "all_features": {
+      "accuracy": 0.6622255043642642,
+      "macro_f1": 0.6193474953436231,
+      "roc_auc": 0.683888768597804
+    },
+    "mi_selection": {
+      "accuracy": 0.6610690256774594,
+      "macro_f1": 0.6188136936143106,
+      "roc_auc": 0.6819917429285477
+    }
+  }
+}
