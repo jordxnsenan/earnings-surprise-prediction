@@ -1,7 +1,11 @@
 from sklearn.pipeline import Pipeline
 from xgboost import XGBClassifier
 
-from earnings_surprise.preprocessing import build_preprocessor
+from earnings_surprise.preprocessing import (
+    build_preprocessor,
+    get_transformed_feature_names,
+)
+from earnings_surprise.selection import build_feature_selector
 
 XGB_TREE_COUNT = 200
 XGB_MAX_DEPTH = 4
@@ -13,12 +17,28 @@ XGB_RANDOM_STATE = 42
 XGB_N_JOBS = 4
 
 
-def build_xgboost_pipeline() -> Pipeline:
+def build_xgboost_pipeline(
+    selected_feature_count: int | None = None,
+) -> Pipeline:
     """creates an XGBoost classifier with training-fitted preprocessing"""
     preprocessor = build_preprocessor()
 
-    # no numerical scaling req. since Tree-based boosting
+    # no numerical scaling req. since gradient boosted trees
     preprocessor.set_params(continuous__scaler="passthrough")
+
+    steps = [
+        ("preprocessor", preprocessor),
+    ]
+
+    if selected_feature_count is not None:
+        transformed_names = get_transformed_feature_names()
+
+        selector = build_feature_selector(
+            transformed_names,
+            k=selected_feature_count,
+        )
+
+        steps.append(("selector", selector))
 
     classifier = XGBClassifier(
         objective="binary:logistic",
@@ -35,9 +55,6 @@ def build_xgboost_pipeline() -> Pipeline:
         n_jobs=XGB_N_JOBS,
     )
 
-    return Pipeline(
-        [
-            ("preprocessor", preprocessor),
-            ("classifier", classifier),
-        ]
-    )
+    steps.append(("classifier", classifier))
+
+    return Pipeline(steps)
