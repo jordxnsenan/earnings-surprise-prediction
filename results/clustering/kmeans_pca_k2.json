@@ -1,0 +1,29 @@
+{
+  "algorithm": "kmeans",
+  "samples": 4000,
+  "feature_count": 39,
+  "cluster_count": 2,
+  "inertia": 68210.08508563835,
+  "silhouette_score": 0.2207657269176715,
+  "silhouette_sample_size": 1000,
+  "calinski_harabasz_score": 1259.8459027202828,
+  "davies_bouldin_score": 1.6581169888028817,
+  "cluster_sizes": {
+    "0": 1817,
+    "1": 2183
+  },
+  "sampling": {
+    "method": "random_without_replacement",
+    "random_state": 42,
+    "sample_size": 4000,
+    "holdout_used": false
+  },
+  "pca": {
+    "explained_variance_ratio": [
+      0.37428881242637735,
+      0.16544485758686261
+    ],
+    "total_explained_variance": 0.53973367001324,
+    "purpose": "visualization_only"
+  }
+}
