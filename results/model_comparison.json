@@ -1,0 +1,146 @@
+{
+  "experiment": "chronological_model_comparison",
+  "primary_metric": "macro_f1",
+  "validation_years": [
+    2020,
+    2021,
+    2022,
+    2023
+  ],
+  "aggregation": "unweighted_mean_across_years",
+  "holdout_samples": 7996,
+  "models": [
+    {
+      "model": "XGBoost - All Features",
+      "family": "xgboost",
+      "configuration": "all_features",
+      "mean_macro_f1": 0.6251730236746706,
+      "mean_accuracy": 0.6689054554618988,
+      "mean_roc_auc": 0.6945504074771214,
+      "mean_miss_recall": 0.43854447505218164,
+      "std_macro_f1": 0.022729174211739984,
+      "validation_years": 4
+    },
+    {
+      "model": "XGBoost - MI Selection",
+      "family": "xgboost",
+      "configuration": "mi_selection",
+      "mean_macro_f1": 0.6231377689947659,
+      "mean_accuracy": 0.6687219375212142,
+      "mean_roc_auc": 0.6946109460326153,
+      "mean_miss_recall": 0.4302171845719347,
+      "std_macro_f1": 0.01977948886085723,
+      "validation_years": 4
+    },
+    {
+      "model": "Random Forest - MI Selection",
+      "family": "random_forest",
+      "configuration": "mi_selection",
+      "mean_macro_f1": 0.6227065550572081,
+      "mean_accuracy": 0.6697710552574697,
+      "mean_roc_auc": 0.6936954187473902,
+      "mean_miss_recall": 0.42436121640910485,
+      "std_macro_f1": 0.020537337055716073,
+      "validation_years": 4
+    },
+    {
+      "model": "Random Forest - All Features",
+      "family": "random_forest",
+      "configuration": "all_features",
+      "mean_macro_f1": 0.6223865778494958,
+      "mean_accuracy": 0.6691603516337209,
+      "mean_roc_auc": 0.6943522010159248,
+      "mean_miss_recall": 0.4251290902979184,
+      "std_macro_f1": 0.02177190273449438,
+      "validation_years": 4
+    },
+    {
+      "model": "Previous Outcome",
+      "family": "baseline",
+      "configuration": "previous_outcome",
+      "mean_macro_f1": 0.6217434071335897,
+      "mean_accuracy": 0.6458971084558234,
+      "mean_roc_auc": 0.6218209075883325,
+      "mean_miss_recall": 0.53006324236716,
+      "std_macro_f1": 0.02026376203818825,
+      "validation_years": 4
+    },
+    {
+      "model": "Decision Tree - All Features",
+      "family": "decision_tree",
+      "configuration": "all_features",
+      "mean_macro_f1": 0.6193474953436231,
+      "mean_accuracy": 0.6622255043642642,
+      "mean_roc_auc": 0.683888768597804,
+      "mean_miss_recall": 0.43870056964350745,
+      "std_macro_f1": 0.014989587783669748,
+      "validation_years": 4
+    },
+    {
+      "model": "Decision Tree - MI Selection",
+      "family": "decision_tree",
+      "configuration": "mi_selection",
+      "mean_macro_f1": 0.6188136936143106,
+      "mean_accuracy": 0.6610690256774594,
+      "mean_roc_auc": 0.6819917429285477,
+      "mean_miss_recall": 0.4401082761638198,
+      "std_macro_f1": 0.016297746275138164,
+      "validation_years": 4
+    },
+    {
+      "model": "Logistic Regression - All Features",
+      "family": "logistic_regression",
+      "configuration": "all_features",
+      "mean_macro_f1": 0.6179785352784211,
+      "mean_accuracy": 0.6678052511322308,
+      "mean_roc_auc": 0.6901862959393843,
+      "mean_miss_recall": 0.41112113685655616,
+      "std_macro_f1": 0.01890185245707093,
+      "validation_years": 4
+    },
+    {
+      "model": "Logistic Regression - MI Selection",
+      "family": "logistic_regression",
+      "configuration": "mi_selection",
+      "mean_macro_f1": 0.6175540417893887,
+      "mean_accuracy": 0.6689191015390751,
+      "mean_roc_auc": 0.6914169038591905,
+      "mean_miss_recall": 0.40527668796025007,
+      "std_macro_f1": 0.02101082362619942,
+      "validation_years": 4
+    },
+    {
+      "model": "Historical Beat Rate",
+      "family": "baseline",
+      "configuration": "historical_beat_rate",
+      "mean_macro_f1": 0.6043180036515106,
+      "mean_accuracy": 0.6638204156686115,
+      "mean_roc_auc": 0.6724908585443132,
+      "mean_miss_recall": 0.3703137460769385,
+      "std_macro_f1": 0.016416425332839102,
+      "validation_years": 4
+    },
+    {
+      "model": "Always Beat",
+      "family": "baseline",
+      "configuration": "always_beat",
+      "mean_macro_f1": 0.38487408218682595,
+      "mean_accuracy": 0.6260302692929021,
+      "mean_roc_auc": 0.5,
+      "mean_miss_recall": 0.0,
+      "std_macro_f1": 0.010337671390421294,
+      "validation_years": 4
+    },
+    {
+      "model": "Majority Class",
+      "family": "baseline",
+      "configuration": "majority_class",
+      "mean_macro_f1": 0.38487408218682595,
+      "mean_accuracy": 0.6260302692929021,
+      "mean_roc_auc": 0.5,
+      "mean_miss_recall": 0.0,
+      "std_macro_f1": 0.010337671390421294,
+      "validation_years": 4
+    }
+  ]
+}
