@@ -1,0 +1,24 @@
+{
+  "algorithm": "agglomerative",
+  "linkage": "ward",
+  "distance_metric": "euclidean",
+  "samples": 4000,
+  "feature_count": 39,
+  "cluster_count": 2,
+  "silhouette_score": 0.1985582522400962,
+  "silhouette_sample_size": 1000,
+  "calinski_harabasz_score": 995.1105580648227,
+  "davies_bouldin_score": 1.650585169089592,
+  "cluster_sizes": {
+    "0": 2884,
+    "1": 1116
+  },
+  "sampling": {
+    "method": "random_without_replacement",
+    "random_state": 42,
+    "sample_size": 4000,
+    "development_samples": 82353,
+    "holdout_samples": 7996,
+    "holdout_used": false
+  }
+}
