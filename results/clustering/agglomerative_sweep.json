@@ -1,0 +1,150 @@
+{
+  "experiment": "agglomerative_cluster_count_comparison",
+  "sample_count": 4000,
+  "feature_count": 39,
+  "linkage": "ward",
+  "distance_metric": "euclidean",
+  "sampling": {
+    "method": "random_without_replacement",
+    "sample_size": 4000,
+    "random_state": 42,
+    "development_samples": 82353,
+    "holdout_samples": 7996,
+    "holdout_used": false
+  },
+  "evaluations": [
+    {
+      "algorithm": "agglomerative",
+      "linkage": "ward",
+      "distance_metric": "euclidean",
+      "samples": 4000,
+      "feature_count": 39,
+      "cluster_count": 2,
+      "silhouette_score": 0.1985582522400962,
+      "silhouette_sample_size": 1000,
+      "calinski_harabasz_score": 995.1105580648227,
+      "davies_bouldin_score": 1.650585169089592,
+      "cluster_sizes": {
+        "0": 2884,
+        "1": 1116
+      }
+    },
+    {
+      "algorithm": "agglomerative",
+      "linkage": "ward",
+      "distance_metric": "euclidean",
+      "samples": 4000,
+      "feature_count": 39,
+      "cluster_count": 3,
+      "silhouette_score": 0.11054675735558173,
+      "silhouette_sample_size": 1000,
+      "calinski_harabasz_score": 776.7374143192025,
+      "davies_bouldin_score": 2.221564177311284,
+      "cluster_sizes": {
+        "0": 1885,
+        "1": 1116,
+        "2": 999
+      }
+    },
+    {
+      "algorithm": "agglomerative",
+      "linkage": "ward",
+      "distance_metric": "euclidean",
+      "samples": 4000,
+      "feature_count": 39,
+      "cluster_count": 4,
+      "silhouette_score": 0.09520180408624358,
+      "silhouette_sample_size": 1000,
+      "calinski_harabasz_score": 688.2897188560096,
+      "davies_bouldin_score": 1.9632773368438932,
+      "cluster_sizes": {
+        "0": 1116,
+        "1": 1267,
+        "2": 999,
+        "3": 618
+      }
+    },
+    {
+      "algorithm": "agglomerative",
+      "linkage": "ward",
+      "distance_metric": "euclidean",
+      "samples": 4000,
+      "feature_count": 39,
+      "cluster_count": 5,
+      "silhouette_score": 0.10139535963323658,
+      "silhouette_sample_size": 1000,
+      "calinski_harabasz_score": 606.9454300305981,
+      "davies_bouldin_score": 1.9504386710939312,
+      "cluster_sizes": {
+        "0": 999,
+        "1": 1267,
+        "2": 764,
+        "3": 618,
+        "4": 352
+      }
+    },
+    {
+      "algorithm": "agglomerative",
+      "linkage": "ward",
+      "distance_metric": "euclidean",
+      "samples": 4000,
+      "feature_count": 39,
+      "cluster_count": 6,
+      "silhouette_score": 0.10098761850465862,
+      "silhouette_sample_size": 1000,
+      "calinski_harabasz_score": 542.1283869764485,
+      "davies_bouldin_score": 2.146687225515015,
+      "cluster_sizes": {
+        "0": 744,
+        "1": 1267,
+        "2": 764,
+        "3": 618,
+        "4": 352,
+        "5": 255
+      }
+    },
+    {
+      "algorithm": "agglomerative",
+      "linkage": "ward",
+      "distance_metric": "euclidean",
+      "samples": 4000,
+      "feature_count": 39,
+      "cluster_count": 7,
+      "silhouette_score": 0.08815278042856436,
+      "silhouette_sample_size": 1000,
+      "calinski_harabasz_score": 489.73375159895215,
+      "davies_bouldin_score": 2.1519948120114907,
+      "cluster_sizes": {
+        "0": 1267,
+        "1": 352,
+        "2": 764,
+        "3": 618,
+        "4": 296,
+        "5": 255,
+        "6": 448
+      }
+    },
+    {
+      "algorithm": "agglomerative",
+      "linkage": "ward",
+      "distance_metric": "euclidean",
+      "samples": 4000,
+      "feature_count": 39,
+      "cluster_count": 8,
+      "silhouette_score": 0.08074302354188741,
+      "silhouette_sample_size": 1000,
+      "calinski_harabasz_score": 452.6103730260125,
+      "davies_bouldin_score": 2.2075561882157,
+      "cluster_sizes": {
+        "0": 764,
+        "1": 352,
+        "2": 255,
+        "3": 618,
+        "4": 296,
+        "5": 824,
+        "6": 448,
+        "7": 443
+      }
+    }
+  ]
+}

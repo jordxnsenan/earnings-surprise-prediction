@@ -1,0 +1,34 @@
+{
+  "experiment": "dbscan_neighbor_distances",
+  "sample_count": 4000,
+  "feature_count": 39,
+  "holdout_used": false,
+  "diagnostics": [
+    {
+      "min_samples": 10,
+      "samples": 4000,
+      "feature_count": 39,
+      "distance_percentiles": {
+        "50": 2.2559895848582627,
+        "70": 2.6543863681173696,
+        "85": 3.2276825626988317,
+        "95": 4.282877840497169
+      },
+      "minimum_distance": 1.1167963636072762,
+      "maximum_distance": 15.541942812643311
+    },
+    {
+      "min_samples": 40,
+      "samples": 4000,
+      "feature_count": 39,
+      "distance_percentiles": {
+        "50": 2.7181988468233778,
+        "70": 3.1718947504107837,
+        "85": 3.8824473488324633,
+        "95": 5.082999225906221
+      },
+      "minimum_distance": 1.821721592748274,
+      "maximum_distance": 16.89222213652838
+    }
+  ]
+}

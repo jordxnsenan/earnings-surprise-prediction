@@ -1,0 +1,3 @@
+cluster,samples,median_beat_rate4,median_beat_streak4,median_surprise_mean4,median_surprise_std4,median_actual_eps_lag1
+0,2884,0.5,1.0,0.0075,0.0694172168845741,0.07
+1,1116,1.0,4.0,0.10249999999999997,0.08972179222463181,1.16

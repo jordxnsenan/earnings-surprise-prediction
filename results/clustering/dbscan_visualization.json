@@ -1,0 +1,26 @@
+{
+  "pca_explained_variance": [
+    0.37428881242637735,
+    0.16544485758686261
+  ],
+  "total_explained_variance": 0.53973367001324,
+  "configurations": [
+    {
+      "eps": 2.2559895848582627,
+      "min_samples": 10,
+      "cluster_count": 1,
+      "noise_samples": 1222,
+      "noise_fraction": 0.3055
+    },
+    {
+      "eps": 3.2276825626988317,
+      "min_samples": 10,
+      "cluster_count": 1,
+      "noise_samples": 292,
+      "noise_fraction": 0.073
+    }
+  ],
+  "samples": 4000,
+  "holdout_used": false,
+  "purpose": "visualization_only"
+}
