@@ -1,0 +1,185 @@
+{
+  "experiment": "dbscan_parameter_comparison",
+  "sample_count": 4000,
+  "feature_count": 39,
+  "holdout_used": false,
+  "evaluation_population": "clustered_samples_only",
+  "evaluations": [
+    {
+      "algorithm": "dbscan",
+      "samples": 4000,
+      "feature_count": 39,
+      "eps": 2.2559895848582627,
+      "min_samples": 10,
+      "cluster_count": 1,
+      "clustered_samples": 2778,
+      "clustered_fraction": 0.6945,
+      "noise_samples": 1222,
+      "noise_fraction": 0.3055,
+      "core_samples": 2000,
+      "cluster_sizes": {
+        "0": 2778
+      },
+      "evaluation_population": "clustered_samples_only",
+      "silhouette_score": null,
+      "silhouette_sample_size": null,
+      "calinski_harabasz_score": null,
+      "davies_bouldin_score": null,
+      "eps_percentile": 50
+    },
+    {
+      "algorithm": "dbscan",
+      "samples": 4000,
+      "feature_count": 39,
+      "eps": 2.6543863681173696,
+      "min_samples": 10,
+      "cluster_count": 1,
+      "clustered_samples": 3334,
+      "clustered_fraction": 0.8335,
+      "noise_samples": 666,
+      "noise_fraction": 0.1665,
+      "core_samples": 2801,
+      "cluster_sizes": {
+        "0": 3334
+      },
+      "evaluation_population": "clustered_samples_only",
+      "silhouette_score": null,
+      "silhouette_sample_size": null,
+      "calinski_harabasz_score": null,
+      "davies_bouldin_score": null,
+      "eps_percentile": 70
+    },
+    {
+      "algorithm": "dbscan",
+      "samples": 4000,
+      "feature_count": 39,
+      "eps": 3.2276825626988317,
+      "min_samples": 10,
+      "cluster_count": 1,
+      "clustered_samples": 3708,
+      "clustered_fraction": 0.927,
+      "noise_samples": 292,
+      "noise_fraction": 0.073,
+      "core_samples": 3400,
+      "cluster_sizes": {
+        "0": 3708
+      },
+      "evaluation_population": "clustered_samples_only",
+      "silhouette_score": null,
+      "silhouette_sample_size": null,
+      "calinski_harabasz_score": null,
+      "davies_bouldin_score": null,
+      "eps_percentile": 85
+    },
+    {
+      "algorithm": "dbscan",
+      "samples": 4000,
+      "feature_count": 39,
+      "eps": 4.282877840497169,
+      "min_samples": 10,
+      "cluster_count": 1,
+      "clustered_samples": 3933,
+      "clustered_fraction": 0.98325,
+      "noise_samples": 67,
+      "noise_fraction": 0.01675,
+      "core_samples": 3800,
+      "cluster_sizes": {
+        "0": 3933
+      },
+      "evaluation_population": "clustered_samples_only",
+      "silhouette_score": null,
+      "silhouette_sample_size": null,
+      "calinski_harabasz_score": null,
+      "davies_bouldin_score": null,
+      "eps_percentile": 95
+    },
+    {
+      "algorithm": "dbscan",
+      "samples": 4000,
+      "feature_count": 39,
+      "eps": 2.7181988468233778,
+      "min_samples": 40,
+      "cluster_count": 1,
+      "clustered_samples": 3098,
+      "clustered_fraction": 0.7745,
+      "noise_samples": 902,
+      "noise_fraction": 0.2255,
+      "core_samples": 2000,
+      "cluster_sizes": {
+        "0": 3098
+      },
+      "evaluation_population": "clustered_samples_only",
+      "silhouette_score": null,
+      "silhouette_sample_size": null,
+      "calinski_harabasz_score": null,
+      "davies_bouldin_score": null,
+      "eps_percentile": 50
+    },
+    {
+      "algorithm": "dbscan",
+      "samples": 4000,
+      "feature_count": 39,
+      "eps": 3.1718947504107837,
+      "min_samples": 40,
+      "cluster_count": 1,
+      "clustered_samples": 3547,
+      "clustered_fraction": 0.88675,
+      "noise_samples": 453,
+      "noise_fraction": 0.11325,
+      "core_samples": 2800,
+      "cluster_sizes": {
+        "0": 3547
+      },
+      "evaluation_population": "clustered_samples_only",
+      "silhouette_score": null,
+      "silhouette_sample_size": null,
+      "calinski_harabasz_score": null,
+      "davies_bouldin_score": null,
+      "eps_percentile": 70
+    },
+    {
+      "algorithm": "dbscan",
+      "samples": 4000,
+      "feature_count": 39,
+      "eps": 3.8824473488324633,
+      "min_samples": 40,
+      "cluster_count": 1,
+      "clustered_samples": 3833,
+      "clustered_fraction": 0.95825,
+      "noise_samples": 167,
+      "noise_fraction": 0.04175,
+      "core_samples": 3400,
+      "cluster_sizes": {
+        "0": 3833
+      },
+      "evaluation_population": "clustered_samples_only",
+      "silhouette_score": null,
+      "silhouette_sample_size": null,
+      "calinski_harabasz_score": null,
+      "davies_bouldin_score": null,
+      "eps_percentile": 85
+    },
+    {
+      "algorithm": "dbscan",
+      "samples": 4000,
+      "feature_count": 39,
+      "eps": 5.082999225906221,
+      "min_samples": 40,
+      "cluster_count": 1,
+      "clustered_samples": 3962,
+      "clustered_fraction": 0.9905,
+      "noise_samples": 38,
+      "noise_fraction": 0.0095,
+      "core_samples": 3800,
+      "cluster_sizes": {
+        "0": 3962
+      },
+      "evaluation_population": "clustered_samples_only",
+      "silhouette_score": null,
+      "silhouette_sample_size": null,
+      "calinski_harabasz_score": null,
+      "davies_bouldin_score": null,
+      "eps_percentile": 95
+    }
+  ]
+}
