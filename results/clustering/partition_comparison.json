@@ -1,0 +1,33 @@
+{
+  "experiment": "kmeans_agglomerative_comparison",
+  "samples": 4000,
+  "feature_count": 39,
+  "holdout_used": false,
+  "adjusted_rand_index": 0.4078736027424528,
+  "contingency_matrix": [
+    [
+      711,
+      1106
+    ],
+    [
+      2173,
+      10
+    ]
+  ],
+  "kmeans_cluster_ids": [
+    0,
+    1
+  ],
+  "agglomerative_cluster_ids": [
+    0,
+    1
+  ],
+  "pca": {
+    "explained_variance_ratio": [
+      0.37428881242637735,
+      0.16544485758686261
+    ],
+    "total_explained_variance": 0.53973367001324,
+    "purpose": "visualization_only"
+  }
+}
