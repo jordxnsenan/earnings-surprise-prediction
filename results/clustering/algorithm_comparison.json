@@ -1,0 +1,48 @@
+{
+  "experiment": "clustering_algorithm_comparison",
+  "sample_count": 4000,
+  "feature_count": 39,
+  "holdout_used": false,
+  "kmeans": {
+    "cluster_count": 2,
+    "silhouette_score": 0.2207657269176715,
+    "calinski_harabasz_score": 1259.8459027202828,
+    "davies_bouldin_score": 1.6581169888028817,
+    "cluster_sizes": {
+      "0": 1817,
+      "1": 2183
+    }
+  },
+  "agglomerative": {
+    "cluster_count": 2,
+    "silhouette_score": 0.1985582522400962,
+    "calinski_harabasz_score": 995.1105580648227,
+    "davies_bouldin_score": 1.650585169089592,
+    "cluster_sizes": {
+      "0": 2884,
+      "1": 1116
+    }
+  },
+  "dbscan": {
+    "configurations_tested": 8,
+    "cluster_counts": [
+      1
+    ],
+    "minimum_noise_fraction": 0.0095,
+    "maximum_noise_fraction": 0.3055,
+    "valid_silhouette_results": 0
+  },
+  "partition_agreement": {
+    "adjusted_rand_index": 0.4078736027424528,
+    "contingency_matrix": [
+      [
+        711,
+        1106
+      ],
+      [
+        2173,
+        10
+      ]
+    ]
+  }
+}
