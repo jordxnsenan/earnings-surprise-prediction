@@ -1,0 +1,14 @@
+{
+  "experiment": "isolation_forest_anomaly_analysis",
+  "samples": 82353,
+  "outlier_count": 4118,
+  "outlier_fraction": 0.05000424999696429,
+  "holdout_used": false,
+  "pca_explained_variance_ratio": [
+    0.3758032638679107,
+    0.16617309376944833
+  ],
+  "pca_total_explained_variance": 0.5419763576373591,
+  "pca_plot_sample_size": 4000,
+  "note": "Exploratory development analysis only. Refit detectors within training folds before evaluating outlier removal."
+}

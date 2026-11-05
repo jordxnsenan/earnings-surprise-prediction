@@ -1,0 +1,151 @@
+{
+  "algorithm": "isolation_forest",
+  "samples": 82353,
+  "feature_count": 39,
+  "tree_count": 200,
+  "max_samples_per_tree": 256,
+  "contamination": 0.05,
+  "outlier_count": 4118,
+  "inlier_count": 78235,
+  "outlier_fraction": 0.05000424999696429,
+  "score_direction": "lower_is_more_anomalous",
+  "score_percentiles": {
+    "1": -0.6015191164983528,
+    "5": -0.549179476662249,
+    "25": -0.4803921094832448,
+    "50": -0.45540793095830556,
+    "75": -0.4406703905171928,
+    "95": -0.4276978210989696,
+    "99": -0.42124188354834363
+  },
+  "most_anomalous_observations": [
+    {
+      "source_row_position": 19108,
+      "anomaly_score": -0.6586381107837874
+    },
+    {
+      "source_row_position": 60260,
+      "anomaly_score": -0.6530450986828367
+    },
+    {
+      "source_row_position": 9365,
+      "anomaly_score": -0.6525938178849437
+    },
+    {
+      "source_row_position": 16587,
+      "anomaly_score": -0.6523303133150894
+    },
+    {
+      "source_row_position": 60262,
+      "anomaly_score": -0.6499012514667616
+    },
+    {
+      "source_row_position": 63660,
+      "anomaly_score": -0.6483762389007333
+    },
+    {
+      "source_row_position": 35530,
+      "anomaly_score": -0.6462602795851037
+    },
+    {
+      "source_row_position": 60259,
+      "anomaly_score": -0.6462034522189701
+    },
+    {
+      "source_row_position": 63663,
+      "anomaly_score": -0.6453599668190165
+    },
+    {
+      "source_row_position": 1719,
+      "anomaly_score": -0.6450784935889938
+    },
+    {
+      "source_row_position": 8535,
+      "anomaly_score": -0.6448349915661379
+    },
+    {
+      "source_row_position": 9364,
+      "anomaly_score": -0.6444349789108502
+    },
+    {
+      "source_row_position": 69936,
+      "anomaly_score": -0.64426784544413
+    },
+    {
+      "source_row_position": 61976,
+      "anomaly_score": -0.6439587321580227
+    },
+    {
+      "source_row_position": 61511,
+      "anomaly_score": -0.643918030353083
+    },
+    {
+      "source_row_position": 74163,
+      "anomaly_score": -0.6436424103915989
+    },
+    {
+      "source_row_position": 19104,
+      "anomaly_score": -0.6435786429157999
+    },
+    {
+      "source_row_position": 19106,
+      "anomaly_score": -0.6431304244388723
+    },
+    {
+      "source_row_position": 19101,
+      "anomaly_score": -0.641970566719284
+    },
+    {
+      "source_row_position": 58377,
+      "anomaly_score": -0.641757561976518
+    }
+  ],
+  "development": {
+    "first_date": "2017-12-20",
+    "last_date": "2023-12-29",
+    "sample_count": 82353,
+    "holdout_samples": 7996,
+    "holdout_used": false
+  },
+  "transformed_feature_names": [
+    "actual_eps_lag1",
+    "actual_eps_lag2",
+    "actual_eps_lag3",
+    "actual_eps_lag4",
+    "estimate_eps_lag1",
+    "estimate_eps_lag2",
+    "estimate_eps_lag3",
+    "estimate_eps_lag4",
+    "surprise_eps_lag1",
+    "surprise_eps_lag2",
+    "surprise_eps_lag3",
+    "surprise_eps_lag4",
+    "surprise_mean4",
+    "surprise_std4",
+    "eps_change1_2",
+    "eps_trend4",
+    "surprise_trend4",
+    "beat_lag1",
+    "beat_lag2",
+    "beat_lag3",
+    "beat_lag4",
+    "beat_rate4",
+    "beat_streak4",
+    "previous_report_month_1",
+    "previous_report_month_2",
+    "previous_report_month_3",
+    "previous_report_month_4",
+    "previous_report_month_5",
+    "previous_report_month_6",
+    "previous_report_month_7",
+    "previous_report_month_8",
+    "previous_report_month_9",
+    "previous_report_month_10",
+    "previous_report_month_11",
+    "previous_report_month_12",
+    "previous_report_quarter_1",
+    "previous_report_quarter_2",
+    "previous_report_quarter_3",
+    "previous_report_quarter_4"
+  ]
+}

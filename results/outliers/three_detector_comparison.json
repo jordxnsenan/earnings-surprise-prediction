@@ -1,0 +1,41 @@
+{
+  "experiment": "three_detector_outlier_comparison",
+  "sample_count": 4000,
+  "feature_count": 39,
+  "random_state": 42,
+  "holdout_used": false,
+  "samples": 4000,
+  "detector_outliers": {
+    "isolation_forest": 200,
+    "local_outlier_factor": 200,
+    "one_class_svm": 195
+  },
+  "agreement_counts": {
+    "none": 3678,
+    "exactly_one": 135,
+    "exactly_two": 101,
+    "all_three": 86,
+    "flagged_by_any": 322
+  },
+  "pairwise_agreement": {
+    "isolation_forest_vs_local_outlier_factor": {
+      "intersection": 89,
+      "union": 311,
+      "jaccard_similarity": 0.2861736334405145,
+      "expected_random_overlap": 10.0
+    },
+    "isolation_forest_vs_one_class_svm": {
+      "intersection": 140,
+      "union": 255,
+      "jaccard_similarity": 0.5490196078431373,
+      "expected_random_overlap": 9.75
+    },
+    "local_outlier_factor_vs_one_class_svm": {
+      "intersection": 130,
+      "union": 265,
+      "jaccard_similarity": 0.49056603773584906,
+      "expected_random_overlap": 9.75
+    }
+  },
+  "three_way_jaccard_similarity": 0.2670807453416149
+}
