@@ -1,0 +1,294 @@
+{
+  "experiment": "xgboost_outlier_removal_impact",
+  "model": "xgboost_all_features",
+  "outlier_detector": "isolation_forest",
+  "primary_metric": "macro_f1",
+  "validation_years": [
+    2020,
+    2021,
+    2022,
+    2023
+  ],
+  "holdout_samples": 7996,
+  "holdout_used": false,
+  "validation_filtered": false,
+  "folds": [
+    {
+      "validation_year": 2020,
+      "training_samples": 24591,
+      "validation_samples": 13449,
+      "retained_training_samples": 23361,
+      "removed_training_samples": 1230,
+      "removed_fraction": 0.05001829937782115,
+      "filter_summary": {
+        "algorithm": "isolation_forest",
+        "training_samples": 24591,
+        "retained_training_samples": 23361,
+        "removed_training_samples": 1230,
+        "removed_fraction": 0.05001829937782115,
+        "validation_samples": 13449,
+        "contamination": 0.05,
+        "tree_count": 200,
+        "training_last_date": "2019-12-30",
+        "validation_first_date": "2020-01-02",
+        "holdout_used": false,
+        "validation_filtered": false,
+        "anomaly_score_median": -0.4603616570347298
+      },
+      "baseline": {
+        "accuracy": 0.6465908245966243,
+        "macro_f1": 0.606972236645283,
+        "roc_auc": 0.6685609434503731,
+        "precision_class_0": 0.5224268177525968,
+        "recall_class_0": 0.44770382358891364,
+        "precision_class_1": 0.7036795831976554,
+        "recall_class_1": 0.762167881495415,
+        "confusion_matrix": [
+          [
+            2213,
+            2730
+          ],
+          [
+            2023,
+            6483
+          ]
+        ]
+      },
+      "filtered": {
+        "accuracy": 0.6425756561826158,
+        "macro_f1": 0.6065421022091556,
+        "roc_auc": 0.6664021336297511,
+        "precision_class_0": 0.5153291253381425,
+        "recall_class_0": 0.46247218288488773,
+        "precision_class_1": 0.7052035948075003,
+        "recall_class_1": 0.7472372442981425,
+        "confusion_matrix": [
+          [
+            2286,
+            2657
+          ],
+          [
+            2150,
+            6356
+          ]
+        ]
+      },
+      "macro_f1_difference": -0.0004301344361273829
+    },
+    {
+      "validation_year": 2021,
+      "training_samples": 38040,
+      "validation_samples": 13840,
+      "retained_training_samples": 36138,
+      "removed_training_samples": 1902,
+      "removed_fraction": 0.05,
+      "filter_summary": {
+        "algorithm": "isolation_forest",
+        "training_samples": 38040,
+        "retained_training_samples": 36138,
+        "removed_training_samples": 1902,
+        "removed_fraction": 0.05,
+        "validation_samples": 13840,
+        "contamination": 0.05,
+        "tree_count": 200,
+        "training_last_date": "2020-12-31",
+        "validation_first_date": "2021-01-04",
+        "holdout_used": false,
+        "validation_filtered": false,
+        "anomaly_score_median": -0.45737917976346154
+      },
+      "baseline": {
+        "accuracy": 0.715679190751445,
+        "macro_f1": 0.6581638659878878,
+        "roc_auc": 0.7270875098341075,
+        "precision_class_0": 0.6062517923716662,
+        "recall_class_0": 0.45209580838323354,
+        "precision_class_1": 0.7525354969574036,
+        "recall_class_1": 0.8501745962461807,
+        "confusion_matrix": [
+          [
+            2114,
+            2562
+          ],
+          [
+            1373,
+            7791
+          ]
+        ]
+      },
+      "filtered": {
+        "accuracy": 0.7114161849710983,
+        "macro_f1": 0.6527660239955391,
+        "roc_auc": 0.7241797971681505,
+        "precision_class_0": 0.5981012658227848,
+        "recall_class_0": 0.44461077844311375,
+        "precision_class_1": 0.749421072944809,
+        "recall_class_1": 0.8475556525534701,
+        "confusion_matrix": [
+          [
+            2079,
+            2597
+          ],
+          [
+            1397,
+            7767
+          ]
+        ]
+      },
+      "macro_f1_difference": -0.0053978419923487175
+    },
+    {
+      "validation_year": 2022,
+      "training_samples": 51880,
+      "validation_samples": 14809,
+      "retained_training_samples": 49286,
+      "removed_training_samples": 2594,
+      "removed_fraction": 0.05,
+      "filter_summary": {
+        "algorithm": "isolation_forest",
+        "training_samples": 51880,
+        "retained_training_samples": 49286,
+        "removed_training_samples": 2594,
+        "removed_fraction": 0.05,
+        "validation_samples": 14809,
+        "contamination": 0.05,
+        "tree_count": 200,
+        "training_last_date": "2021-12-30",
+        "validation_first_date": "2022-01-04",
+        "holdout_used": false,
+        "validation_filtered": false,
+        "anomaly_score_median": -0.4560234679461921
+      },
+      "baseline": {
+        "accuracy": 0.661219528665001,
+        "macro_f1": 0.621003588100023,
+        "roc_auc": 0.7000121974506085,
+        "precision_class_0": 0.5941162401339393,
+        "recall_class_0": 0.42798070296347346,
+        "precision_class_1": 0.687617613850207,
+        "recall_class_1": 0.8115491393670183,
+        "confusion_matrix": [
+          [
+            2484,
+            3320
+          ],
+          [
+            1697,
+            7308
+          ]
+        ]
+      },
+      "filtered": {
+        "accuracy": 0.6624350057397529,
+        "macro_f1": 0.6218407224918939,
+        "roc_auc": 0.6997961638587338,
+        "precision_class_0": 0.5969178906814351,
+        "recall_class_0": 0.4271192281185389,
+        "precision_class_1": 0.6879692192192193,
+        "recall_class_1": 0.8141032759578012,
+        "confusion_matrix": [
+          [
+            2479,
+            3325
+          ],
+          [
+            1674,
+            7331
+          ]
+        ]
+      },
+      "macro_f1_difference": 0.0008371343918709417
+    },
+    {
+      "validation_year": 2023,
+      "training_samples": 66689,
+      "validation_samples": 15664,
+      "retained_training_samples": 63354,
+      "removed_training_samples": 3335,
+      "removed_fraction": 0.05000824723717555,
+      "filter_summary": {
+        "algorithm": "isolation_forest",
+        "training_samples": 66689,
+        "retained_training_samples": 63354,
+        "removed_training_samples": 3335,
+        "removed_fraction": 0.05000824723717555,
+        "validation_samples": 15664,
+        "contamination": 0.05,
+        "tree_count": 200,
+        "training_last_date": "2022-12-30",
+        "validation_first_date": "2023-01-04",
+        "holdout_used": false,
+        "validation_filtered": false,
+        "anomaly_score_median": -0.4579515037025652
+      },
+      "baseline": {
+        "accuracy": 0.652132277834525,
+        "macro_f1": 0.614552403965489,
+        "roc_auc": 0.6825409791733963,
+        "precision_class_0": 0.5876379690949227,
+        "recall_class_0": 0.4263975652731059,
+        "precision_class_1": 0.678372552541764,
+        "recall_class_1": 0.8017195626791211,
+        "confusion_matrix": [
+          [
+            2662,
+            3581
+          ],
+          [
+            1868,
+            7553
+          ]
+        ]
+      },
+      "filtered": {
+        "accuracy": 0.6511108273748724,
+        "macro_f1": 0.6150703189546873,
+        "roc_auc": 0.6817437376799708,
+        "precision_class_0": 0.5840535868625756,
+        "recall_class_0": 0.4329649207111965,
+        "precision_class_1": 0.6792316056542226,
+        "recall_class_1": 0.7956692495488802,
+        "confusion_matrix": [
+          [
+            2703,
+            3540
+          ],
+          [
+            1925,
+            7496
+          ]
+        ]
+      },
+      "macro_f1_difference": 0.000517914989198287
+    }
+  ],
+  "mean_performance": {
+    "baseline": {
+      "accuracy": 0.6689054554618988,
+      "macro_f1": 0.6251730236746706,
+      "roc_auc": 0.6945504074771214,
+      "precision_class_0": 0.5776082048382812,
+      "recall_class_0": 0.43854447505218164,
+      "precision_class_1": 0.7055513116367575,
+      "recall_class_1": 0.8064027949469339
+    },
+    "filtered": {
+      "accuracy": 0.6668844185670848,
+      "macro_f1": 0.624054791912819,
+      "roc_auc": 0.6930304580841515,
+      "precision_class_0": 0.5736004671762345,
+      "recall_class_0": 0.4417917775394342,
+      "precision_class_1": 0.7054563731564378,
+      "recall_class_1": 0.8011413555895734
+    },
+    "difference_filtered_minus_baseline": {
+      "accuracy": -0.0020210368948140323,
+      "macro_f1": -0.0011182317618516624,
+      "roc_auc": -0.0015199493929698438,
+      "precision_class_0": -0.004007737662046762,
+      "recall_class_0": 0.003247302487252579,
+      "precision_class_1": -9.49384803197173e-05,
+      "recall_class_1": -0.005261439357360453
+    }
+  }
+}
