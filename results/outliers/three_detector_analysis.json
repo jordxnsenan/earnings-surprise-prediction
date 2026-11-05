@@ -1,0 +1,29 @@
+{
+  "experiment": "three_detector_agreement_analysis",
+  "sample_count": 4000,
+  "feature_count": 39,
+  "holdout_used": false,
+  "agreement_counts": {
+    "none": 3678,
+    "exactly_one": 135,
+    "exactly_two": 101,
+    "all_three": 86,
+    "flagged_by_any": 322
+  },
+  "profile_features": [
+    "actual_eps_lag1",
+    "estimate_eps_lag1",
+    "surprise_mean4",
+    "surprise_std4",
+    "beat_rate4",
+    "beat_streak4",
+    "eps_change1_2",
+    "eps_trend4"
+  ],
+  "pca_explained_variance_ratio": [
+    0.37428881242637735,
+    0.16544485758686261
+  ],
+  "pca_total_explained_variance": 0.53973367001324,
+  "pca_purpose": "visualization_only"
+}
