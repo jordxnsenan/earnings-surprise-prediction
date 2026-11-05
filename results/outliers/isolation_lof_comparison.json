@@ -1,0 +1,62 @@
+{
+  "experiment": "isolation_forest_lof_comparison",
+  "sample_count": 4000,
+  "feature_count": 39,
+  "random_state": 42,
+  "holdout_used": false,
+  "isolation_forest": {
+    "algorithm": "isolation_forest",
+    "samples": 4000,
+    "feature_count": 39,
+    "tree_count": 200,
+    "max_samples_per_tree": 256,
+    "contamination": 0.05,
+    "outlier_count": 200,
+    "inlier_count": 3800,
+    "outlier_fraction": 0.05,
+    "score_direction": "lower_is_more_anomalous",
+    "score_percentiles": {
+      "1": -0.6038350875486366,
+      "5": -0.5482591496353806,
+      "25": -0.4793846528179634,
+      "50": -0.45609546591269523,
+      "75": -0.4402810709113826,
+      "95": -0.4253123685032827,
+      "99": -0.41846673442605253
+    }
+  },
+  "local_outlier_factor": {
+    "algorithm": "local_outlier_factor",
+    "samples": 4000,
+    "feature_count": 39,
+    "neighbor_count": 20,
+    "distance_metric": "euclidean",
+    "contamination": 0.05,
+    "outlier_count": 200,
+    "inlier_count": 3800,
+    "outlier_fraction": 0.05,
+    "score_direction": "lower_is_more_anomalous",
+    "score_cutoff": -1.393977401876907,
+    "score_percentiles": {
+      "1": -1.7664965438970934,
+      "5": -1.393977401876907,
+      "25": -1.1369555839355368,
+      "50": -1.0578955458207893,
+      "75": -1.0143768580198638,
+      "95": -0.9835652786877752,
+      "99": -0.9722998511109422
+    }
+  },
+  "agreement": {
+    "samples": 4000,
+    "isolation_outliers": 200,
+    "lof_outliers": 200,
+    "both_outliers": 89,
+    "isolation_only": 111,
+    "lof_only": 111,
+    "neither": 3689,
+    "union_outliers": 311,
+    "jaccard_similarity": 0.2861736334405145,
+    "expected_overlap_under_random_selection": 10.0
+  }
+}
