@@ -1,0 +1,401 @@
+{
+  "experiment": "xgboost_repeated_feature_efficiency",
+  "repeats_per_fold": 3,
+  "holdout_used": false,
+  "process_isolation": "fresh worker process for each fit",
+  "fit_timing": "wall-clock time including preprocessing, feature selection, and model fitting",
+  "memory_measurement": "peak resident memory of the entire worker process at fit completion; includes dataset and libraries",
+  "memory_unit": "MiB",
+  "runs": [
+    {
+      "year": 2020,
+      "variant": "all_features",
+      "training_samples": 24591,
+      "validation_samples": 13449,
+      "fit_seconds": 0.20947691700712312,
+      "predict_seconds": 0.00875179200374987,
+      "peak_rss_mib": 326.96875,
+      "roc_auc": 0.6685609434503731,
+      "holdout_used": false,
+      "repeat": 1
+    },
+    {
+      "year": 2020,
+      "variant": "mutual_information_15",
+      "training_samples": 24591,
+      "validation_samples": 13449,
+      "fit_seconds": 0.8288856250001118,
+      "predict_seconds": 0.008545541000785306,
+      "peak_rss_mib": 336.703125,
+      "roc_auc": 0.6671319560744664,
+      "holdout_used": false,
+      "repeat": 1
+    },
+    {
+      "year": 2020,
+      "variant": "mutual_information_15",
+      "training_samples": 24591,
+      "validation_samples": 13449,
+      "fit_seconds": 0.8054988750081975,
+      "predict_seconds": 0.008276833992567845,
+      "peak_rss_mib": 335.828125,
+      "roc_auc": 0.6671319560744664,
+      "holdout_used": false,
+      "repeat": 2
+    },
+    {
+      "year": 2020,
+      "variant": "all_features",
+      "training_samples": 24591,
+      "validation_samples": 13449,
+      "fit_seconds": 0.2019910419912776,
+      "predict_seconds": 0.00891008399776183,
+      "peak_rss_mib": 326.625,
+      "roc_auc": 0.6685609434503731,
+      "holdout_used": false,
+      "repeat": 2
+    },
+    {
+      "year": 2020,
+      "variant": "all_features",
+      "training_samples": 24591,
+      "validation_samples": 13449,
+      "fit_seconds": 0.20022070800769143,
+      "predict_seconds": 0.008649291994515806,
+      "peak_rss_mib": 326.296875,
+      "roc_auc": 0.6685609434503731,
+      "holdout_used": false,
+      "repeat": 3
+    },
+    {
+      "year": 2020,
+      "variant": "mutual_information_15",
+      "training_samples": 24591,
+      "validation_samples": 13449,
+      "fit_seconds": 0.8415260840120027,
+      "predict_seconds": 0.009838375000981614,
+      "peak_rss_mib": 331.671875,
+      "roc_auc": 0.6671319560744664,
+      "holdout_used": false,
+      "repeat": 3
+    },
+    {
+      "year": 2021,
+      "variant": "all_features",
+      "training_samples": 38040,
+      "validation_samples": 13840,
+      "fit_seconds": 0.24559645800036378,
+      "predict_seconds": 0.00902520801173523,
+      "peak_rss_mib": 344.765625,
+      "roc_auc": 0.7270875098341075,
+      "holdout_used": false,
+      "repeat": 1
+    },
+    {
+      "year": 2021,
+      "variant": "mutual_information_15",
+      "training_samples": 38040,
+      "validation_samples": 13840,
+      "fit_seconds": 1.215188832997228,
+      "predict_seconds": 0.008627332994365133,
+      "peak_rss_mib": 360.53125,
+      "roc_auc": 0.7322827726414104,
+      "holdout_used": false,
+      "repeat": 1
+    },
+    {
+      "year": 2021,
+      "variant": "mutual_information_15",
+      "training_samples": 38040,
+      "validation_samples": 13840,
+      "fit_seconds": 1.2830811250023544,
+      "predict_seconds": 0.008400667007663287,
+      "peak_rss_mib": 359.28125,
+      "roc_auc": 0.7322827726414104,
+      "holdout_used": false,
+      "repeat": 2
+    },
+    {
+      "year": 2021,
+      "variant": "all_features",
+      "training_samples": 38040,
+      "validation_samples": 13840,
+      "fit_seconds": 0.25516945899289567,
+      "predict_seconds": 0.009440417008590885,
+      "peak_rss_mib": 344.546875,
+      "roc_auc": 0.7270875098341075,
+      "holdout_used": false,
+      "repeat": 2
+    },
+    {
+      "year": 2021,
+      "variant": "all_features",
+      "training_samples": 38040,
+      "validation_samples": 13840,
+      "fit_seconds": 0.24220791600237135,
+      "predict_seconds": 0.00865591700130608,
+      "peak_rss_mib": 344.609375,
+      "roc_auc": 0.7270875098341075,
+      "holdout_used": false,
+      "repeat": 3
+    },
+    {
+      "year": 2021,
+      "variant": "mutual_information_15",
+      "training_samples": 38040,
+      "validation_samples": 13840,
+      "fit_seconds": 1.1981710420077434,
+      "predict_seconds": 0.00823925000440795,
+      "peak_rss_mib": 366.328125,
+      "roc_auc": 0.7322827726414104,
+      "holdout_used": false,
+      "repeat": 3
+    },
+    {
+      "year": 2022,
+      "variant": "all_features",
+      "training_samples": 51880,
+      "validation_samples": 14809,
+      "fit_seconds": 0.2975848330097506,
+      "predict_seconds": 0.00908408299437724,
+      "peak_rss_mib": 369.328125,
+      "roc_auc": 0.7000121974506085,
+      "holdout_used": false,
+      "repeat": 1
+    },
+    {
+      "year": 2022,
+      "variant": "mutual_information_15",
+      "training_samples": 51880,
+      "validation_samples": 14809,
+      "fit_seconds": 1.6616499999945518,
+      "predict_seconds": 0.009001915997941978,
+      "peak_rss_mib": 389.375,
+      "roc_auc": 0.6990281549686579,
+      "holdout_used": false,
+      "repeat": 1
+    },
+    {
+      "year": 2022,
+      "variant": "mutual_information_15",
+      "training_samples": 51880,
+      "validation_samples": 14809,
+      "fit_seconds": 1.6030685000005178,
+      "predict_seconds": 0.008546834011212923,
+      "peak_rss_mib": 393.421875,
+      "roc_auc": 0.6990281549686579,
+      "holdout_used": false,
+      "repeat": 2
+    },
+    {
+      "year": 2022,
+      "variant": "all_features",
+      "training_samples": 51880,
+      "validation_samples": 14809,
+      "fit_seconds": 0.29236445800052024,
+      "predict_seconds": 0.00942395800666418,
+      "peak_rss_mib": 373.796875,
+      "roc_auc": 0.7000121974506085,
+      "holdout_used": false,
+      "repeat": 2
+    },
+    {
+      "year": 2022,
+      "variant": "all_features",
+      "training_samples": 51880,
+      "validation_samples": 14809,
+      "fit_seconds": 0.2941100410098443,
+      "predict_seconds": 0.009441417001653463,
+      "peak_rss_mib": 372.640625,
+      "roc_auc": 0.7000121974506085,
+      "holdout_used": false,
+      "repeat": 3
+    },
+    {
+      "year": 2022,
+      "variant": "mutual_information_15",
+      "training_samples": 51880,
+      "validation_samples": 14809,
+      "fit_seconds": 1.6245839159964817,
+      "predict_seconds": 0.008586666008341126,
+      "peak_rss_mib": 390.578125,
+      "roc_auc": 0.6990281549686579,
+      "holdout_used": false,
+      "repeat": 3
+    },
+    {
+      "year": 2023,
+      "variant": "all_features",
+      "training_samples": 66689,
+      "validation_samples": 15664,
+      "fit_seconds": 0.35558079098700546,
+      "predict_seconds": 0.009698957990622148,
+      "peak_rss_mib": 402.265625,
+      "roc_auc": 0.6825409791733963,
+      "holdout_used": false,
+      "repeat": 1
+    },
+    {
+      "year": 2023,
+      "variant": "mutual_information_15",
+      "training_samples": 66689,
+      "validation_samples": 15664,
+      "fit_seconds": 2.126164291999885,
+      "predict_seconds": 0.008993249997729436,
+      "peak_rss_mib": 430.21875,
+      "roc_auc": 0.6800009004459265,
+      "holdout_used": false,
+      "repeat": 1
+    },
+    {
+      "year": 2023,
+      "variant": "mutual_information_15",
+      "training_samples": 66689,
+      "validation_samples": 15664,
+      "fit_seconds": 2.1758774159970926,
+      "predict_seconds": 0.009002417005831376,
+      "peak_rss_mib": 425.671875,
+      "roc_auc": 0.6800009004459265,
+      "holdout_used": false,
+      "repeat": 2
+    },
+    {
+      "year": 2023,
+      "variant": "all_features",
+      "training_samples": 66689,
+      "validation_samples": 15664,
+      "fit_seconds": 0.3563454160030233,
+      "predict_seconds": 0.00968562500202097,
+      "peak_rss_mib": 393.796875,
+      "roc_auc": 0.6825409791733963,
+      "holdout_used": false,
+      "repeat": 2
+    },
+    {
+      "year": 2023,
+      "variant": "all_features",
+      "training_samples": 66689,
+      "validation_samples": 15664,
+      "fit_seconds": 0.34903429199766833,
+      "predict_seconds": 0.009672959000454284,
+      "peak_rss_mib": 397.0625,
+      "roc_auc": 0.6825409791733963,
+      "holdout_used": false,
+      "repeat": 3
+    },
+    {
+      "year": 2023,
+      "variant": "mutual_information_15",
+      "training_samples": 66689,
+      "validation_samples": 15664,
+      "fit_seconds": 2.263142916999641,
+      "predict_seconds": 0.00958429099409841,
+      "peak_rss_mib": 424.9375,
+      "roc_auc": 0.6800009004459265,
+      "holdout_used": false,
+      "repeat": 3
+    }
+  ],
+  "by_year": {
+    "2020": {
+      "all_features": {
+        "runs": 3,
+        "mean_fit_seconds": 0.20389622233536406,
+        "std_fit_seconds": 0.004913413820136677,
+        "mean_predict_seconds": 0.008770389332009168,
+        "std_predict_seconds": 0.0001313868817768984,
+        "mean_peak_rss_mib": 326.6302083333333,
+        "std_peak_rss_mib": 0.3359677796431279
+      },
+      "mutual_information_15": {
+        "runs": 3,
+        "mean_fit_seconds": 0.8253035280067706,
+        "std_fit_seconds": 0.018278772149770972,
+        "mean_predict_seconds": 0.008886916664778255,
+        "std_predict_seconds": 0.0008348686053592163,
+        "mean_peak_rss_mib": 334.734375,
+        "std_peak_rss_mib": 2.688045002878486
+      }
+    },
+    "2021": {
+      "all_features": {
+        "runs": 3,
+        "mean_fit_seconds": 0.24765794433187693,
+        "std_fit_seconds": 0.006722179229614769,
+        "mean_predict_seconds": 0.009040514007210732,
+        "std_predict_seconds": 0.0003924739105731576,
+        "mean_peak_rss_mib": 344.640625,
+        "std_peak_rss_mib": 0.11267347735824966
+      },
+      "mutual_information_15": {
+        "runs": 3,
+        "mean_fit_seconds": 1.232147000002442,
+        "std_fit_seconds": 0.044923436196160196,
+        "mean_predict_seconds": 0.008422416668812124,
+        "std_predict_seconds": 0.00019495355240054942,
+        "mean_peak_rss_mib": 362.046875,
+        "std_peak_rss_mib": 3.759980208973845
+      }
+    },
+    "2022": {
+      "all_features": {
+        "runs": 3,
+        "mean_fit_seconds": 0.294686444006705,
+        "std_fit_seconds": 0.002657491132692959,
+        "mean_predict_seconds": 0.009316486000898294,
+        "std_predict_seconds": 0.00020145612973182926,
+        "mean_peak_rss_mib": 371.921875,
+        "std_peak_rss_mib": 2.3194574392516882
+      },
+      "mutual_information_15": {
+        "runs": 3,
+        "mean_fit_seconds": 1.6297674719971837,
+        "std_fit_seconds": 0.02963275172840114,
+        "mean_predict_seconds": 0.008711805339165343,
+        "std_predict_seconds": 0.00025203133287483436,
+        "mean_peak_rss_mib": 391.125,
+        "std_peak_rss_mib": 2.078125
+      }
+    },
+    "2023": {
+      "all_features": {
+        "runs": 3,
+        "mean_fit_seconds": 0.3536534996625657,
+        "std_fit_seconds": 0.004018578410627932,
+        "mean_predict_seconds": 0.009685847331032468,
+        "std_predict_seconds": 1.3000920931964127e-05,
+        "mean_peak_rss_mib": 397.7083333333333,
+        "std_peak_rss_mib": 4.271154078402971
+      },
+      "mutual_information_15": {
+        "runs": 3,
+        "mean_fit_seconds": 2.1883948749988726,
+        "std_fit_seconds": 0.06934191381554074,
+        "mean_predict_seconds": 0.009193319332553074,
+        "std_predict_seconds": 0.0003386224130326077,
+        "mean_peak_rss_mib": 426.9427083333333,
+        "std_peak_rss_mib": 2.860797687963679
+      }
+    }
+  },
+  "overall": {
+    "all_features": {
+      "runs": 12,
+      "mean_fit_seconds": 0.2749735275841279,
+      "std_fit_seconds": 0.058244676378659835,
+      "mean_predict_seconds": 0.009203309167787666,
+      "std_predict_seconds": 0.00040483728806045766,
+      "mean_peak_rss_mib": 360.2252604166667,
+      "std_peak_rss_mib": 28.264008947920328
+    },
+    "mutual_information_15": {
+      "runs": 12,
+      "mean_fit_seconds": 1.4689032187513174,
+      "std_fit_seconds": 0.5272170607418449,
+      "mean_predict_seconds": 0.008803614501327198,
+      "std_predict_seconds": 0.000501275125091987,
+      "mean_peak_rss_mib": 378.7122395833333,
+      "std_peak_rss_mib": 35.85812532379652
+    }
+  }
+}
