@@ -1,0 +1,111 @@
+{
+  "experiment": "other_classifier_roc_comparison",
+  "holdout_used": false,
+  "models": {
+    "logistic_regression": {
+      "model": "logistic_regression",
+      "holdout_used": false,
+      "holdout_samples": 7996,
+      "feature_selection_fitted_on_training_only": true,
+      "validation_years": [
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "yearly_roc_auc": {
+        "2020": {
+          "all_features": 0.6649455330861166,
+          "mutual_information_15": 0.6619923036084202
+        },
+        "2021": {
+          "all_features": 0.7250623464675064,
+          "mutual_information_15": 0.7319459299583785
+        },
+        "2022": {
+          "all_features": 0.6942237274567196,
+          "mutual_information_15": 0.6953989207313036
+        },
+        "2023": {
+          "all_features": 0.6765135767471945,
+          "mutual_information_15": 0.6763304611386598
+        }
+      },
+      "mean_roc_auc": {
+        "all_features": 0.6901862959393842,
+        "mutual_information_15": 0.6914169038591905
+      },
+      "roc_auc_change": 0.0012306079198063369
+    },
+    "decision_tree": {
+      "model": "decision_tree",
+      "holdout_used": false,
+      "holdout_samples": 7996,
+      "feature_selection_fitted_on_training_only": true,
+      "validation_years": [
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "yearly_roc_auc": {
+        "2020": {
+          "all_features": 0.6536261559535581,
+          "mutual_information_15": 0.6499863313630547
+        },
+        "2021": {
+          "all_features": 0.7166459467421707,
+          "mutual_information_15": 0.7123896381645887
+        },
+        "2022": {
+          "all_features": 0.6943858244003351,
+          "mutual_information_15": 0.6928830506522335
+        },
+        "2023": {
+          "all_features": 0.6708971472951522,
+          "mutual_information_15": 0.672707951534314
+        }
+      },
+      "mean_roc_auc": {
+        "all_features": 0.683888768597804,
+        "mutual_information_15": 0.6819917429285477
+      },
+      "roc_auc_change": -0.0018970256692563137
+    },
+    "random_forest": {
+      "model": "random_forest",
+      "holdout_used": false,
+      "holdout_samples": 7996,
+      "feature_selection_fitted_on_training_only": true,
+      "validation_years": [
+        2020,
+        2021,
+        2022,
+        2023
+      ],
+      "yearly_roc_auc": {
+        "2020": {
+          "all_features": 0.6646454985375485,
+          "mutual_information_15": 0.6620799950377163
+        },
+        "2021": {
+          "all_features": 0.7305184091503966,
+          "mutual_information_15": 0.7325943416216765
+        },
+        "2022": {
+          "all_features": 0.7017662291146162,
+          "mutual_information_15": 0.7006696926548579
+        },
+        "2023": {
+          "all_features": 0.6804786672611378,
+          "mutual_information_15": 0.67943764567531
+        }
+      },
+      "mean_roc_auc": {
+        "all_features": 0.6943522010159248,
+        "mutual_information_15": 0.69369541874739
+      },
+      "roc_auc_change": -0.0006567822685347169
+    }
+  }
+}
