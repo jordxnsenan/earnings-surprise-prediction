@@ -1,0 +1,204 @@
+{
+  "experiment": "chronological_classifier_random_search",
+  "model": "logistic_regression",
+  "scoring": "f1_macro",
+  "random_state": 42,
+  "iterations": 10,
+  "search_samples": 66689,
+  "search_validation_years": [
+    2020,
+    2021,
+    2022
+  ],
+  "assessment_year": 2023,
+  "assessment_samples": 15664,
+  "holdout_samples": 7996,
+  "assessment_used": false,
+  "holdout_used": false,
+  "refit_during_search": false,
+  "search_space": {
+    "C": [
+      0.1,
+      0.3,
+      1.0,
+      3.0,
+      10.0
+    ],
+    "class_weight": [
+      null,
+      "balanced"
+    ]
+  },
+  "baseline": {
+    "mean_macro_f1": 0.6221032751857094,
+    "yearly_macro_f1": {
+      "2020": 0.6062459573376278,
+      "2021": 0.6456923385312631,
+      "2022": 0.6143715296882375
+    }
+  },
+  "best_configuration": {
+    "mean_macro_f1": 0.6342885805817401,
+    "improvement_over_baseline": 0.012185305396030688,
+    "pipeline_parameters": {
+      "classifier__class_weight": "balanced",
+      "classifier__C": 1.0
+    },
+    "model_parameters": {
+      "class_weight": "balanced",
+      "C": 1.0
+    }
+  },
+  "candidates": [
+    {
+      "candidate_number": 6,
+      "rank": 1,
+      "parameters": {
+        "class_weight": "balanced",
+        "C": 1.0
+      },
+      "mean_macro_f1": 0.6342885805817401,
+      "yearly_macro_f1": {
+        "2020": 0.6030664052302879,
+        "2021": 0.6632777600710198,
+        "2022": 0.6365215764439124
+      },
+      "mean_fit_seconds": 0.2898818651835124
+    },
+    {
+      "candidate_number": 10,
+      "rank": 2,
+      "parameters": {
+        "class_weight": "balanced",
+        "C": 10.0
+      },
+      "mean_macro_f1": 0.6342524111488255,
+      "yearly_macro_f1": {
+        "2020": 0.6033893549975755,
+        "2021": 0.6632777600710198,
+        "2022": 0.6360901183778811
+      },
+      "mean_fit_seconds": 0.2664855321248372
+    },
+    {
+      "candidate_number": 8,
+      "rank": 3,
+      "parameters": {
+        "class_weight": "balanced",
+        "C": 3.0
+      },
+      "mean_macro_f1": 0.6342043646143501,
+      "yearly_macro_f1": {
+        "2020": 0.6033216063002873,
+        "2021": 0.6632777600710198,
+        "2022": 0.6360137274717431
+      },
+      "mean_fit_seconds": 0.4566747347513835
+    },
+    {
+      "candidate_number": 4,
+      "rank": 4,
+      "parameters": {
+        "class_weight": "balanced",
+        "C": 0.3
+      },
+      "mean_macro_f1": 0.634127143963187,
+      "yearly_macro_f1": {
+        "2020": 0.6029828364091305,
+        "2021": 0.663367585962942,
+        "2022": 0.6360310095174886
+      },
+      "mean_fit_seconds": 0.29582969347635907
+    },
+    {
+      "candidate_number": 2,
+      "rank": 5,
+      "parameters": {
+        "class_weight": "balanced",
+        "C": 0.1
+      },
+      "mean_macro_f1": 0.6341136138273328,
+      "yearly_macro_f1": {
+        "2020": 0.6029260831438812,
+        "2021": 0.6632777600710198,
+        "2022": 0.6361369982670972
+      },
+      "mean_fit_seconds": 0.27590664227803546
+    },
+    {
+      "candidate_number": 1,
+      "rank": 6,
+      "parameters": {
+        "class_weight": null,
+        "C": 0.1
+      },
+      "mean_macro_f1": 0.622279237864041,
+      "yearly_macro_f1": {
+        "2020": 0.6066876181346942,
+        "2021": 0.6458619501536357,
+        "2022": 0.6142881453037932
+      },
+      "mean_fit_seconds": 0.34326903025309247
+    },
+    {
+      "candidate_number": 3,
+      "rank": 7,
+      "parameters": {
+        "class_weight": null,
+        "C": 0.3
+      },
+      "mean_macro_f1": 0.6222016341210622,
+      "yearly_macro_f1": {
+        "2020": 0.6063075773969738,
+        "2021": 0.6458696253270944,
+        "2022": 0.6144276996391181
+      },
+      "mean_fit_seconds": 0.28701265652974445
+    },
+    {
+      "candidate_number": 7,
+      "rank": 8,
+      "parameters": {
+        "class_weight": null,
+        "C": 3.0
+      },
+      "mean_macro_f1": 0.6221386557181602,
+      "yearly_macro_f1": {
+        "2020": 0.6063520989349798,
+        "2021": 0.6456923385312631,
+        "2022": 0.6143715296882375
+      },
+      "mean_fit_seconds": 1.0765330791473389
+    },
+    {
+      "candidate_number": 9,
+      "rank": 9,
+      "parameters": {
+        "class_weight": null,
+        "C": 10.0
+      },
+      "mean_macro_f1": 0.6221354760714811,
+      "yearly_macro_f1": {
+        "2020": 0.6064582236224196,
+        "2021": 0.6455766749037863,
+        "2022": 0.6143715296882375
+      },
+      "mean_fit_seconds": 0.24485564231872559
+    },
+    {
+      "candidate_number": 5,
+      "rank": 10,
+      "parameters": {
+        "class_weight": null,
+        "C": 1.0
+      },
+      "mean_macro_f1": 0.6221032751857094,
+      "yearly_macro_f1": {
+        "2020": 0.6062459573376278,
+        "2021": 0.6456923385312631,
+        "2022": 0.6143715296882375
+      },
+      "mean_fit_seconds": 0.4511587619781494
+    }
+  ]
+}
