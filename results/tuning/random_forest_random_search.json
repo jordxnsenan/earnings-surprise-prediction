@@ -1,0 +1,361 @@
+{
+  "experiment": "chronological_classifier_random_search",
+  "model": "random_forest",
+  "scoring": "f1_macro",
+  "random_state": 42,
+  "iterations": 16,
+  "search_samples": 66689,
+  "search_validation_years": [
+    2020,
+    2021,
+    2022
+  ],
+  "assessment_year": 2023,
+  "assessment_samples": 15664,
+  "holdout_samples": 7996,
+  "assessment_used": false,
+  "holdout_used": false,
+  "refit_during_search": false,
+  "search_space": {
+    "n_estimators": [
+      100,
+      200,
+      300
+    ],
+    "max_depth": [
+      4,
+      8,
+      12,
+      null
+    ],
+    "min_samples_leaf": [
+      1,
+      5,
+      20
+    ],
+    "max_features": [
+      "sqrt",
+      0.75
+    ],
+    "class_weight": [
+      null,
+      "balanced"
+    ]
+  },
+  "baseline": {
+    "mean_macro_f1": 0.6263132495290813,
+    "yearly_macro_f1": {
+      "2020": 0.6064641942594725,
+      "2021": 0.6542106003651216,
+      "2022": 0.6182649539626499
+    }
+  },
+  "best_configuration": {
+    "mean_macro_f1": 0.6385849714659133,
+    "improvement_over_baseline": 0.012271721936832014,
+    "pipeline_parameters": {
+      "classifier__n_estimators": 100,
+      "classifier__min_samples_leaf": 20,
+      "classifier__max_features": "sqrt",
+      "classifier__max_depth": 4,
+      "classifier__class_weight": "balanced"
+    },
+    "model_parameters": {
+      "n_estimators": 100,
+      "min_samples_leaf": 20,
+      "max_features": "sqrt",
+      "max_depth": 4,
+      "class_weight": "balanced"
+    }
+  },
+  "candidates": [
+    {
+      "candidate_number": 12,
+      "rank": 1,
+      "parameters": {
+        "n_estimators": 100,
+        "min_samples_leaf": 20,
+        "max_features": "sqrt",
+        "max_depth": 4,
+        "class_weight": "balanced"
+      },
+      "mean_macro_f1": 0.6385849714659133,
+      "yearly_macro_f1": {
+        "2020": 0.6018540518404017,
+        "2021": 0.6732962650472245,
+        "2022": 0.6406045975101137
+      },
+      "mean_fit_seconds": 0.27418168385823566
+    },
+    {
+      "candidate_number": 4,
+      "rank": 2,
+      "parameters": {
+        "n_estimators": 200,
+        "min_samples_leaf": 20,
+        "max_features": "sqrt",
+        "max_depth": 8,
+        "class_weight": "balanced"
+      },
+      "mean_macro_f1": 0.6375170394999924,
+      "yearly_macro_f1": {
+        "2020": 0.6054157575141528,
+        "2021": 0.668989884555391,
+        "2022": 0.6381454764304332
+      },
+      "mean_fit_seconds": 0.7355728149414062
+    },
+    {
+      "candidate_number": 13,
+      "rank": 3,
+      "parameters": {
+        "n_estimators": 200,
+        "min_samples_leaf": 5,
+        "max_features": "sqrt",
+        "max_depth": 8,
+        "class_weight": "balanced"
+      },
+      "mean_macro_f1": 0.6370466634193802,
+      "yearly_macro_f1": {
+        "2020": 0.6047637556467405,
+        "2021": 0.6681539722309546,
+        "2022": 0.6382222623804457
+      },
+      "mean_fit_seconds": 0.7026419639587402
+    },
+    {
+      "candidate_number": 15,
+      "rank": 4,
+      "parameters": {
+        "n_estimators": 200,
+        "min_samples_leaf": 1,
+        "max_features": 0.75,
+        "max_depth": 8,
+        "class_weight": "balanced"
+      },
+      "mean_macro_f1": 0.6355243576983687,
+      "yearly_macro_f1": {
+        "2020": 0.602249537232197,
+        "2021": 0.6658604557553351,
+        "2022": 0.6384630801075739
+      },
+      "mean_fit_seconds": 2.4091672897338867
+    },
+    {
+      "candidate_number": 3,
+      "rank": 5,
+      "parameters": {
+        "n_estimators": 200,
+        "min_samples_leaf": 1,
+        "max_features": 0.75,
+        "max_depth": 4,
+        "class_weight": "balanced"
+      },
+      "mean_macro_f1": 0.6351070951797076,
+      "yearly_macro_f1": {
+        "2020": 0.5995682153852636,
+        "2021": 0.6685594921298419,
+        "2022": 0.6371935780240174
+      },
+      "mean_fit_seconds": 1.5139826933542888
+    },
+    {
+      "candidate_number": 7,
+      "rank": 6,
+      "parameters": {
+        "n_estimators": 100,
+        "min_samples_leaf": 20,
+        "max_features": "sqrt",
+        "max_depth": null,
+        "class_weight": "balanced"
+      },
+      "mean_macro_f1": 0.6343193512230378,
+      "yearly_macro_f1": {
+        "2020": 0.6013925579506747,
+        "2021": 0.6607388305387744,
+        "2022": 0.6408266651796644
+      },
+      "mean_fit_seconds": 0.5139057636260986
+    },
+    {
+      "candidate_number": 14,
+      "rank": 7,
+      "parameters": {
+        "n_estimators": 200,
+        "min_samples_leaf": 20,
+        "max_features": "sqrt",
+        "max_depth": null,
+        "class_weight": "balanced"
+      },
+      "mean_macro_f1": 0.6341538076728802,
+      "yearly_macro_f1": {
+        "2020": 0.602151328758149,
+        "2021": 0.6610453400861726,
+        "2022": 0.639264754174319
+      },
+      "mean_fit_seconds": 0.939714272816976
+    },
+    {
+      "candidate_number": 1,
+      "rank": 8,
+      "parameters": {
+        "n_estimators": 100,
+        "min_samples_leaf": 1,
+        "max_features": 0.75,
+        "max_depth": 12,
+        "class_weight": "balanced"
+      },
+      "mean_macro_f1": 0.6309175800482251,
+      "yearly_macro_f1": {
+        "2020": 0.6004489080412447,
+        "2021": 0.6566789391896215,
+        "2022": 0.6356248929138091
+      },
+      "mean_fit_seconds": 1.768121321996053
+    },
+    {
+      "candidate_number": 2,
+      "rank": 9,
+      "parameters": {
+        "n_estimators": 200,
+        "min_samples_leaf": 1,
+        "max_features": "sqrt",
+        "max_depth": 8,
+        "class_weight": null
+      },
+      "mean_macro_f1": 0.6269376761620468,
+      "yearly_macro_f1": {
+        "2020": 0.6084519937638834,
+        "2021": 0.6534788378353716,
+        "2022": 0.6188821968868852
+      },
+      "mean_fit_seconds": 0.6567817529042562
+    },
+    {
+      "candidate_number": 10,
+      "rank": 10,
+      "parameters": {
+        "n_estimators": 100,
+        "min_samples_leaf": 1,
+        "max_features": "sqrt",
+        "max_depth": 8,
+        "class_weight": null
+      },
+      "mean_macro_f1": 0.6265690634124467,
+      "yearly_macro_f1": {
+        "2020": 0.6079602487586606,
+        "2021": 0.652435792863097,
+        "2022": 0.6193111486155821
+      },
+      "mean_fit_seconds": 0.36440666516621906
+    },
+    {
+      "candidate_number": 11,
+      "rank": 11,
+      "parameters": {
+        "n_estimators": 100,
+        "min_samples_leaf": 20,
+        "max_features": 0.75,
+        "max_depth": 12,
+        "class_weight": null
+      },
+      "mean_macro_f1": 0.6245310006825328,
+      "yearly_macro_f1": {
+        "2020": 0.6033156692850641,
+        "2021": 0.6505771829763836,
+        "2022": 0.6197001497861504
+      },
+      "mean_fit_seconds": 1.6125962734222412
+    },
+    {
+      "candidate_number": 6,
+      "rank": 12,
+      "parameters": {
+        "n_estimators": 100,
+        "min_samples_leaf": 5,
+        "max_features": 0.75,
+        "max_depth": 4,
+        "class_weight": null
+      },
+      "mean_macro_f1": 0.622443855201812,
+      "yearly_macro_f1": {
+        "2020": 0.604970069706988,
+        "2021": 0.6476205813192641,
+        "2022": 0.6147409145791838
+      },
+      "mean_fit_seconds": 0.7216690381368002
+    },
+    {
+      "candidate_number": 5,
+      "rank": 13,
+      "parameters": {
+        "n_estimators": 300,
+        "min_samples_leaf": 1,
+        "max_features": "sqrt",
+        "max_depth": null,
+        "class_weight": null
+      },
+      "mean_macro_f1": 0.6179036890941922,
+      "yearly_macro_f1": {
+        "2020": 0.5948710620237456,
+        "2021": 0.6403097478575177,
+        "2022": 0.6185302574013134
+      },
+      "mean_fit_seconds": 1.8484569390614827
+    },
+    {
+      "candidate_number": 9,
+      "rank": 14,
+      "parameters": {
+        "n_estimators": 100,
+        "min_samples_leaf": 5,
+        "max_features": 0.75,
+        "max_depth": null,
+        "class_weight": null
+      },
+      "mean_macro_f1": 0.6167599370480429,
+      "yearly_macro_f1": {
+        "2020": 0.5941952798248261,
+        "2021": 0.6377245477936451,
+        "2022": 0.6183599835256576
+      },
+      "mean_fit_seconds": 2.29034153620402
+    },
+    {
+      "candidate_number": 8,
+      "rank": 15,
+      "parameters": {
+        "n_estimators": 300,
+        "min_samples_leaf": 1,
+        "max_features": 0.75,
+        "max_depth": null,
+        "class_weight": null
+      },
+      "mean_macro_f1": 0.6124561134036471,
+      "yearly_macro_f1": {
+        "2020": 0.5875681664422926,
+        "2021": 0.6366533415722895,
+        "2022": 0.6131468321963596
+      },
+      "mean_fit_seconds": 7.32238507270813
+    },
+    {
+      "candidate_number": 16,
+      "rank": 16,
+      "parameters": {
+        "n_estimators": 200,
+        "min_samples_leaf": 1,
+        "max_features": 0.75,
+        "max_depth": null,
+        "class_weight": null
+      },
+      "mean_macro_f1": 0.6099254354063691,
+      "yearly_macro_f1": {
+        "2020": 0.5856065291191873,
+        "2021": 0.6329286931868012,
+        "2022": 0.6112410839131188
+      },
+      "mean_fit_seconds": 4.942345937093099
+    }
+  ]
+}

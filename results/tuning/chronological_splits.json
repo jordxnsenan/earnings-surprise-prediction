@@ -1,0 +1,31 @@
+{
+  "experiment": "chronological_hyperparameter_tuning_splits",
+  "search_validation_years": [
+    2020,
+    2021,
+    2022
+  ],
+  "assessment_year": 2023,
+  "search_samples": 66689,
+  "assessment_training_samples": 66689,
+  "assessment_validation_samples": 15664,
+  "holdout_samples": 7996,
+  "holdout_used": false,
+  "search_folds": [
+    {
+      "validation_year": 2020,
+      "training_samples": 24591,
+      "validation_samples": 13449
+    },
+    {
+      "validation_year": 2021,
+      "training_samples": 38040,
+      "validation_samples": 13840
+    },
+    {
+      "validation_year": 2022,
+      "training_samples": 51880,
+      "validation_samples": 14809
+    }
+  ]
+}

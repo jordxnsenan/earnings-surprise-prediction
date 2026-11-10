@@ -1,0 +1,68 @@
+{
+  "experiment": "classifier_2023_tuning_assessment",
+  "model": "decision_tree",
+  "assessment_year": 2023,
+  "training_samples": 66689,
+  "assessment_samples": 15664,
+  "holdout_samples": 7996,
+  "holdout_used": false,
+  "assessment_used_during_search": false,
+  "validation_filtered": false,
+  "selected_hyperparameters": {
+    "classifier__min_samples_leaf": 5,
+    "classifier__max_depth": 3,
+    "classifier__class_weight": "balanced"
+  },
+  "search_mean_macro_f1": 0.6272881213989915,
+  "baseline": {
+    "training_samples": 66689,
+    "validation_samples": 15664,
+    "accuracy": 0.6483656792645557,
+    "macro_f1": 0.6121251478268225,
+    "roc_auc": 0.6708971472951522,
+    "precision_class_0": 0.5793222533995251,
+    "recall_class_0": 0.4299215120935448,
+    "precision_class_1": 0.677363792947149,
+    "recall_class_1": 0.7931217492835155,
+    "confusion_matrix": [
+      [
+        2684,
+        3559
+      ],
+      [
+        1949,
+        7472
+      ]
+    ]
+  },
+  "tuned": {
+    "training_samples": 66689,
+    "validation_samples": 15664,
+    "accuracy": 0.6197012257405515,
+    "macro_f1": 0.6160234635161719,
+    "roc_auc": 0.6686673789642807,
+    "precision_class_0": 0.5181288032454361,
+    "recall_class_0": 0.6546532115969886,
+    "precision_class_1": 0.7227366255144033,
+    "recall_class_1": 0.5965396454728797,
+    "confusion_matrix": [
+      [
+        4087,
+        2156
+      ],
+      [
+        3801,
+        5620
+      ]
+    ]
+  },
+  "difference_tuned_minus_baseline": {
+    "macro_f1": 0.0038983156893493964,
+    "accuracy": -0.028664453524004152,
+    "roc_auc": -0.0022297683308714067,
+    "precision_class_0": -0.06119345015408906,
+    "recall_class_0": 0.22473169950344385,
+    "precision_class_1": 0.04537283256725433,
+    "recall_class_1": -0.1965821038106358
+  }
+}

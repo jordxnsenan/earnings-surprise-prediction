@@ -1,0 +1,191 @@
+{
+  "experiment": "four_classifier_hyperparameter_tuning_comparison",
+  "search_validation_years": [
+    2020,
+    2021,
+    2022
+  ],
+  "assessment_year": 2023,
+  "primary_metric": "macro_f1",
+  "holdout_used": false,
+  "populations": {
+    "search_samples": 66689,
+    "assessment_samples": 15664,
+    "holdout_samples": 7996
+  },
+  "models": {
+    "logistic_regression": {
+      "selected_hyperparameters": {
+        "classifier__class_weight": "balanced",
+        "classifier__C": 1.0
+      },
+      "search": {
+        "candidate_count": 10,
+        "baseline_macro_f1": 0.6221032751857094,
+        "tuned_macro_f1": 0.6342885805817401,
+        "macro_f1_change": 0.012185305396030688
+      },
+      "assessment": {
+        "baseline": {
+          "macro_f1": 0.605604315556556,
+          "accuracy": 0.6472165474974464,
+          "roc_auc": 0.6765135767471945,
+          "precision_class_0": 0.5827371336256635,
+          "recall_class_0": 0.40445298734582735,
+          "precision_class_1": 0.6718736210396258,
+          "recall_class_1": 0.8080883133425326
+        },
+        "tuned": {
+          "macro_f1": 0.6210145481723961,
+          "accuracy": 0.6247446373850868,
+          "roc_auc": 0.6765224179836327,
+          "precision_class_0": 0.523198169569086,
+          "recall_class_0": 0.6592984142239308,
+          "precision_class_1": 0.7272027702962678,
+          "recall_class_1": 0.6018469376923894
+        },
+        "changes": {
+          "macro_f1": 0.01541023261584007,
+          "accuracy": -0.022471910112359605,
+          "roc_auc": 8.84123643818402e-06,
+          "precision_class_0": -0.05953896405657744,
+          "recall_class_0": 0.2548454268781034,
+          "precision_class_1": 0.05532914925664201,
+          "recall_class_1": -0.20624137565014322
+        }
+      }
+    },
+    "decision_tree": {
+      "selected_hyperparameters": {
+        "classifier__min_samples_leaf": 5,
+        "classifier__max_depth": 3,
+        "classifier__class_weight": "balanced"
+      },
+      "search": {
+        "candidate_count": 16,
+        "baseline_macro_f1": 0.62175494451589,
+        "tuned_macro_f1": 0.6272881213989915,
+        "macro_f1_change": 0.005533176883101509
+      },
+      "assessment": {
+        "baseline": {
+          "macro_f1": 0.6121251478268225,
+          "accuracy": 0.6483656792645557,
+          "roc_auc": 0.6708971472951522,
+          "precision_class_0": 0.5793222533995251,
+          "recall_class_0": 0.4299215120935448,
+          "precision_class_1": 0.677363792947149,
+          "recall_class_1": 0.7931217492835155
+        },
+        "tuned": {
+          "macro_f1": 0.6160234635161719,
+          "accuracy": 0.6197012257405515,
+          "roc_auc": 0.6686673789642807,
+          "precision_class_0": 0.5181288032454361,
+          "recall_class_0": 0.6546532115969886,
+          "precision_class_1": 0.7227366255144033,
+          "recall_class_1": 0.5965396454728797
+        },
+        "changes": {
+          "macro_f1": 0.0038983156893493964,
+          "accuracy": -0.028664453524004152,
+          "roc_auc": -0.0022297683308714067,
+          "precision_class_0": -0.06119345015408906,
+          "recall_class_0": 0.22473169950344385,
+          "precision_class_1": 0.04537283256725433,
+          "recall_class_1": -0.1965821038106358
+        }
+      }
+    },
+    "random_forest": {
+      "selected_hyperparameters": {
+        "classifier__n_estimators": 100,
+        "classifier__min_samples_leaf": 20,
+        "classifier__max_features": "sqrt",
+        "classifier__max_depth": 4,
+        "classifier__class_weight": "balanced"
+      },
+      "search": {
+        "candidate_count": 16,
+        "baseline_macro_f1": 0.6263132495290813,
+        "tuned_macro_f1": 0.6385849714659133,
+        "macro_f1_change": 0.012271721936832014
+      },
+      "assessment": {
+        "baseline": {
+          "macro_f1": 0.6106065628107391,
+          "accuracy": 0.6506639427987743,
+          "roc_auc": 0.6804786672611378,
+          "precision_class_0": 0.5876734136911531,
+          "recall_class_0": 0.4139035720006407,
+          "precision_class_1": 0.6752462944883287,
+          "recall_class_1": 0.8075575841205817
+        },
+        "tuned": {
+          "macro_f1": 0.6187511885903745,
+          "accuracy": 0.6220633299284984,
+          "roc_auc": 0.6776557624807271,
+          "precision_class_0": 0.5202863961813843,
+          "recall_class_0": 0.6634630786480858,
+          "precision_class_1": 0.727249123718032,
+          "recall_class_1": 0.5946290202738562
+        },
+        "changes": {
+          "macro_f1": 0.008144625779635373,
+          "accuracy": -0.02860061287027582,
+          "roc_auc": -0.0028229047804106955,
+          "precision_class_0": -0.06738701750976883,
+          "recall_class_0": 0.24955950664744514,
+          "precision_class_1": 0.05200282922970323,
+          "recall_class_1": -0.21292856384672543
+        }
+      }
+    },
+    "xgboost": {
+      "selected_hyperparameters": {
+        "classifier__subsample": 1.0,
+        "classifier__reg_lambda": 5.0,
+        "classifier__n_estimators": 200,
+        "classifier__min_child_weight": 5,
+        "classifier__max_depth": 5,
+        "classifier__learning_rate": 0.03,
+        "classifier__colsample_bytree": 1.0
+      },
+      "search": {
+        "candidate_count": 16,
+        "baseline_macro_f1": 0.628713230244398,
+        "tuned_macro_f1": 0.6291162787466278,
+        "macro_f1_change": 0.00040304850222983024
+      },
+      "assessment": {
+        "baseline": {
+          "macro_f1": 0.614552403965489,
+          "accuracy": 0.652132277834525,
+          "roc_auc": 0.6825409791733963,
+          "precision_class_0": 0.5876379690949227,
+          "recall_class_0": 0.4263975652731059,
+          "precision_class_1": 0.678372552541764,
+          "recall_class_1": 0.8017195626791211
+        },
+        "tuned": {
+          "macro_f1": 0.6142247450733184,
+          "accuracy": 0.6516215526046987,
+          "roc_auc": 0.6823510371101889,
+          "precision_class_0": 0.586487676056338,
+          "recall_class_0": 0.426878103475893,
+          "precision_class_1": 0.6782374100719425,
+          "recall_class_1": 0.800551958390829
+        },
+        "changes": {
+          "macro_f1": -0.0003276588921706791,
+          "accuracy": -0.0005107252298263143,
+          "roc_auc": -0.00018994206320743778,
+          "precision_class_0": -0.0011502930385847154,
+          "recall_class_0": 0.00048053820278709525,
+          "precision_class_1": -0.00013514246982149203,
+          "recall_class_1": -0.0011676042882921012
+        }
+      }
+    }
+  }
+}
