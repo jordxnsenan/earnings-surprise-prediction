@@ -19,9 +19,14 @@ XGB_N_JOBS = 4
 
 def build_xgboost_pipeline(
     selected_feature_count: int | None = None,
+    feature_columns: list[str] | None = None,
 ) -> Pipeline:
     """creates an XGBoost classifier with training-fitted preprocessing"""
-    preprocessor = build_preprocessor()
+    
+    if selected_feature_count is not None and feature_columns is not None:
+        raise ValueError("Custom feature sets cannot be combined with MI selection")
+
+    preprocessor = build_preprocessor(feature_columns)
 
     # no numerical scaling req. since gradient boosted trees
     preprocessor.set_params(continuous__scaler="passthrough")

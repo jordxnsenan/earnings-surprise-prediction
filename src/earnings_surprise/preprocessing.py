@@ -5,7 +5,6 @@ from sklearn.preprocessing import OneHotEncoder, RobustScaler
 
 from earnings_surprise.features import FEATURE_COLUMNS
 
-
 CATEGORICAL_COLUMNS = [
     "previous_report_month",
     "previous_report_quarter",
@@ -21,7 +20,8 @@ DISCRETE_COLUMNS = [
 ]
 
 CONTINUOUS_COLUMNS = [
-    column for column in FEATURE_COLUMNS
+    column
+    for column in FEATURE_COLUMNS
     if column not in CATEGORICAL_COLUMNS + DISCRETE_COLUMNS
 ]
 
@@ -29,40 +29,83 @@ MONTH_CATEGORIES = list(range(1, 13))
 QUARTER_CATEGORIES = list(range(1, 5))
 
 
-def build_preprocessor() -> ColumnTransformer:
-    """Create a new preprocessing pipeline for historical earnings features."""
-    continuous_pipeline = Pipeline([
-        ("imputer", SimpleImputer(strategy="median")),
-        ("scaler", RobustScaler()),
-    ])
+def build_preprocessor(
+    feature_columns: list[str] | None = None,
+) -> ColumnTransformer:
+    """creates a preprocessing pipeline for the selected features"""
+    if feature_columns is None:
+        feature_columns = FEATURE_COLUMNS
 
-    discrete_pipeline = Pipeline([
-        ("imputer", SimpleImputer(strategy="most_frequent")),
-    ])
+    if not feature_columns:
+        raise ValueError("At least one feature is required")
 
-    categorical_pipeline = Pipeline([
-        ("imputer", SimpleImputer(strategy="most_frequent")),
-        ("encoder", OneHotEncoder(
-            categories=[
-                MONTH_CATEGORIES,
-                QUARTER_CATEGORIES,
-            ],
-            handle_unknown="ignore",
-            sparse_output=False,
-        )),
-    ])
+    unknown_columns = [
+        column for column in feature_columns if column not in FEATURE_COLUMNS
+    ]
+
+    if unknown_columns:
+        raise ValueError(f"Unknown feature columns: {unknown_columns}")
+
+    if len(feature_columns) != len(set(feature_columns)):
+        raise ValueError("Duplicate feature columns")
+
+    continuous_columns = [
+        column for column in feature_columns if column in CONTINUOUS_COLUMNS
+    ]
+
+    discrete_columns = [
+        column for column in feature_columns if column in DISCRETE_COLUMNS
+    ]
+
+    categorical_columns = [
+        column for column in feature_columns if column in CATEGORICAL_COLUMNS
+    ]
+
+    continuous_pipeline = Pipeline(
+        [
+            ("imputer", SimpleImputer(strategy="median")),
+            ("scaler", RobustScaler()),
+        ]
+    )
+
+    discrete_pipeline = Pipeline(
+        [
+            ("imputer", SimpleImputer(strategy="most_frequent")),
+        ]
+    )
+
+    calendar_categories = {
+        "previous_report_month": MONTH_CATEGORIES,
+        "previous_report_quarter": QUARTER_CATEGORIES,
+    }
+
+    categorical_pipeline = Pipeline(
+        [
+            ("imputer", SimpleImputer(strategy="most_frequent")),
+            (
+                "encoder",
+                OneHotEncoder(
+                    categories=[
+                        calendar_categories[column] for column in categorical_columns
+                    ],
+                    handle_unknown="ignore",
+                    sparse_output=False,
+                ),
+            ),
+        ]
+    )
 
     return ColumnTransformer(
         transformers=[
-            ("continuous", continuous_pipeline, CONTINUOUS_COLUMNS),
-            ("discrete", discrete_pipeline, DISCRETE_COLUMNS),
-            ("categorical", categorical_pipeline, CATEGORICAL_COLUMNS),
+            ("continuous", continuous_pipeline, continuous_columns),
+            ("discrete", discrete_pipeline, discrete_columns),
+            ("categorical", categorical_pipeline, categorical_columns),
         ],
         remainder="drop",
         verbose_feature_names_out=False,
     )
-    
-    
+
+
 def get_transformed_feature_names() -> list[str]:
     """returns expected names of the preprocessed feature columns"""
     feature_names = CONTINUOUS_COLUMNS + DISCRETE_COLUMNS

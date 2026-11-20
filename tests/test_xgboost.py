@@ -13,6 +13,7 @@ from earnings_surprise.models.xgboost_model import (
     build_xgboost_pipeline,
 )
 from earnings_surprise.preprocessing import CONTINUOUS_COLUMNS
+from earnings_surprise.evaluation.ablation_features import FEATURE_SETS
 
 TEST_SAMPLE_COUNT = 48
 TRAINING_SAMPLE_COUNT = 36
@@ -295,3 +296,47 @@ def test_xgboost_rejects_invalid_feature_count():
 
     with pytest.raises(ValueError, match="positive integer"):
         build_xgboost_pipeline(selected_feature_count=-1)
+
+
+def test_xgboost_supports_ablation_features():
+    features, targets = make_sample_data()
+
+    expected_column_counts = {
+        "full_history": 39,
+        "latest_event_only": 20,
+        "without_trends": 36,
+    }
+
+    for name, feature_columns in FEATURE_SETS.items():
+        model = build_xgboost_pipeline(feature_columns=feature_columns)
+
+        model.set_params(
+            classifier__n_estimators=TEST_BOOSTING_ROUNDS,
+            classifier__n_jobs=1,
+        )
+
+        X_train = features.iloc[:TRAINING_SAMPLE_COUNT][feature_columns]
+        X_validation = features.iloc[TRAINING_SAMPLE_COUNT:][feature_columns]
+        y_train = targets.iloc[:TRAINING_SAMPLE_COUNT]
+
+        model.fit(X_train, y_train)
+
+        predictions = model.predict(X_validation)
+        probabilities = model.predict_proba(X_validation)
+
+        assert model.named_steps["classifier"].n_features_in_ == (
+            expected_column_counts[name]
+        )
+
+        assert predictions.shape == (VALIDATION_SAMPLE_COUNT,)
+        assert probabilities.shape == (VALIDATION_SAMPLE_COUNT, 2)
+
+        assert np.isfinite(probabilities).all()
+
+
+def test_xgboost_rejects_selection_with_ablation_features():
+    with pytest.raises(ValueError, match="cannot be combined"):
+        build_xgboost_pipeline(
+            selected_feature_count=15,
+            feature_columns=FEATURE_SETS["latest_event_only"],
+        )
