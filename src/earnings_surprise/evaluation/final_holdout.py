@@ -1,9 +1,12 @@
+import json
 import numpy as np
 import pandas as pd
 
+from pathlib import Path
+from earnings_surprise.data.samples import PREDICTION_WINDOWS_PATH
 from earnings_surprise.evaluation.ablation_features import FEATURE_SETS
 from earnings_surprise.evaluation.metrics import evaluate_predictions
-from earnings_surprise.features import FEATURE_COLUMNS
+from earnings_surprise.features import FEATURE_COLUMNS, FEATURE_MATRIX_PATH
 from earnings_surprise.models.baselines import (
     MajorityClassBaseline,
     PreviousOutcomeBaseline,
@@ -15,6 +18,8 @@ from earnings_surprise.evaluation.splits import (
 )
 
 FINAL_FEATURE_SET = "without_trends"
+FINAL_RESULTS_PATH = Path("results/final_holdout_results.json")
+FINAL_PREDICTIONS_PATH = Path("results/final_holdout_predictions.csv")
 
 
 def get_final_holdout_indices(
@@ -64,6 +69,16 @@ def evaluate_final_holdout(
     y_train = samples.iloc[training_indices]["target_beat"].astype(int)
     y_holdout = samples.iloc[holdout_indices]["target_beat"].astype(int)
 
+    holdout_predictions = (
+        samples.iloc[holdout_indices][["ticker", "target_date_pub", "target_beat"]]
+        .copy()
+        .reset_index(drop=True)
+    )
+
+    holdout_predictions["target_date_pub"] = pd.to_datetime(
+        holdout_predictions["target_date_pub"]
+    ).dt.strftime("%Y-%m-%d")
+
     if y_train.nunique() != 2:
         raise ValueError("Training data must contain both classes")
 
@@ -99,4 +114,72 @@ def evaluate_final_holdout(
 
         results["models"][name] = metrics
 
+        holdout_predictions[f"{name}_prediction"] = predictions
+        holdout_predictions[f"{name}_beat_probability"] = probabilities
+
+    results["holdout_predictions"] = holdout_predictions.to_dict(orient="records")
+
     return results
+
+
+def main() -> None:
+    """runs and saves the final 2024 holdout evaluation"""
+
+    required_files = [
+        FEATURE_MATRIX_PATH,
+        PREDICTION_WINDOWS_PATH,
+    ]
+
+    for file_path in required_files:
+        if not file_path.is_file():
+            raise FileNotFoundError(f"Required dataset not found: {file_path}")
+
+    features = pd.read_parquet(FEATURE_MATRIX_PATH)
+    samples = pd.read_parquet(PREDICTION_WINDOWS_PATH)
+
+    results = evaluate_final_holdout(features, samples)
+
+    predictions = pd.DataFrame(results.pop("holdout_predictions"))
+
+    FINAL_RESULTS_PATH.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    FINAL_RESULTS_PATH.write_text(
+        json.dumps(results, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+    FINAL_PREDICTIONS_PATH.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    predictions.to_csv(
+        FINAL_PREDICTIONS_PATH,
+        index=False,
+    )
+
+    print("Final 2024 Holdout Evaluation")
+    print(f"Training samples: {results['training_samples']:,}")
+    print(f"Holdout samples: {results['holdout_samples']:,}")
+    print(f"Selected feature set: {results['selected_feature_set']}")
+
+    for name, metrics in results["models"].items():
+        roc_auc = metrics["roc_auc"]
+        roc_auc_text = f"{roc_auc:.4f}" if roc_auc is not None else "N/A"
+
+        print(
+            f"\n{name}: "
+            f"Macro F1={metrics['macro_f1']:.4f}, "
+            f"Accuracy={metrics['accuracy']:.4f}, "
+            f"ROC-AUC={roc_auc_text}"
+        )
+
+    print(f"\nResults saved to: {FINAL_RESULTS_PATH}")
+    print(f"Predictions saved to: {FINAL_PREDICTIONS_PATH}")
+
+
+if __name__ == "__main__":
+    main()
