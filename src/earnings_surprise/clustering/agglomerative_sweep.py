@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 
 from pathlib import Path
-from earnings_surprise.clustering.agglomerative import (
+from earnings_surprise.clustering.algorithms.agglomerative import (
     AGGLOMERATIVE_LINKAGE,
     AGGLOMERATIVE_METRIC,
     run_agglomerative,

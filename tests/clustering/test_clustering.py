@@ -4,7 +4,7 @@ import pytest
 
 from sklearn.datasets import make_blobs
 
-from earnings_surprise.clustering.kmeans import run_kmeans
+from earnings_surprise.clustering.algorithms.kmeans import run_kmeans
 from earnings_surprise.clustering.prepare import prepare_clustering_data
 from earnings_surprise.features import FEATURE_COLUMNS
 from earnings_surprise.preprocessing import CONTINUOUS_COLUMNS

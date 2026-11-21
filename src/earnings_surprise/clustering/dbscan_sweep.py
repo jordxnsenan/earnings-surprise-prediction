@@ -4,7 +4,7 @@ import pandas as pd
 
 from pathlib import Path
 
-from earnings_surprise.clustering.dbscan import run_dbscan
+from earnings_surprise.clustering.algorithms.dbscan import run_dbscan
 from earnings_surprise.clustering.prepare import (
     prepare_clustering_data,
 )

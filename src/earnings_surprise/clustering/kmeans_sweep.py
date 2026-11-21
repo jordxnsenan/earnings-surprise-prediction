@@ -4,7 +4,7 @@ import pandas as pd
 
 from pathlib import Path
 
-from earnings_surprise.clustering.kmeans import run_kmeans
+from earnings_surprise.clustering.algorithms.kmeans import run_kmeans
 from earnings_surprise.clustering.prepare import (
     CLUSTER_RANDOM_STATE,
     CLUSTER_SAMPLE_SIZE,

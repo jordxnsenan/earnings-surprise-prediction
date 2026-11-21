@@ -6,7 +6,7 @@ import pandas as pd
 from pathlib import Path
 from sklearn.decomposition import PCA
 
-from earnings_surprise.clustering.dbscan import (
+from earnings_surprise.clustering.algorithms.dbscan import (
     NOISE_LABEL,
     run_dbscan,
 )

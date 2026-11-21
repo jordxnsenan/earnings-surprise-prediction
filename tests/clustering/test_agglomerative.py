@@ -3,7 +3,7 @@ import pytest
 
 from sklearn.datasets import make_blobs
 
-from earnings_surprise.clustering.agglomerative import (
+from earnings_surprise.clustering.algorithms.agglomerative import (
     INITIAL_CLUSTER_COUNT,
     run_agglomerative,
 )
