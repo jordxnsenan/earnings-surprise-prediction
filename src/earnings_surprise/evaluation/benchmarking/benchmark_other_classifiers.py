@@ -251,7 +251,7 @@ def run_benchmark(
                     [
                         sys.executable,
                         "-m",
-                        "earnings_surprise.evaluation.benchmark_other_classifiers",
+                        "earnings_surprise.evaluation.benchmarking.benchmark_other_classifiers",
                         "--worker",
                         "--model",
                         model_name,

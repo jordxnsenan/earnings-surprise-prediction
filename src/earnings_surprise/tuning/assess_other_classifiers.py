@@ -5,7 +5,7 @@ import pandas as pd
 
 from pathlib import Path
 from earnings_surprise.data.samples import PREDICTION_WINDOWS_PATH
-from earnings_surprise.evaluation.benchmark_other_classifiers import (
+from earnings_surprise.evaluation.benchmarking.benchmark_other_classifiers import (
     MODEL_NAMES,
     build_model,
 )

@@ -196,7 +196,7 @@ def run_benchmark(
                     [
                         sys.executable,
                         "-m",
-                        "earnings_surprise.evaluation.benchmark_xgboost",
+                        "earnings_surprise.evaluation.benchmarking.benchmark_xgboost",
                         "--worker",
                         "--year",
                         str(year),
