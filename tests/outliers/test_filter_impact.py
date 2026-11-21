@@ -3,7 +3,7 @@ import pandas as pd
 import pytest
 
 from earnings_surprise.features import FEATURE_COLUMNS
-from earnings_surprise.outliers import evaluate_filter_impact as impact
+from earnings_surprise.outliers.analysis import evaluate_filter_impact as impact
 
 TEST_ROW_COUNT = 24
 TRAINING_COUNT = 12

@@ -7,7 +7,7 @@ from pathlib import Path
 
 from earnings_surprise.data.samples import PREDICTION_WINDOWS_PATH
 from earnings_surprise.evaluation.splits import HOLDOUT_START
-from earnings_surprise.outliers.compare_detectors import (
+from earnings_surprise.outliers.analysis.compare_detectors import (
     COMPARISON_ASSIGNMENTS_PATH,
     COMPARISON_PATH,
 )

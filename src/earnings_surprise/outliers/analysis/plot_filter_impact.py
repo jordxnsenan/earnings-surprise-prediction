@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from pathlib import Path
-from earnings_surprise.outliers.evaluate_filter_impact import (
+from earnings_surprise.outliers.analysis.evaluate_filter_impact import (
     FILTER_IMPACT_PATH,
 )
 

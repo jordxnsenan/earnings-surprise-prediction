@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from earnings_surprise.outliers.compare_detectors import (
+from earnings_surprise.outliers.analysis.compare_detectors import (
     summarize_detector_agreement,
     verify_saved_lof_assignments,
 )

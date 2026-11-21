@@ -11,7 +11,7 @@ from earnings_surprise.features import (
 from earnings_surprise.models.xgboost_model import (
     build_xgboost_pipeline,
 )
-from earnings_surprise.outliers.evaluate_filter_impact import (
+from earnings_surprise.outliers.analysis.evaluate_filter_impact import (
     calculate_classification_metrics,
 )
 from earnings_surprise.tuning.splits import (

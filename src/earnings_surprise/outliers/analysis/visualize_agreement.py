@@ -9,8 +9,8 @@ from sklearn.decomposition import PCA
 from earnings_surprise.data.samples import PREDICTION_WINDOWS_PATH
 from earnings_surprise.evaluation.splits import HOLDOUT_START
 from earnings_surprise.features import FEATURE_MATRIX_PATH
-from earnings_surprise.outliers.analyze_isolation import PROFILE_COLUMNS
-from earnings_surprise.outliers.compare_all_detectors import (
+from earnings_surprise.outliers.analysis.analyze_isolation import PROFILE_COLUMNS
+from earnings_surprise.outliers.analysis.compare_all_detectors import (
     ALL_DETECTORS_ASSIGNMENTS_PATH,
     ALL_DETECTORS_RESULTS_PATH,
     summarize_three_detector_agreement,
