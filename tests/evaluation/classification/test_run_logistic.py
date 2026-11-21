@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import pytest
 
-from earnings_surprise.evaluation.run_logistic import (
+from earnings_surprise.evaluation.classification.run_logistic import (
     MODEL_CONFIGURATIONS,
     evaluate_logistic_models,
 )

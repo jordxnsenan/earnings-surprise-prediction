@@ -1,7 +1,7 @@
 import pandas as pd
 import pytest
 
-from earnings_surprise.evaluation.run_baselines import (
+from earnings_surprise.evaluation.classification.run_baselines import (
     BASELINE_MODELS,
     evaluate_baselines,
 )

@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from earnings_surprise.evaluation import run_ablations
+from earnings_surprise.evaluation.classification import run_ablations
 from earnings_surprise.evaluation.ablation_features import FEATURE_SETS
 from earnings_surprise.features import FEATURE_COLUMNS
 from earnings_surprise.models.xgboost_model import build_xgboost_pipeline

@@ -2,10 +2,10 @@ import json
 import numpy as np
 import pandas as pd
 
-from earnings_surprise.evaluation import final_holdout
+from earnings_surprise.evaluation.classification import final_holdout
 from earnings_surprise.evaluation.ablation_features import FEATURE_SETS
 from earnings_surprise.features import FEATURE_COLUMNS
-from earnings_surprise.evaluation.final_holdout import (
+from earnings_surprise.evaluation.classification.final_holdout import (
     get_final_holdout_indices,
 )
 
