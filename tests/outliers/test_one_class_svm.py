@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-from earnings_surprise.outliers.one_class_svm import (
+from earnings_surprise.outliers.algorithms.one_class_svm import (
     OUTLIER_LABEL,
     run_one_class_svm,
 )

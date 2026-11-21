@@ -1,7 +1,7 @@
 import numpy as np
 import pytest
 
-from earnings_surprise.outliers.local_outlier_factor import (
+from earnings_surprise.outliers.algorithms.local_outlier_factor import (
     OUTLIER_LABEL,
     run_local_outlier_factor,
 )

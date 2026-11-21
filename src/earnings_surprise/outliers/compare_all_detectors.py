@@ -11,7 +11,7 @@ from earnings_surprise.outliers.compare_detectors import (
     COMPARISON_ASSIGNMENTS_PATH,
     COMPARISON_PATH,
 )
-from earnings_surprise.outliers.one_class_svm import (
+from earnings_surprise.outliers.algorithms.one_class_svm import (
     ONE_CLASS_ASSIGNMENTS_PATH,
     ONE_CLASS_RESULTS_PATH,
 )

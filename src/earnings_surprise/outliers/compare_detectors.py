@@ -6,10 +6,10 @@ from pathlib import Path
 from earnings_surprise.data.samples import PREDICTION_WINDOWS_PATH
 from earnings_surprise.evaluation.splits import HOLDOUT_START
 from earnings_surprise.features import FEATURE_MATRIX_PATH
-from earnings_surprise.outliers.isolation_forest import (
+from earnings_surprise.outliers.algorithms.isolation_forest import (
     run_isolation_forest,
 )
-from earnings_surprise.outliers.local_outlier_factor import (
+from earnings_surprise.outliers.algorithms.local_outlier_factor import (
     LOF_ASSIGNMENTS_PATH,
     LOF_RESULTS_PATH,
     run_local_outlier_factor,

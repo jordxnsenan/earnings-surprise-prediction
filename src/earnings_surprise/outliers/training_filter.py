@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 
 from earnings_surprise.evaluation.splits import HOLDOUT_START
-from earnings_surprise.outliers.isolation_forest import (
+from earnings_surprise.outliers.algorithms.isolation_forest import (
     ISOLATION_CONTAMINATION,
     ISOLATION_TREE_COUNT,
     run_isolation_forest,

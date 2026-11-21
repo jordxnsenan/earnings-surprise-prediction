@@ -8,7 +8,7 @@ from sklearn.decomposition import PCA
 
 from earnings_surprise.data.samples import PREDICTION_WINDOWS_PATH
 from earnings_surprise.features import FEATURE_MATRIX_PATH
-from earnings_surprise.outliers.isolation_forest import (
+from earnings_surprise.outliers.algorithms.isolation_forest import (
     ISOLATION_OUTLIER_LABEL,
     ISOLATION_RESULTS_PATH,
     run_isolation_forest,

@@ -3,7 +3,7 @@ import pandas as pd
 import pytest
 
 from earnings_surprise.features import FEATURE_COLUMNS
-from earnings_surprise.outliers.isolation_forest import (
+from earnings_surprise.outliers.algorithms.isolation_forest import (
     ISOLATION_OUTLIER_LABEL,
     run_isolation_forest,
 )
