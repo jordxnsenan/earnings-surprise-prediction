@@ -362,7 +362,7 @@ def main() -> None:
     dataset_path = Path("data/raw") / DATASET_FILENAME
     
     output_path = Path("data/processed/candidate_earnings_events.parquet")
-    summary_path = Path("results/event_reconstruction.json")
+    summary_path = Path("results/data/event_reconstruction.json")
     source_mapping_path = Path("data/processed/event_source_rows.parquet")
 
     if not dataset_path.is_file():

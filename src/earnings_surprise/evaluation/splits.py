@@ -98,7 +98,7 @@ def create_chronological_splits(
     return folds, holdout_indices
 
 
-SPLIT_SUMMARY_PATH = Path("results/split_coverage.json")
+SPLIT_SUMMARY_PATH = Path("results/data/split_coverage.json")
 
 
 def summarize_class_balance(

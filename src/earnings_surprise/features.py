@@ -54,7 +54,7 @@ FEATURE_MATRIX_PATH = Path(
 )
 
 FEATURE_SUMMARY_PATH = Path(
-    "results/feature_summary.json"
+    "results/data/feature_summary.json"
 )
 
 

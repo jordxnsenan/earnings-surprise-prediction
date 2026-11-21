@@ -241,7 +241,7 @@ def find_date_examples(
 
 def main() -> None:
     dataset_path = Path("data/raw") / DATASET_FILENAME
-    output_path = Path("results/snapshot_audit.json")
+    output_path = Path("results/data/snapshot_audit.json")
 
     if not dataset_path.is_file():
         raise FileNotFoundError(
