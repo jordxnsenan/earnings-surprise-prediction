@@ -4,7 +4,7 @@ import pytest
 from sklearn.datasets import make_blobs
 
 from earnings_surprise.clustering.algorithms.dbscan import run_dbscan
-from earnings_surprise.clustering.dbscan_sweep import (
+from earnings_surprise.clustering.experiments.dbscan_sweep import (
     build_parameter_grid,
     evaluate_dbscan_grid,
 )

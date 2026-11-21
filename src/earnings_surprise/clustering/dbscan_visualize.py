@@ -10,7 +10,7 @@ from earnings_surprise.clustering.algorithms.dbscan import (
     NOISE_LABEL,
     run_dbscan,
 )
-from earnings_surprise.clustering.dbscan_sweep import (
+from earnings_surprise.clustering.experiments.dbscan_sweep import (
     DBSCAN_SWEEP_PATH,
 )
 from earnings_surprise.clustering.prepare import (
