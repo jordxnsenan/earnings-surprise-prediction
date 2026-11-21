@@ -8,7 +8,7 @@ from sklearn.decomposition import PCA
 from sklearn.metrics import adjusted_rand_score
 
 from earnings_surprise.clustering.prepare import prepare_clustering_data
-from earnings_surprise.clustering.visualize import summarize_cluster_profiles
+from earnings_surprise.clustering.analysis.visualize import summarize_cluster_profiles
 from earnings_surprise.data.samples import PREDICTION_WINDOWS_PATH
 from earnings_surprise.features import FEATURE_MATRIX_PATH
 
