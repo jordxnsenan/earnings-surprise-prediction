@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 
 from pathlib import Path
-from earnings_surprise.evaluation.compare_models import (
+from earnings_surprise.evaluation.analysis.compare_models import (
     EXPECTED_CONFIGURATIONS,
     build_comparison_tables,
     get_model_name,

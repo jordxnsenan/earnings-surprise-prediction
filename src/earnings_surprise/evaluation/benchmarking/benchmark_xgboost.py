@@ -13,7 +13,7 @@ from time import perf_counter
 from sklearn.metrics import roc_auc_score
 
 from earnings_surprise.data.samples import PREDICTION_WINDOWS_PATH
-from earnings_surprise.evaluation.roc_comparison import (
+from earnings_surprise.evaluation.analysis.roc_comparison import (
     MODEL_VARIANTS,
     ROC_RESULTS_PATH,
 )

@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from earnings_surprise.evaluation.compare_models import (
+from earnings_surprise.evaluation.analysis.compare_models import (
     build_comparison_tables,
     load_experiment_results,
 )

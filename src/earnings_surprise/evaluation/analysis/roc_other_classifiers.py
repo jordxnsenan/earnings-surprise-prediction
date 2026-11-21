@@ -11,7 +11,7 @@ from earnings_surprise.evaluation.benchmarking.benchmark_other_classifiers impor
     RESULTS_DIRECTORY,
     build_model,
 )
-from earnings_surprise.evaluation.roc_comparison import (
+from earnings_surprise.evaluation.analysis.roc_comparison import (
     calculate_roc_results,
 )
 from earnings_surprise.evaluation.splits import (
