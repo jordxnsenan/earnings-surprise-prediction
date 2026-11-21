@@ -1,22 +1,20 @@
 import numpy as np
 import pandas as pd
 
+from earnings_surprise.evaluation.ablation_features import FEATURE_SETS
 from earnings_surprise.features import FEATURE_COLUMNS
 from earnings_surprise.preprocessing import (
     CATEGORICAL_COLUMNS,
     CONTINUOUS_COLUMNS,
     DISCRETE_COLUMNS,
     build_preprocessor,
-    get_transformed_feature_names
+    get_transformed_feature_names,
 )
 
 
 def make_sample_features() -> pd.DataFrame:
     """creates synthetic historical features for preprocessing tests"""
-    data = {
-        column: [1.0, 2.0, 3.0]
-        for column in CONTINUOUS_COLUMNS
-    }
+    data = {column: [1.0, 2.0, 3.0] for column in CONTINUOUS_COLUMNS}
 
     for column in DISCRETE_COLUMNS:
         data[column] = [0, 1, 1]
@@ -68,26 +66,19 @@ def test_preprocessor_uses_training_statistics():
     validation_features = features.iloc[[0]].copy()
 
     # inctroduces an extreme value in validation only
-    validation_features.loc[
-        validation_features.index[0], "actual_eps_lag1"
-    ] = 1000.0
+    validation_features.loc[validation_features.index[0], "actual_eps_lag1"] = 1000.0
 
     preprocessor = build_preprocessor()
     preprocessor.fit(training_features)
 
-    scaler = (
-        preprocessor.named_transformers_["continuous"]
-        .named_steps["scaler"]
-    )
+    scaler = preprocessor.named_transformers_["continuous"].named_steps["scaler"]
 
     actual_eps_index = CONTINUOUS_COLUMNS.index("actual_eps_lag1")
 
     # ensures scalers center comes from training data
     assert scaler.center_[actual_eps_index] == 2.0
 
-    transformed_validation = preprocessor.transform(
-        validation_features
-    )
+    transformed_validation = preprocessor.transform(validation_features)
 
     assert transformed_validation.shape == (1, 39)
 
@@ -129,7 +120,7 @@ def test_preprocessor_creates_independent_instances():
     assert first_continuous.named_steps["scaler"] is not (
         second_continuous.named_steps["scaler"]
     )
-    
+
 
 def test_transformed_feature_names_match_preprocessor():
     features = make_sample_features()
@@ -142,3 +133,23 @@ def test_transformed_feature_names_match_preprocessor():
 
     assert len(expected_names) == 39
     assert expected_names == actual_names
+
+
+def test_preprocessor_supports_ablation_features():
+    features = make_sample_features()
+
+    expected_column_counts = {
+        "full_history": 39,
+        "latest_event_only": 20,
+        "without_trends": 36,
+    }
+
+    for name, expected_count in expected_column_counts.items():
+        selected_features = FEATURE_SETS[name]
+
+        preprocessor = build_preprocessor(selected_features)
+
+        transformed = preprocessor.fit_transform(features[selected_features])
+
+        assert transformed.shape == (len(features), expected_count)
+        assert np.isfinite(transformed).all()

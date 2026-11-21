@@ -1,0 +1,123 @@
+{
+  "experiment": "final_2024_holdout",
+  "primary_metric": "macro_f1",
+  "selected_feature_set": "without_trends",
+  "feature_columns": [
+    "actual_eps_lag1",
+    "actual_eps_lag2",
+    "actual_eps_lag3",
+    "actual_eps_lag4",
+    "estimate_eps_lag1",
+    "estimate_eps_lag2",
+    "estimate_eps_lag3",
+    "estimate_eps_lag4",
+    "surprise_eps_lag1",
+    "surprise_eps_lag2",
+    "surprise_eps_lag3",
+    "surprise_eps_lag4",
+    "beat_lag1",
+    "beat_lag2",
+    "beat_lag3",
+    "beat_lag4",
+    "beat_rate4",
+    "surprise_mean4",
+    "surprise_std4",
+    "beat_streak4",
+    "previous_report_month",
+    "previous_report_quarter"
+  ],
+  "training_samples": 82353,
+  "holdout_samples": 7996,
+  "models": {
+    "xgboost_without_trends": {
+      "samples": 7996,
+      "accuracy": 0.6431965982991495,
+      "macro_f1": 0.6074473434694039,
+      "roc_auc": 0.6811909684352724,
+      "confusion_matrix": [
+        [
+          1365,
+          1914
+        ],
+        [
+          939,
+          3778
+        ]
+      ],
+      "per_class": {
+        "meet_or_miss": {
+          "precision": 0.5924479166666666,
+          "recall": 0.4162854528819762,
+          "f1": 0.48898441698011824,
+          "support": 3279
+        },
+        "beat": {
+          "precision": 0.6637385804638088,
+          "recall": 0.800932796268815,
+          "f1": 0.7259102699586896,
+          "support": 4717
+        }
+      }
+    },
+    "previous_outcome": {
+      "samples": 7996,
+      "accuracy": 0.6170585292646323,
+      "macro_f1": 0.6014168371672634,
+      "roc_auc": 0.6008658539321317,
+      "confusion_matrix": [
+        [
+          1675,
+          1604
+        ],
+        [
+          1458,
+          3259
+        ]
+      ],
+      "per_class": {
+        "meet_or_miss": {
+          "precision": 0.5346313437599745,
+          "recall": 0.5108264714852089,
+          "f1": 0.5224578914535246,
+          "support": 3279
+        },
+        "beat": {
+          "precision": 0.6701624511618343,
+          "recall": 0.6909052363790544,
+          "f1": 0.6803757828810021,
+          "support": 4717
+        }
+      }
+    },
+    "majority_class": {
+      "samples": 7996,
+      "accuracy": 0.58991995997999,
+      "macro_f1": 0.37103752064815543,
+      "roc_auc": 0.5,
+      "confusion_matrix": [
+        [
+          0,
+          3279
+        ],
+        [
+          0,
+          4717
+        ]
+      ],
+      "per_class": {
+        "meet_or_miss": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "support": 3279
+        },
+        "beat": {
+          "precision": 0.58991995997999,
+          "recall": 1.0,
+          "f1": 0.7420750412963109,
+          "support": 4717
+        }
+      }
+    }
+  }
+}
