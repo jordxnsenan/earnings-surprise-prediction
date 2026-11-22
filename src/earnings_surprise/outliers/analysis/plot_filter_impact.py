@@ -7,7 +7,7 @@ from earnings_surprise.outliers.analysis.evaluate_filter_impact import (
     FILTER_IMPACT_PATH,
 )
 
-FILTER_IMPACT_FIGURE_PATH = Path("results/figures/xgboost_outlier_filter_impact.png")
+FILTER_IMPACT_FIGURE_PATH = Path("results/figures/outliers/xgboost_outlier_filter_impact.png")
 
 FIGURE_DPI = 200
 BAR_WIDTH = 0.35

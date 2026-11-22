@@ -52,7 +52,7 @@ FIGURE_DPI = 200
 
 AGREEMENT_PROFILE_PATH = Path("results/outliers/three_detector_profiles.csv")
 
-AGREEMENT_FIGURE_PATH = Path("results/figures/three_detector_pca_agreement.png")
+AGREEMENT_FIGURE_PATH = Path("results/figures/outliers/three_detector_pca_agreement.png")
 
 AGREEMENT_ANALYSIS_PATH = Path("results/outliers/three_detector_analysis.json")
 

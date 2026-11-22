@@ -36,7 +36,7 @@ SCORE_COMPARISON_TOLERANCE = 1e-10
 
 PROFILE_PATH = Path("results/outliers/isolation_forest_profile.csv")
 ASSIGNMENTS_PATH = Path("results/outliers/isolation_forest_assignments.parquet")
-FIGURE_PATH = Path("results/figures/isolation_forest_diagnostics.png")
+FIGURE_PATH = Path("results/figures/outliers/isolation_forest_diagnostics.png")
 ANALYSIS_PATH = Path("results/outliers/isolation_forest_analysis.json")
 
 
