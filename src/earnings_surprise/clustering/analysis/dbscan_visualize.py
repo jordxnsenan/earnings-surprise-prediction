@@ -19,7 +19,7 @@ from earnings_surprise.clustering.prepare import (
 from earnings_surprise.data.samples import PREDICTION_WINDOWS_PATH
 from earnings_surprise.features import FEATURE_MATRIX_PATH
 
-DBSCAN_FIGURE_PATH = Path("results/figures/dbscan_pca_noise_comparison.png")
+DBSCAN_FIGURE_PATH = Path("results/figures/clustering/dbscan_pca_noise_comparison.png")
 
 DBSCAN_VISUALIZATION_PATH = Path("results/clustering/dbscan_visualization.json")
 

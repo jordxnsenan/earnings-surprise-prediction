@@ -22,8 +22,8 @@ COMPARISON_RESULTS_PATH = Path("results/clustering/partition_comparison.json")
 
 AGGLOMERATIVE_PROFILE_PATH = Path("results/clustering/agglomerative_profile_k2.csv")
 
-COMPARISON_FIGURE_PATH = Path("results/figures/kmeans_vs_agglomerative_pca.png")
-
+COMPARISON_FIGURE_PATH = Path("results/figures/clustering/kmeans_vs_agglomerative_pca.png"
+                              )
 CLUSTER_COUNT = 2
 FIGURE_DPI = 250
 

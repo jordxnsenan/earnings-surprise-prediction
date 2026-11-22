@@ -19,7 +19,7 @@ from earnings_surprise.features import FEATURE_MATRIX_PATH
 KMEANS_CLUSTER_COUNT = 2
 
 CLUSTER_RESULTS_DIRECTORY = Path("results/clustering")
-CLUSTER_FIGURES_DIRECTORY = Path("results/figures")
+CLUSTER_FIGURES_DIRECTORY = Path("results/figures/clustering")
 
 PROFILE_COLUMNS = [
     "beat_rate4",
