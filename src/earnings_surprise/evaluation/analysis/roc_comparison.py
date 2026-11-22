@@ -29,7 +29,7 @@ MODEL_VARIANTS = {
     "mutual_information_15": SELECTED_FEATURE_COUNT,
 }
 
-ROC_RESULTS_PATH = Path("results/classification/xgboost_roc_comparison.json")
+ROC_RESULTS_PATH = Path("results/classification/roc/xgboost_roc_comparison.json")
 
 ROC_FIGURE_PATH = Path("results/figures/xgboost_roc_comparison.png")
 

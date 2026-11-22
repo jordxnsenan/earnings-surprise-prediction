@@ -35,9 +35,9 @@ VARIANT_DISPLAY_NAMES = {
     "mutual_information_15": "MI-selected features",
 }
 
-ROC_SUMMARY_PATH = Path("results/classification/other_classifier_roc_summary.json")
-
+ROC_SUMMARY_PATH = Path("results/classification/roc/other_classifier_roc_summary.json")
 FIGURES_DIRECTORY = Path("results/figures")
+
 AUC_TOLERANCE = 1e-6
 POSITIVE_CLASS = 1
 FIGURE_DPI = 200
