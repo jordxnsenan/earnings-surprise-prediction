@@ -5,7 +5,7 @@ import numpy as np
 from pathlib import Path
 from earnings_surprise.evaluation.splits import VALIDATION_YEARS
 
-RESULTS_DIRECTORY = Path("results/classification")
+RESULTS_DIRECTORY = Path("results/classification/benchmarks")
 FIGURES_DIRECTORY = Path("results/figures")
 
 MODEL_NAMES = (

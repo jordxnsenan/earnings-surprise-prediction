@@ -52,7 +52,7 @@ BENCHMARK_MEASUREMENTS = (
     "peak_rss_mib",
 )
 
-RESULTS_DIRECTORY = Path("results/classification")
+RESULTS_DIRECTORY = Path("results/classification/benchmarks")
 AUC_TOLERANCE = 1e-6
 
 

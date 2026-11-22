@@ -35,7 +35,7 @@ MEASUREMENTS = (
     "peak_rss_mib",
 )
 
-BENCHMARK_PATH = Path("results/classification/xgboost_efficiency.json")
+BENCHMARK_PATH = Path("results/classification/benchmarks/xgboost_efficiency.json")
 
 
 def peak_process_rss_mib() -> float:
