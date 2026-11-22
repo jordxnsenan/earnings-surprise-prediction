@@ -24,7 +24,7 @@ from earnings_surprise.models.logistic import (
 from earnings_surprise.selection import get_selected_feature_names
 
 
-LOGISTIC_RESULTS_PATH = Path("results/logistic_regression_results.json")
+LOGISTIC_RESULTS_PATH = Path("results/classification/models/logistic_regression_results.json")
 
 SELECTED_FEATURE_COUNT = 15
 

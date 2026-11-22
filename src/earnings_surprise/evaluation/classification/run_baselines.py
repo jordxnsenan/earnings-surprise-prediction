@@ -17,7 +17,7 @@ from earnings_surprise.models.baselines import (
 )
 
 
-BASELINE_RESULTS_PATH = Path("results/baseline_results.json")
+BASELINE_RESULTS_PATH = Path("results/classification/models/baseline_results.json")
 
 REQUIRED_FEATURES = ["beat_lag1", "beat_rate4"]
 

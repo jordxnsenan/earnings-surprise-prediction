@@ -19,7 +19,7 @@ from earnings_surprise.models.random_forest import (
 from earnings_surprise.selection import get_selected_feature_names
 
 
-FOREST_RESULTS_PATH = Path("results/random_forest_results.json")
+FOREST_RESULTS_PATH = Path("results/classification/models/random_forest_results.json")
 
 SELECTED_FEATURE_COUNT = 15
 

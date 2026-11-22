@@ -19,7 +19,7 @@ from earnings_surprise.models.xgboost_model import (
 )
 from earnings_surprise.selection import get_selected_feature_names
 
-XGB_RESULTS_PATH = Path("results/xgboost_results.json")
+XGB_RESULTS_PATH = Path("results/classification/models/xgboost_results.json")
 
 SELECTED_FEATURE_COUNT = 15
 

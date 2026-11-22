@@ -6,11 +6,11 @@ from pathlib import Path
 from earnings_surprise.evaluation.splits import VALIDATION_YEARS
 
 RESULT_PATHS = {
-    "baseline": Path("results/baseline_results.json"),
-    "logistic_regression": Path("results/logistic_regression_results.json"),
-    "decision_tree": Path("results/decision_tree_results.json"),
-    "random_forest": Path("results/random_forest_results.json"),
-    "xgboost": Path("results/xgboost_results.json"),
+    "baseline": Path("results/classification/models/baseline_results.json"),
+    "logistic_regression": Path("results/classification/models/logistic_regression_results.json"),
+    "decision_tree": Path("results/classification/models/decision_tree_results.json"),
+    "random_forest": Path("results/classification/models/random_forest_results.json"),
+    "xgboost": Path("results/classification/models/xgboost_results.json"),
 }
 
 EXPECTED_CONFIGURATIONS = {

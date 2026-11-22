@@ -21,7 +21,7 @@ from earnings_surprise.models.decision_tree import (
 from earnings_surprise.selection import get_selected_feature_names
 
 
-TREE_RESULTS_PATH = Path("results/decision_tree_results.json")
+TREE_RESULTS_PATH = Path("results/classification/models/decision_tree_results.json")
 
 SELECTED_FEATURE_COUNT = 15
 
