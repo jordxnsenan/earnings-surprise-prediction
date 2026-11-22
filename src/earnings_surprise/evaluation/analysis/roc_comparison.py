@@ -31,7 +31,7 @@ MODEL_VARIANTS = {
 
 ROC_RESULTS_PATH = Path("results/classification/roc/xgboost_roc_comparison.json")
 
-ROC_FIGURE_PATH = Path("results/figures/xgboost_roc_comparison.png")
+ROC_FIGURE_PATH = Path("results/figures/classification/xgboost_roc_comparison.png")
 
 FIGURE_DPI = 200
 
