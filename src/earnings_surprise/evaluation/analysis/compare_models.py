@@ -7,7 +7,9 @@ from earnings_surprise.evaluation.splits import VALIDATION_YEARS
 
 RESULT_PATHS = {
     "baseline": Path("results/classification/models/baseline_results.json"),
-    "logistic_regression": Path("results/classification/models/logistic_regression_results.json"),
+    "logistic_regression": Path(
+        "results/classification/models/logistic_regression_results.json"
+    ),
     "decision_tree": Path("results/classification/models/decision_tree_results.json"),
     "random_forest": Path("results/classification/models/random_forest_results.json"),
     "xgboost": Path("results/classification/models/xgboost_results.json"),
@@ -41,7 +43,7 @@ BASELINE_NAMES = {
 }
 
 METRICS = ("accuracy", "macro_f1", "roc_auc")
-RESULTS_DIRECTORY = Path("results")
+RESULTS_DIRECTORY = Path("results/classification/comparisons")
 
 
 def load_experiment_results(

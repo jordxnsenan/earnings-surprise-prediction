@@ -10,7 +10,7 @@ from earnings_surprise.evaluation.analysis.compare_models import (
     load_experiment_results,
 )
 
-ERROR_SUMMARY_PATH = Path("results/model_error_summary.csv")
+ERROR_SUMMARY_PATH = Path("results/classification/comparisons/model_error_summary.csv")
 FIGURES_DIRECTORY = Path("results/figures")
 FIGURE_DPI = 250
 
