@@ -8,7 +8,7 @@ from earnings_surprise.evaluation.analysis.compare_models import (
 from earnings_surprise.evaluation.splits import VALIDATION_YEARS
 from pathlib import Path
 
-FIGURES_DIRECTORY = Path("results/figures")
+FIGURES_DIRECTORY = Path("results/figures/classification")
 FIGURE_DPI = 250
 
 REPRESENTATIVE_MODELS = [

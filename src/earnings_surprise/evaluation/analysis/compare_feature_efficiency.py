@@ -6,7 +6,7 @@ from pathlib import Path
 from earnings_surprise.evaluation.splits import VALIDATION_YEARS
 
 RESULTS_DIRECTORY = Path("results/classification/benchmarks")
-FIGURES_DIRECTORY = Path("results/figures")
+FIGURES_DIRECTORY = Path("results/figures/classification")
 
 MODEL_NAMES = (
     "logistic_regression",
