@@ -14,7 +14,7 @@ from earnings_surprise.features import FEATURE_MATRIX_PATH
 MIN_SAMPLES_OPTIONS = (10, 40)
 DISTANCE_PERCENTILES = (50, 70, 85, 95)
 
-DBSCAN_DIAGNOSTICS_PATH = Path("results/clustering/dbscan_distances.json")
+DBSCAN_DIAGNOSTICS_PATH = Path("results/clustering/dbscan/dbscan_distances.json")
 
 
 def summarize_neighbor_distances(

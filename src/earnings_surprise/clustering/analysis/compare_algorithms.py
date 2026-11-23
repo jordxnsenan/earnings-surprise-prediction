@@ -5,7 +5,7 @@ from pathlib import Path
 RESULT_PATHS = {
     "kmeans": Path("results/clustering/kmeans/kmeans_sweep.json"),
     "agglomerative": Path("results/clustering/agglomerative/agglomerative_sweep.json"),
-    "dbscan": Path("results/clustering/dbscan_sweep.json"),
+    "dbscan": Path("results/clustering/dbscan/dbscan_sweep.json"),
     "partitions": Path("results/clustering/partition_comparison.json"),
 }
 

@@ -21,7 +21,7 @@ from earnings_surprise.features import FEATURE_MATRIX_PATH
 
 DBSCAN_FIGURE_PATH = Path("results/figures/clustering/dbscan_pca_noise_comparison.png")
 
-DBSCAN_VISUALIZATION_PATH = Path("results/clustering/dbscan_visualization.json")
+DBSCAN_VISUALIZATION_PATH = Path("results/clustering/dbscan/dbscan_visualization.json")
 
 COMPARISON_SETTINGS = ((10, 50), (10, 85))
 FIGURE_DPI = 250

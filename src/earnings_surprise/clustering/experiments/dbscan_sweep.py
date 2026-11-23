@@ -11,9 +11,9 @@ from earnings_surprise.clustering.prepare import (
 from earnings_surprise.data.samples import PREDICTION_WINDOWS_PATH
 from earnings_surprise.features import FEATURE_MATRIX_PATH
 
-DBSCAN_DIAGNOSTICS_PATH = Path("results/clustering/dbscan_distances.json")
+DBSCAN_DIAGNOSTICS_PATH = Path("results/clustering/dbscan/dbscan_distances.json")
 
-DBSCAN_SWEEP_PATH = Path("results/clustering/dbscan_sweep.json")
+DBSCAN_SWEEP_PATH = Path("results/clustering/dbscan/dbscan_sweep.json")
 
 EPS_PERCENTILES = ("50", "70", "85", "95")
 
