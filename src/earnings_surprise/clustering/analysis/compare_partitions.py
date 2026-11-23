@@ -12,7 +12,7 @@ from earnings_surprise.clustering.analysis.visualize import summarize_cluster_pr
 from earnings_surprise.data.samples import PREDICTION_WINDOWS_PATH
 from earnings_surprise.features import FEATURE_MATRIX_PATH
 
-KMEANS_ASSIGNMENTS_PATH = Path("results/clustering/kmeans_assignments_k2.csv")
+KMEANS_ASSIGNMENTS_PATH = Path("results/clustering/kmeans/kmeans_assignments_k2.csv")
 
 AGGLOMERATIVE_ASSIGNMENTS_PATH = Path(
     "results/clustering/agglomerative_assignments_k2.csv"

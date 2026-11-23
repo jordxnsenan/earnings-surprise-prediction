@@ -24,7 +24,7 @@ CLUSTER_RANDOM_STATE = 42
 KMEANS_INITIALIZATIONS = 10
 SILHOUETTE_SAMPLE_SIZE = 1000
 
-KMEANS_RESULTS_PATH = Path("results/clustering/kmeans_initial.json")
+KMEANS_RESULTS_PATH = Path("results/clustering/kmeans/kmeans_initial.json")
 
 
 def run_kmeans(

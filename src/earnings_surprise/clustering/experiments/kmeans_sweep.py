@@ -16,7 +16,7 @@ from earnings_surprise.features import FEATURE_MATRIX_PATH
 
 CLUSTER_COUNTS = (2, 3, 4, 5, 6, 7, 8)
 
-KMEANS_SWEEP_PATH = Path("results/clustering/kmeans_sweep.json")
+KMEANS_SWEEP_PATH = Path("results/clustering/kmeans/kmeans_sweep.json")
 
 
 def evaluate_cluster_counts(
