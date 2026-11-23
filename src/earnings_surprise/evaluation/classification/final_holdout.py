@@ -18,8 +18,9 @@ from earnings_surprise.evaluation.splits import (
 )
 
 FINAL_FEATURE_SET = "without_trends"
-FINAL_RESULTS_PATH = Path("results/final_holdout_results.json")
-FINAL_PREDICTIONS_PATH = Path("results/final_holdout_predictions.csv")
+
+FINAL_RESULTS_PATH = Path("results/final_holdout/final_holdout_results.json")
+FINAL_PREDICTIONS_PATH = Path("results/final_holdout/final_holdout_predictions.csv")
 
 
 def get_final_holdout_indices(
