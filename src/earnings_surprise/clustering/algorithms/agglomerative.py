@@ -24,10 +24,12 @@ AGGLOMERATIVE_LINKAGE = "ward"
 AGGLOMERATIVE_METRIC = "euclidean"
 SILHOUETTE_SAMPLE_SIZE = 1000
 
-AGGLOMERATIVE_RESULTS_PATH = Path("results/clustering/agglomerative_initial.json")
+AGGLOMERATIVE_RESULTS_PATH = Path(
+    "results/clustering/agglomerative/agglomerative_initial.json"
+)
 
 AGGLOMERATIVE_ASSIGNMENTS_PATH = Path(
-    "results/clustering/agglomerative_assignments_k2.csv"
+    "results/clustering/agglomerative/agglomerative_assignments_k2.csv"
 )
 
 

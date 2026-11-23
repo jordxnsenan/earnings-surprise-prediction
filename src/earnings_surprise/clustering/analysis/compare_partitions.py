@@ -15,15 +15,18 @@ from earnings_surprise.features import FEATURE_MATRIX_PATH
 KMEANS_ASSIGNMENTS_PATH = Path("results/clustering/kmeans/kmeans_assignments_k2.csv")
 
 AGGLOMERATIVE_ASSIGNMENTS_PATH = Path(
-    "results/clustering/agglomerative_assignments_k2.csv"
+    "results/clustering/agglomerative/agglomerative_assignments_k2.csv"
+)
+
+AGGLOMERATIVE_PROFILE_PATH = Path(
+    "results/clustering/agglomerative/agglomerative_profile_k2.csv"
 )
 
 COMPARISON_RESULTS_PATH = Path("results/clustering/partition_comparison.json")
 
-AGGLOMERATIVE_PROFILE_PATH = Path("results/clustering/agglomerative_profile_k2.csv")
-
-COMPARISON_FIGURE_PATH = Path("results/figures/clustering/kmeans_vs_agglomerative_pca.png"
-                              )
+COMPARISON_FIGURE_PATH = Path(
+    "results/figures/clustering/kmeans_vs_agglomerative_pca.png"
+)
 CLUSTER_COUNT = 2
 FIGURE_DPI = 250
 

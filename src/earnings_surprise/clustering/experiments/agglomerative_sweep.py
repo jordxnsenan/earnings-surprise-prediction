@@ -19,7 +19,9 @@ from earnings_surprise.features import FEATURE_MATRIX_PATH
 
 CLUSTER_COUNTS = (2, 3, 4, 5, 6, 7, 8)
 
-AGGLOMERATIVE_SWEEP_PATH = Path("results/clustering/agglomerative_sweep.json")
+AGGLOMERATIVE_SWEEP_PATH = Path(
+    "results/clustering/agglomerative/agglomerative_sweep.json"
+)
 
 
 def evaluate_agglomerative_counts(
