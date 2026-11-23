@@ -5,12 +5,12 @@ import pandas as pd
 
 from pathlib import Path
 from earnings_surprise.data.samples import PREDICTION_WINDOWS_PATH
-from earnings_surprise.evaluation.benchmark_other_classifiers import (
+from earnings_surprise.evaluation.benchmarking.benchmark_other_classifiers import (
     MODEL_NAMES,
     build_model,
 )
 from earnings_surprise.features import FEATURE_COLUMNS, FEATURE_MATRIX_PATH
-from earnings_surprise.outliers.evaluate_filter_impact import (
+from earnings_surprise.outliers.analysis.evaluate_filter_impact import (
     calculate_classification_metrics,
 )
 from earnings_surprise.tuning.search_other_classifiers import (

@@ -35,3 +35,10 @@ Thumbs.db
 
 # generated course submission packages
 submission/
+
+# local planning + research documents
+/docs/decision_matrix.md
+/docs/decisions.md
+/docs/event_reconstruction.md
+/docs/snapshot_availability_audit.md
+/docs/project_plan.md

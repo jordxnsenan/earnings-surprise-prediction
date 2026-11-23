@@ -95,7 +95,7 @@ def summarize_dataset(data: pd.DataFrame) -> dict:
 
 def main() -> None:
     dataset_path = Path("data/raw") / DATASET_FILENAME
-    output_path = Path("results/data_inspection.json")
+    output_path = Path("results/data/data_inspection.json")
 
     if not dataset_path.is_file():
         raise FileNotFoundError(

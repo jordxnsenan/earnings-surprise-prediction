@@ -20,7 +20,7 @@ PREDICTION_WINDOWS_PATH = Path(
 )
 
 PREDICTION_SUMMARY_PATH = Path(
-    "results/prediction_samples.json"
+    "results/data/prediction_samples.json"
 )
 
 

@@ -36,7 +36,7 @@ METRICS = (
 
 RESULTS_DIRECTORY = Path("results/tuning")
 SUMMARY_PATH = RESULTS_DIRECTORY / "hyperparameter_tuning_comparison.json"
-FIGURE_PATH = Path("results/figures/hyperparameter_tuning_comparison.png")
+FIGURE_PATH = Path("results/figures/tuning/hyperparameter_tuning_comparison.png")
 
 SCORE_TOLERANCE = 1e-8
 BAR_WIDTH = 0.35

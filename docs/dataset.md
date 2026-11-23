@@ -23,7 +23,7 @@ Run the initial inspection:
 python -m earnings_surprise.data.inspect
 ```
 
-The inspection produces `results/data_inspection.json` which contains source identification, schema information, missing-value counts, date coverage and preliminary event-key statistics.
+The inspection produces `results/data/data_inspection.json` which contains source identification, schema information, missing-value counts, date coverage and preliminary event-key statistics.
 
 ## Data Handling
 
