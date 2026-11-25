@@ -2,10 +2,9 @@ import json
 from pathlib import Path
 from zipfile import ZIP_DEFLATED, ZipFile
 
-
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 
-NOTEBOOK_PATH = PROJECT_ROOT / "notebooks/01_data_preprocessing_eda.ipynb"
+NOTEBOOK_PATH = PROJECT_ROOT / "notebooks/data_preprocessing_eda.ipynb"
 SOURCE_DIRECTORY = PROJECT_ROOT / "src/earnings_surprise"
 OUTPUT_PATH = PROJECT_ROOT / "submission/EDA_Preprocessing.zip"
 REPORT_PATH = PROJECT_ROOT / "reports" / "EDA_Report.pdf"
@@ -35,7 +34,7 @@ From the extracted ZIP directory:
 
    python -m pip install -e ".[dev]"
 
-4. Open notebooks/01_data_preprocessing_eda.ipynb in JupyterLab or VS Code
+4. Open notebooks/data_preprocessing_eda.ipynb in JupyterLab or VS Code
 
 5. Select the virtual environment as the notebook kernel
 
@@ -70,10 +69,7 @@ def validate_notebook() -> None:
     with NOTEBOOK_PATH.open(encoding="utf-8") as file:
         notebook = json.load(file)
 
-    code_cells = [
-        cell for cell in notebook["cells"]
-        if cell["cell_type"] == "code"
-    ]
+    code_cells = [cell for cell in notebook["cells"] if cell["cell_type"] == "code"]
 
     if not code_cells:
         raise ValueError("No code cells found in the notebook")
@@ -101,9 +97,7 @@ def build_submission() -> None:
             raise FileNotFoundError(f"Missing file: {file_path}")
 
     if not SOURCE_DIRECTORY.is_dir():
-        raise FileNotFoundError(
-            f"Missing source directory: {SOURCE_DIRECTORY}"
-        )
+        raise FileNotFoundError(f"Missing source directory: {SOURCE_DIRECTORY}")
 
     validate_notebook()
 
@@ -132,14 +126,11 @@ def build_submission() -> None:
 
     with ZipFile(OUTPUT_PATH) as archive:
         notebook_files = [
-            name for name in archive.namelist()
-            if name.endswith(".ipynb")
+            name for name in archive.namelist() if name.endswith(".ipynb")
         ]
 
         if len(notebook_files) != 1:
-            raise ValueError(
-                "Submission must contain exactly one notebook"
-            )
+            raise ValueError("Submission must contain exactly one notebook")
 
         if archive.testzip() is not None:
             raise ValueError("Submission ZIP failed integrity check")
