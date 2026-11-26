@@ -76,7 +76,9 @@ Raw and processed datasets are stored under `data/` on the local machine and are
 
 ## Installation
 
-The project supports Python 3.11 and 3.12. I recommend Python 3.12, as this is what I used during development.
+The project supports Python 3.11 and 3.12. I used Python 3.12.16 on macOS 27.2.1 (arm64) during development.
+
+I included `constraints.txt` to record the dependency versions used to reproduce my experiments. I recommend installing the project with these constraints when reproducing the reported results.
 
 Clone the current working branch and enter the project directory:
 
@@ -93,12 +95,20 @@ python3.12 -m venv .venv
 
 source .venv/bin/activate
 
-python -m pip install -e ".[dev]"
+ppython -m pip install -c constraints.txt -e ".[dev]"
 
 python -m pytest -q
 ```
 
 Run the module commands below from the **repository root**. They use paths relative to that directory.
+
+### Reproducibility Verification
+
+I verified the reference environment by installing the project in a fresh virtual environment using `constraints.txt`. All 243 automated tests passed.
+
+I then rebuilt the datasets from the pinned raw source in a separate directory. The reconstructed earnings events, source row mapping, prediction windows and historical feature matrix matched my original processed datasets exactly.
+
+After retraining the selected XGBoost configuration and evaluating both baselines I reproduced the committed final holdout metrics and all 7,996 predicted labels for each model. The prediction probabilities also matched exactly. I performed these checks on macOS using an ARM64 processor.
 
 ### Prepare the dataset
 
